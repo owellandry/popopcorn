@@ -1,14 +1,11 @@
 [gd_scene format=3 uid="uid://ddm8pg74c28se"]
 
-[ext_resource type="Texture2D" uid="uid://daev1wcxmgf6x" path="res://textures/piso_lobby/Marble021_1K-PNG_Color.png" id="tex_marble_color"]
-[ext_resource type="Texture2D" uid="uid://cq0qe0bhf2w0j" path="res://textures/piso_lobby/Marble021_1K-PNG_NormalGL.png" id="tex_marble_normal"]
-[ext_resource type="Texture2D" uid="uid://bjgtmcinia3d2" path="res://textures/piso_lobby/Marble021_1K-PNG_Roughness.png" id="tex_marble_rough"]
 [ext_resource type="Texture2D" uid="uid://bx2dtotm5wrbd" path="res://textures/techo/Tiles107_2K-JPG_Color.jpg" id="tex_techo_color"]
 [ext_resource type="Texture2D" uid="uid://clvalqr5coam6" path="res://textures/techo/Tiles107_2K-JPG_NormalGL.jpg" id="tex_techo_normal"]
 [ext_resource type="Texture2D" uid="uid://boe85g6rhyvbc" path="res://textures/techo/Tiles107_2K-JPG_Roughness.jpg" id="tex_techo_rough"]
-[ext_resource type="Texture2D" path="res://textures/techo_vip/Fabric039_1K-JPG_Color.jpg" id="tex_techo_vip_color"]
-[ext_resource type="Texture2D" path="res://textures/techo_vip/Fabric039_1K-JPG_NormalGL.jpg" id="tex_techo_vip_normal"]
-[ext_resource type="Texture2D" path="res://textures/techo_vip/Fabric039_1K-JPG_Roughness.jpg" id="tex_techo_vip_rough"]
+[ext_resource type="Texture2D" uid="uid://cy853rx0vvwuw" path="res://textures/techo_vip/Fabric039_1K-JPG_Color.jpg" id="tex_techo_vip_color"]
+[ext_resource type="Texture2D" uid="uid://10dxlcxnlgau" path="res://textures/techo_vip/Fabric039_1K-JPG_NormalGL.jpg" id="tex_techo_vip_normal"]
+[ext_resource type="Texture2D" uid="uid://6ojgra1xao8i" path="res://textures/techo_vip/Fabric039_1K-JPG_Roughness.jpg" id="tex_techo_vip_rough"]
 
 [sub_resource type="StandardMaterial3D" id="Mat_Techo"]
 albedo_texture = ExtResource("tex_techo_color")
@@ -73,7 +70,7 @@ transform = Transform3D(3.607576, 0, 0, 0, 1, 0, 0, 0, 1, 7.606516, 5, 25.968258
 mesh = SubResource("BoxMesh_TechoEntrada")
 
 [node name="TechoCuartoEntregas" type="MeshInstance3D" parent="." unique_id=1429412542]
-transform = Transform3D(3.607576, 0, 0, 0, 1, 0, 0, 0, 2.1898887, 7.606516, 5, -25.185362)
+transform = Transform3D(3.7886112, 0, 0, 0, 1, 0, 0, 0, 2.1898887, 7.606516, 5, -25.185362)
 mesh = SubResource("BoxMesh_TechoEntrada")
 
 [node name="TechoLobbyCentral" type="MeshInstance3D" parent="." unique_id=1008874846]

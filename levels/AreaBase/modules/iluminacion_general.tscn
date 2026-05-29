@@ -138,13 +138,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.927882, 0, 0.13535285)
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 7.606516, 0, -23.699165)
 
 [node name="Lampara1" parent="IluminacionEntradaPrincipal2" unique_id=2013134903 instance=ExtResource("lampara_vip")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 0, 0.094)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.799984, 0, -0.3801756)
 
 [node name="Lampara2" parent="IluminacionEntradaPrincipal2" unique_id=2130106649 instance=ExtResource("lampara_vip")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.833, 0, 0.094)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.13298368, 0, -0.3801756)
 
 [node name="Lampara3" parent="IluminacionEntradaPrincipal2" unique_id=1123200423 instance=ExtResource("lampara_vip")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.833, 0, 0.094)
-
-[node name="Lampara4" parent="IluminacionEntradaPrincipal2" unique_id=689794401 instance=ExtResource("lampara_vip")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 0.094)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5330157, 0, -0.3801756)

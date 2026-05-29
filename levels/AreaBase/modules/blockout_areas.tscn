@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bbhiorheharyc"]
 
+[ext_resource type="PackedScene" path="res://scenes/decoraciones/exterior/bardon_urinal.tscn" id="bardon_urinal"]
 [ext_resource type="PackedScene" uid="uid://ebx1ichga51m" path="res://levels/AreaBase/modules/decoracion_vip.tscn" id="decoracion_vip"]
 [ext_resource type="PackedScene" uid="uid://sala2001" path="res://scenes/decoraciones/sala2.tscn" id="sala2"]
 [ext_resource type="PackedScene" uid="uid://sala3001" path="res://scenes/decoraciones/sala3.tscn" id="sala3"]
@@ -9,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cakcofmd6o3y5" path="res://textures/piso_sala_tiles/Tiles074_1K-PNG_Color.png" id="tex_sala_color"]
 [ext_resource type="Texture2D" uid="uid://bmj8r726osdpw" path="res://textures/piso_sala_tiles/Tiles074_1K-PNG_NormalGL.png" id="tex_sala_normal"]
 [ext_resource type="Texture2D" uid="uid://dqbovq7r5u6og" path="res://textures/piso_sala_tiles/Tiles074_1K-PNG_Roughness.png" id="tex_sala_rough"]
+[ext_resource type="PackedScene" path="res://scenes/decoraciones/exterior/wellworth_classic_toilet_with_seat_down.tscn" id="toilet"]
 
 [sub_resource type="StandardMaterial3D" id="Mat_PisoPerimetro"]
 albedo_texture = ExtResource("tex_sala_color")
@@ -89,6 +91,7 @@ font_size = 48
 transform = Transform3D(3.607576, 0, 0, 0, 1, 0, 0, 0, 2.1898887, 7.606516, 0, -25.185362)
 
 [node name="Floor" type="MeshInstance3D" parent="CuartoEntregas" unique_id=1510257437]
+transform = Transform3D(1.0508468, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("BoxMesh_Entrada")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="CuartoEntregas" unique_id=1744821064]
@@ -249,6 +252,57 @@ modulate = Color(0.9, 0.7, 0.4, 1)
 text = "CUARTO
 TÉCNICO"
 font_size = 20
+
+[node name="ModelosBano" type="Node3D" parent="AreaServicio" unique_id=2122478762]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+
+[node name="Inodoro1" parent="AreaServicio/ModelosBano" unique_id=941059322 instance=ExtResource("toilet")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 0.581, -2.6397076, 0, -10.2818985)
+
+[node name="Inodoro2" parent="AreaServicio/ModelosBano" unique_id=108829323 instance=ExtResource("toilet")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 0.581, -0.007041931, 0, -10.2818985)
+
+[node name="Inodoro3" parent="AreaServicio/ModelosBano" unique_id=1825900904 instance=ExtResource("toilet")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 0.581, 2.5639, 0, -10.2818985)
+
+[node name="Orinal1" parent="AreaServicio/ModelosBano" unique_id=1117273056 instance=ExtResource("bardon_urinal")]
+transform = Transform3D(-2.4740645e-08, 0, -1, 0, 1, 0, 0.5659998, 0, -4.3711378e-08, 3.7999992, 0.25176838, 9.426064)
+
+[node name="Orinal2" parent="AreaServicio/ModelosBano" unique_id=426592758 instance=ExtResource("bardon_urinal")]
+transform = Transform3D(-2.4740645e-08, 0, -1, 0, 1, 0, 0.5659998, 0, -4.3711378e-08, 3.7999992, 0.252, 6.5836124)
+
+[node name="Orinal3" parent="AreaServicio/ModelosBano" unique_id=2125371792 instance=ExtResource("bardon_urinal")]
+transform = Transform3D(-2.4740645e-08, 0, -1, 0, 1, 0, 0.5659998, 0, -4.3711378e-08, 3.7999992, 0.25176838, 8.000339)
+
+[node name="Inodoro4" parent="AreaServicio/ModelosBano" unique_id=2131668732 instance=ExtResource("toilet")]
+transform = Transform3D(-2.5352605e-08, 0, 1.2, 0, 1.2, 0, -0.58, 0, -5.2453657e-08, -3.6, 0, -7.165858)
+
+[node name="Inodoro8" parent="AreaServicio/ModelosBano" unique_id=967254869 instance=ExtResource("toilet")]
+transform = Transform3D(-2.5352605e-08, 0, 1.2, 0, 1.2, 0, -0.58, 0, -5.2453657e-08, -3.6133041, 0, -8.733612)
+
+[node name="Inodoro5" parent="AreaServicio/ModelosBano" unique_id=727446718 instance=ExtResource("toilet")]
+transform = Transform3D(-2.5352605e-08, 0, -1.2, 0, 1.2, 0, 0.58, 0, -5.2453657e-08, 3.4072952, 0, -7.165854)
+
+[node name="Inodoro9" parent="AreaServicio/ModelosBano" unique_id=2029548605 instance=ExtResource("toilet")]
+transform = Transform3D(-2.5352605e-08, 0, -1.2, 0, 1.2, 0, 0.58, 0, -5.2453657e-08, 3.3939915, 0, -8.733612)
+
+[node name="Orinal4" parent="AreaServicio/ModelosBano" unique_id=1132871508 instance=ExtResource("bardon_urinal")]
+transform = Transform3D(-2.4740638e-08, 0, 1, 0, 1, 0, -0.5659998, 0, -4.3711378e-08, -4.045494, 0.25176838, 9.426064)
+
+[node name="Orinal6" parent="AreaServicio/ModelosBano" unique_id=876460575 instance=ExtResource("bardon_urinal")]
+transform = Transform3D(-2.4740638e-08, 0, 1, 0, 1, 0, -0.5659998, 0, -4.3711378e-08, -4.045494, 0.25176838, 8.000339)
+
+[node name="Orinal7" parent="AreaServicio/ModelosBano" unique_id=2088385087 instance=ExtResource("bardon_urinal")]
+transform = Transform3D(-1, 0, -4.948129e-08, 0, 1, 0, 8.7422755e-08, 0, -0.5659998, -0.09102821, 0.252, 10.329998)
+
+[node name="Orinal8" parent="AreaServicio/ModelosBano" unique_id=1284460807 instance=ExtResource("bardon_urinal")]
+transform = Transform3D(-1, 0, -4.948129e-08, 0, 1, 0, 8.7422755e-08, 0, -0.5659998, 2.083, 0.252, 10.33)
+
+[node name="Orinal9" parent="AreaServicio/ModelosBano" unique_id=229972807 instance=ExtResource("bardon_urinal")]
+transform = Transform3D(-1, 0, -4.948129e-08, 0, 1, 0, 8.7422755e-08, 0, -0.5659998, -2.269102, 0.252, 10.329999)
+
+[node name="Orinal10" parent="AreaServicio/ModelosBano" unique_id=1124807575 instance=ExtResource("bardon_urinal")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.5659998, 0.79309845, 0.252, 5.987707)
 
 [node name="Sala1_Premium" parent="." unique_id=277703621 instance=ExtResource("sala2")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -41.462246, 0.10693377, -0.03847763)
