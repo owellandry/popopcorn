@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://bmesasilla01"]
+
+[ext_resource type="PackedScene" uid="uid://bxocjj3bino5t" path="res://models/cilla_negra.glb" id="model_silla"]
+[ext_resource type="Texture2D" uid="uid://y11isdyo647r" path="res://textures/mostrador/Wood027_1K-PNG_Color.png" id="tex_wood_color"]
+[ext_resource type="Texture2D" uid="uid://cgtdfogv0a5ys" path="res://textures/mostrador/Wood027_1K-PNG_NormalGL.png" id="tex_wood_normal"]
+[ext_resource type="Texture2D" uid="uid://dnmv2s7uisuig" path="res://textures/mostrador/Wood027_1K-PNG_Roughness.png" id="tex_wood_roughness"]
+
+[sub_resource type="StandardMaterial3D" id="mat_table"]
+albedo_color = Color(0.35, 0.2, 0.1, 1)
+albedo_texture = ExtResource("tex_wood_color")
+roughness_texture = ExtResource("tex_wood_roughness")
+normal_enabled = true
+normal_texture = ExtResource("tex_wood_normal")
+uv1_scale = Vector3(2, 2, 2)
+
+[sub_resource type="CylinderMesh" id="mesh_table_top"]
+material = SubResource("mat_table")
+top_radius = 0.6
+bottom_radius = 0.6
+height = 0.06
+
+[sub_resource type="CylinderMesh" id="mesh_table_leg"]
+material = SubResource("mat_table")
+top_radius = 0.05
+bottom_radius = 0.06
+height = 0.75
+
+[sub_resource type="BoxShape3D" id="shape_table"]
+size = Vector3(1.2, 0.06, 1.2)
+
+[sub_resource type="BoxShape3D" id="shape_silla_lobby"]
+size = Vector3(0.45, 0.7541016, 0.71972656)
+
+[node name="MesaConSillas" type="Node3D" unique_id=1282593610]
+
+[node name="Mesa" type="StaticBody3D" parent="." unique_id=258928469]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+
+[node name="Tapa" type="MeshInstance3D" parent="Mesa" unique_id=1735365644]
+mesh = SubResource("mesh_table_top")
+
+[node name="Pata" type="MeshInstance3D" parent="Mesa" unique_id=1618344772]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.405, 0)
+mesh = SubResource("mesh_table_leg")
+
+[node name="Col" type="CollisionShape3D" parent="Mesa" unique_id=980691286]
+shape = SubResource("shape_table")
+
+[node name="Silla1Body" type="StaticBody3D" parent="." unique_id=501484942]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.7072649)
+
+[node name="Silla1" parent="Silla1Body" unique_id=1672497816 instance=ExtResource("model_silla")]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.014, 0, 0, 0)
+
+[node name="Col1" type="CollisionShape3D" parent="Silla1Body" unique_id=273943778]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.37578088, 0)
+shape = SubResource("shape_silla_lobby")
+
+[node name="Silla2Body" type="StaticBody3D" parent="." unique_id=63423184]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.72203076)
+
+[node name="Silla2" parent="Silla2Body" unique_id=240974167 instance=ExtResource("model_silla")]
+transform = Transform3D(-0.01, 0, -2.1139412e-09, 0, 0.01, 0, 1.5099579e-09, 0, -0.014, 0, 0, 0)
+
+[node name="Col2" type="CollisionShape3D" parent="Silla2Body" unique_id=1734023258]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.377, 0.018)
+shape = SubResource("shape_silla_lobby")
+
+[node name="Silla3Body" type="StaticBody3D" parent="." unique_id=1683045737]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.67773336, 0, 0)
+
+[node name="Silla3" parent="Silla3Body" unique_id=1426154417 instance=ExtResource("model_silla")]
+transform = Transform3D(-4.3711387e-10, 0, 0.01, 0, 0.01, 0, -0.01, 0, -4.3711387e-10, 0, 0, 0)
+
+[node name="Col3" type="CollisionShape3D" parent="Silla3Body" unique_id=16994812]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.37578088, 0)
+shape = SubResource("shape_silla_lobby")
+
+[node name="Silla4Body" type="StaticBody3D" parent="." unique_id=1642655420]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7171086, 0, 0)
+
+[node name="Silla4" parent="Silla4Body" unique_id=1977031638 instance=ExtResource("model_silla")]
+transform = Transform3D(-4.3711387e-10, 0, -0.01, 0, 0.01, 0, 0.01, 0, -4.3711387e-10, 0, 0, 0)
+
+[node name="Col4" type="CollisionShape3D" parent="Silla4Body" unique_id=143538541]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.37578088, 0)
+shape = SubResource("shape_silla_lobby")

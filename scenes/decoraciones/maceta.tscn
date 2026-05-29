@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://bmaceta0001"]
+
+[sub_resource type="StandardMaterial3D" id="mat_pot"]
+albedo_color = Color(0.5, 0.3, 0.15, 1)
+
+[sub_resource type="CylinderMesh" id="mesh_pot"]
+material = SubResource("mat_pot")
+top_radius = 0.35
+bottom_radius = 0.25
+height = 0.5
+
+[sub_resource type="StandardMaterial3D" id="mat_dirt"]
+albedo_color = Color(0.25, 0.15, 0.08, 1)
+
+[sub_resource type="CylinderMesh" id="mesh_dirt"]
+material = SubResource("mat_dirt")
+top_radius = 0.33
+bottom_radius = 0.33
+height = 0.05
+
+[sub_resource type="StandardMaterial3D" id="mat_plant"]
+albedo_color = Color(0.15, 0.45, 0.12, 1)
+
+[sub_resource type="SphereMesh" id="mesh_bush"]
+material = SubResource("mat_plant")
+radius = 0.4
+height = 0.7
+
+[sub_resource type="CylinderShape3D" id="shape_pot"]
+height = 0.5
+radius = 0.35
+
+[node name="Maceta" type="StaticBody3D" unique_id=1516282786]
+
+[node name="Maceta" type="MeshInstance3D" parent="." unique_id=1986031037]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+mesh = SubResource("mesh_pot")
+
+[node name="Tierra" type="MeshInstance3D" parent="." unique_id=160970858]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.48, 0)
+mesh = SubResource("mesh_dirt")
+
+[node name="Planta" type="MeshInstance3D" parent="." unique_id=826687367]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7601532, 0)
+mesh = SubResource("mesh_bush")
+
+[node name="Col" type="CollisionShape3D" parent="." unique_id=1946334863]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+shape = SubResource("shape_pot")

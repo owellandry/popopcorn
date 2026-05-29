@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://daub4hq78bja0"]
+
+[ext_resource type="Texture2D" uid="uid://y11isdyo647r" path="res://textures/mostrador/Wood027_1K-PNG_Color.png" id="tex_wood_color"]
+[ext_resource type="Texture2D" uid="uid://cgtdfogv0a5ys" path="res://textures/mostrador/Wood027_1K-PNG_NormalGL.png" id="tex_wood_normal"]
+[ext_resource type="Texture2D" uid="uid://dnmv2s7uisuig" path="res://textures/mostrador/Wood027_1K-PNG_Roughness.png" id="tex_wood_roughness"]
+
+[sub_resource type="StandardMaterial3D" id="mat_table"]
+albedo_color = Color(0.35, 0.2, 0.1, 1)
+albedo_texture = ExtResource("tex_wood_color")
+roughness_texture = ExtResource("tex_wood_roughness")
+normal_enabled = true
+normal_texture = ExtResource("tex_wood_normal")
+uv1_scale = Vector3(2, 2, 2)
+
+[sub_resource type="CylinderMesh" id="mesh_table_top"]
+material = SubResource("mat_table")
+top_radius = 0.6
+bottom_radius = 0.6
+height = 0.06
+
+[sub_resource type="CylinderMesh" id="mesh_table_leg"]
+material = SubResource("mat_table")
+top_radius = 0.05
+bottom_radius = 0.06
+height = 0.75
+
+[sub_resource type="BoxShape3D" id="shape_table"]
+size = Vector3(1.2, 0.06, 1.2)
+
+[node name="MesaSola" type="StaticBody3D" unique_id=1282593611]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.787562, 0)
+
+[node name="Tapa" type="MeshInstance3D" parent="." unique_id=1735365644]
+mesh = SubResource("mesh_table_top")
+
+[node name="Pata" type="MeshInstance3D" parent="." unique_id=1618344772]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.405, 0)
+mesh = SubResource("mesh_table_leg")
+
+[node name="Col" type="CollisionShape3D" parent="." unique_id=980691286]
+shape = SubResource("shape_table")

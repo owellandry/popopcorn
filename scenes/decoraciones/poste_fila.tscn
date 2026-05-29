@@ -1,0 +1,55 @@
+[gd_scene load_steps=10 format=3 uid="uid://bposte00001"]
+
+[ext_resource type="PackedScene" uid="uid://1qlr673426h4" path="res://models/PosteFila.glb" id="model_poste"]
+[ext_resource type="Texture2D" path="res://textures/metal_poste/Metal061B_1K-PNG_Color.png" id="tex_metal_color"]
+[ext_resource type="Texture2D" path="res://textures/metal_poste/Metal061B_1K-PNG_NormalGL.png" id="tex_metal_normal"]
+[ext_resource type="Texture2D" path="res://textures/metal_poste/Metal061B_1K-PNG_Roughness.png" id="tex_metal_roughness"]
+[ext_resource type="Texture2D" path="res://textures/metal_poste/Metal061B_1K-PNG_Metalness.png" id="tex_metal_metalness"]
+[ext_resource type="Texture2D" path="res://textures/plastico_poste/Plastic009_1K-PNG_Color.png" id="tex_plastic_color"]
+[ext_resource type="Texture2D" path="res://textures/plastico_poste/Plastic009_1K-PNG_NormalGL.png" id="tex_plastic_normal"]
+[ext_resource type="Texture2D" path="res://textures/plastico_poste/Plastic009_1K-PNG_Roughness.png" id="tex_plastic_roughness"]
+
+[sub_resource type="StandardMaterial3D" id="mat_base"]
+albedo_color = Color(0.75, 0.75, 0.78, 1)
+albedo_texture = ExtResource("tex_metal_color")
+metallic = 1.0
+metallic_texture = ExtResource("tex_metal_metalness")
+roughness_texture = ExtResource("tex_metal_roughness")
+normal_enabled = true
+normal_texture = ExtResource("tex_metal_normal")
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="mat_connector"]
+albedo_color = Color(0.05, 0.05, 0.05, 1)
+albedo_texture = ExtResource("tex_plastic_color")
+roughness_texture = ExtResource("tex_plastic_roughness")
+normal_enabled = true
+normal_texture = ExtResource("tex_plastic_normal")
+uv1_triplanar = true
+
+[sub_resource type="CylinderShape3D" id="shape_base"]
+height = 0.036
+radius = 0.066
+
+[sub_resource type="CylinderShape3D" id="shape_cilindro"]
+height = 0.9
+radius = 0.024
+
+[node name="PosteFila" type="StaticBody3D" unique_id=1015410805]
+
+[node name="Modelo" parent="." unique_id=160718142 instance=ExtResource("model_poste")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0.00097079575, 0)
+
+[node name="base" parent="Modelo" index="1"]
+surface_material_override/0 = SubResource("mat_base")
+
+[node name="conector" parent="Modelo" index="2"]
+surface_material_override/0 = SubResource("mat_connector")
+
+[node name="ColBase" type="CollisionShape3D" parent="." unique_id=705399001]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.015, 0)
+shape = SubResource("shape_base")
+
+[node name="ColCilindro" type="CollisionShape3D" parent="." unique_id=1974391319]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+shape = SubResource("shape_cilindro")

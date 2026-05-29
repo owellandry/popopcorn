@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://8wgnokm1evn"]
+
+[ext_resource type="PackedScene" uid="uid://ccamabfu7h702" path="res://models/popcorn.glb" id="popcorn_model"]
+
+[node name="PopcornInstance" type="Node3D" unique_id=999746157]
+
+[node name="PopcornModel" parent="." unique_id=1017983639 instance=ExtResource("popcorn_model")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)

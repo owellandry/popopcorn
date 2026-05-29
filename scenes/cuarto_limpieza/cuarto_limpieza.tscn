@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://bcuartolim01"]
+
+[sub_resource type="StandardMaterial3D" id="mat_floor"]
+albedo_color = Color(0.5, 0.5, 0.5, 1)
+
+[sub_resource type="BoxMesh" id="mesh_floor"]
+material = SubResource("mat_floor")
+size = Vector3(3.5, 0.2, 3.5)
+
+[sub_resource type="BoxShape3D" id="shape_floor"]
+size = Vector3(3.5, 0.2, 3.5)
+
+[sub_resource type="StandardMaterial3D" id="mat_wall"]
+albedo_color = Color(0.7, 0.7, 0.7, 1)
+
+[sub_resource type="BoxMesh" id="mesh_wall_a"]
+material = SubResource("mat_wall")
+size = Vector3(3.5, 3.5, 0.25)
+
+[sub_resource type="BoxShape3D" id="shape_wall_a"]
+size = Vector3(3.5, 3.5, 0.25)
+
+[sub_resource type="BoxMesh" id="mesh_wall_b"]
+material = SubResource("mat_wall")
+size = Vector3(0.25, 3.5, 3.5)
+
+[sub_resource type="BoxShape3D" id="shape_wall_b"]
+size = Vector3(0.25, 3.5, 3.5)
+
+[node name="CuartoLimpieza" type="Node3D" unique_id=642293505]
+
+[node name="Piso" type="StaticBody3D" parent="." unique_id=1748366637]
+transform = Transform3D(3.9424176, 0, 0, 0, 1, 0, 0, 0, 1, -5.0923634, 0, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="Piso" unique_id=1550151134]
+mesh = SubResource("mesh_floor")
+
+[node name="Col" type="CollisionShape3D" parent="Piso" unique_id=1114362634]
+shape = SubResource("shape_floor")
+
+[node name="ParedFondo" type="StaticBody3D" parent="." unique_id=1195938563]
+transform = Transform3D(4.089855, 0, 0, 0, 1, 0, 0, 0, 1, -5.0417757, 1.75, -1.85)
+
+[node name="Mesh" type="MeshInstance3D" parent="ParedFondo" unique_id=1817806712]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.6085918, 0, 0, 0.047104)
+mesh = SubResource("mesh_wall_a")
+
+[node name="Col" type="CollisionShape3D" parent="ParedFondo" unique_id=414141628]
+shape = SubResource("shape_wall_a")
+
+[node name="ParedIzq" type="StaticBody3D" parent="." unique_id=12046609]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.988078, 1.75, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="ParedIzq" unique_id=908232923]
+mesh = SubResource("mesh_wall_b")
+
+[node name="Col" type="CollisionShape3D" parent="ParedIzq" unique_id=2050753504]
+shape = SubResource("shape_wall_b")
+
+[node name="ParedDer" type="StaticBody3D" parent="." unique_id=188468580]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.85, 1.75, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="ParedDer" unique_id=1506227556]
+mesh = SubResource("mesh_wall_b")
+
+[node name="Col" type="CollisionShape3D" parent="ParedDer" unique_id=893871735]
+shape = SubResource("shape_wall_b")
+
+[node name="Luz" type="OmniLight3D" parent="." unique_id=1368253933]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+light_energy = 1.5
+shadow_enabled = true
+omni_range = 4.0
+
+[node name="Techo" type="StaticBody3D" parent="." unique_id=1327507218]
+transform = Transform3D(3.9424176, 0, 0, 0, 1, 0, 0, 0, 1, -5.0923634, 3.5410478, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="Techo" unique_id=1952918475]
+mesh = SubResource("mesh_floor")
+
+[node name="Col" type="CollisionShape3D" parent="Techo" unique_id=2021865369]
+shape = SubResource("shape_floor")

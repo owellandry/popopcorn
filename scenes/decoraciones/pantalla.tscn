@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://cymcm24yldlq4"]
+
+[ext_resource type="PackedScene" uid="uid://con2maa1nnh4y" path="res://models/pantalla.glb" id="model_pantalla"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pantalla"]
+size = Vector3(0.44622803, 2.5438232, 3)
+
+[node name="Pantalla" type="Node3D" unique_id=1703132618]
+
+[node name="Modelo" parent="." unique_id=1090456601 instance=ExtResource("model_pantalla")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=361748324]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=686984015]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.078704834, 1.2719116, 0)
+shape = SubResource("BoxShape3D_pantalla")

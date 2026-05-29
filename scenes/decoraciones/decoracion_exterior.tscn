@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://decorext001"]
+
+[ext_resource type="PackedScene" uid="uid://djsx3nfvtgaii" path="res://scenes/decoraciones/lampara_exterior.tscn" id="lampara_exterior"]
+
+[node name="DecoracionExterior" type="Node3D" unique_id=2000000001]
+transform = Transform3D(1.1924881e-08, 0, -1, 0, 1, 0, 1, 0, 1.1924881e-08, 0, 0, 0)
+
+[node name="Lampara2" parent="." unique_id=2000000003 instance=ExtResource("lampara_exterior")]
+transform = Transform3D(-1, -8.742278e-08, 0, -3.821371e-15, 4.371139e-08, 1, -8.742278e-08, 1, -4.371139e-08, 0.2, 4.769, -20.855)
+
+[node name="Lampara1" parent="." unique_id=1900000001 instance=ExtResource("lampara_exterior")]
+transform = Transform3D(-1, -8.742278e-08, 0, -3.821371e-15, 4.371139e-08, 1, -8.742278e-08, 1, -4.371139e-08, -8.9, 4.769, -20.855)
+
+[node name="Lampara3" parent="." unique_id=1233924796 instance=ExtResource("lampara_exterior")]
+transform = Transform3D(-1, -8.742278e-08, 0, -3.821371e-15, 4.371139e-08, 1, -8.742278e-08, 1, -4.371139e-08, -17.4, 4.769, -20.855)
+
+[node name="Lampara4" parent="." unique_id=955675759 instance=ExtResource("lampara_exterior")]
+transform = Transform3D(-1, -8.742278e-08, 0, -3.821371e-15, 4.371139e-08, 1, -8.742278e-08, 1, -4.371139e-08, 8.9, 4.769, -20.855)
+
+[node name="Lampara5" parent="." unique_id=900828944 instance=ExtResource("lampara_exterior")]
+transform = Transform3D(-1, -8.742278e-08, 0, -3.821371e-15, 4.371139e-08, 1, -8.742278e-08, 1, -4.371139e-08, -20.918957, 4.769, -20.855)
+
+[node name="Lampara6" parent="." unique_id=2007830696 instance=ExtResource("lampara_exterior")]
+transform = Transform3D(-1, -8.742278e-08, 0, -3.821371e-15, 4.371139e-08, 1, -8.742278e-08, 1, -4.371139e-08, 12, 4.769, -20.855)

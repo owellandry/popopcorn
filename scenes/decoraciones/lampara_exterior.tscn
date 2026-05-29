@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://djsx3nfvtgaii"]
+
+[ext_resource type="Texture2D" uid="uid://dumxjk0g0ggiu" path="res://models/mesa_vip/patas_mesa/Metal034_2K-JPG_Color.jpg" id="tex_metal_color"]
+[ext_resource type="Texture2D" uid="uid://cafiooufvetek" path="res://models/mesa_vip/patas_mesa/Metal034_2K-JPG_NormalGL.jpg" id="tex_metal_normal"]
+[ext_resource type="Texture2D" uid="uid://dhh641ml0855k" path="res://models/mesa_vip/patas_mesa/Metal034_2K-JPG_Roughness.jpg" id="tex_metal_rough"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_Base"]
+size = Vector3(0.8, 0.2, 0.8)
+
+[sub_resource type="StandardMaterial3D" id="Mat_Metal"]
+albedo_color = Color(0.1, 0.1, 0.1, 1)
+albedo_texture = ExtResource("tex_metal_color")
+metallic = 0.8
+roughness_texture = ExtResource("tex_metal_rough")
+normal_enabled = true
+normal_texture = ExtResource("tex_metal_normal")
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_Poste"]
+top_radius = 0.08
+bottom_radius = 0.08
+height = 3.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_Lampara"]
+top_radius = 0.3
+bottom_radius = 0.3
+height = 0.6
+
+[sub_resource type="StandardMaterial3D" id="Mat_LamparaEncendida"]
+albedo_color = Color(0, 0, 0, 1)
+roughness = 0.5
+emission = Color(1, 0.95, 0.8, 1)
+emission_energy_multiplier = 3.0
+
+[sub_resource type="BoxShape3D" id="Col_Lampara"]
+size = Vector3(0.8, 4, 0.8)
+
+[node name="LamparaExterior" type="Node3D" unique_id=1900000001]
+
+[node name="Base" type="MeshInstance3D" parent="." unique_id=1900000002]
+transform = Transform3D(1, 0, 0, 0, 0.42347753, 0, 0, 0, 0.5101938, 0, 0.04576707, 0)
+mesh = SubResource("BoxMesh_Base")
+surface_material_override/0 = SubResource("Mat_Metal")
+
+[node name="Poste" type="MeshInstance3D" parent="." unique_id=1900000003]
+transform = Transform3D(0.41723603, 0, 0, 0, 0.09319979, 0, 0, 0, 0.39331526, 0, 0.22102332, 0)
+mesh = SubResource("CylinderMesh_Poste")
+surface_material_override/0 = SubResource("Mat_Metal")
+
+[node name="Lampara" type="MeshInstance3D" parent="." unique_id=1900000004]
+transform = Transform3D(0.46068048, 0, 0, 0, 0.70710677, 0.2922608, 0, -0.70710677, 0.2922608, 3.5829344e-09, 0.47591084, 0.002820494)
+mesh = SubResource("CylinderMesh_Lampara")
+surface_material_override/0 = SubResource("Mat_LamparaEncendida")
+
+[node name="LuzInterior" type="OmniLight3D" parent="." unique_id=1900000006]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.77438885, -0.3245722)
+light_color = Color(1, 0.95, 0.8, 1)
+light_energy = 16.0
+omni_range = 0.39694622
+omni_attenuation = 0.5
+
+[node name="Luz" type="SpotLight3D" parent="." unique_id=1900000005]
+transform = Transform3D(1, 0, 0, 0, 0.7071068, -0.7071068, 0, 0.7071068, 0.7071068, -2.452796e-10, 0.6903243, -0.21285838)
+light_color = Color(1, 0.95, 0.8, 1)
+shadow_enabled = true
+spot_range = 43.015682
+spot_attenuation = 0.2
+spot_angle = 65.12605
+spot_angle_attenuation = 0.15
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1900000007]
+transform = Transform3D(1, 0, 0, 0, 0.19389357, 0, 0, 0, 0.8112148, 0, 0.3850307, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1900000008]
+shape = SubResource("Col_Lampara")

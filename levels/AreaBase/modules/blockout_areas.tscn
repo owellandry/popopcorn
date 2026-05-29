@@ -1,0 +1,254 @@
+[gd_scene format=3 uid="uid://bbhiorheharyc"]
+
+[ext_resource type="PackedScene" uid="uid://ebx1ichga51m" path="res://levels/AreaBase/modules/decoracion_vip.tscn" id="decoracion_vip"]
+[ext_resource type="PackedScene" uid="uid://sala2001" path="res://scenes/decoraciones/sala2.tscn" id="sala2"]
+[ext_resource type="PackedScene" uid="uid://sala3001" path="res://scenes/decoraciones/sala3.tscn" id="sala3"]
+[ext_resource type="PackedScene" uid="uid://sala4001" path="res://scenes/decoraciones/sala4.tscn" id="sala4"]
+[ext_resource type="Texture2D" uid="uid://daev1wcxmgf6x" path="res://textures/piso_lobby/Marble021_1K-PNG_Color.png" id="tex_marble_color"]
+[ext_resource type="Texture2D" uid="uid://cq0qe0bhf2w0j" path="res://textures/piso_lobby/Marble021_1K-PNG_NormalGL.png" id="tex_marble_normal"]
+[ext_resource type="Texture2D" uid="uid://cakcofmd6o3y5" path="res://textures/piso_sala_tiles/Tiles074_1K-PNG_Color.png" id="tex_sala_color"]
+[ext_resource type="Texture2D" uid="uid://bmj8r726osdpw" path="res://textures/piso_sala_tiles/Tiles074_1K-PNG_NormalGL.png" id="tex_sala_normal"]
+[ext_resource type="Texture2D" uid="uid://dqbovq7r5u6og" path="res://textures/piso_sala_tiles/Tiles074_1K-PNG_Roughness.png" id="tex_sala_rough"]
+
+[sub_resource type="StandardMaterial3D" id="Mat_PisoPerimetro"]
+albedo_texture = ExtResource("tex_sala_color")
+roughness_texture = ExtResource("tex_sala_rough")
+normal_enabled = true
+normal_texture = ExtResource("tex_sala_normal")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_triplanar = true
+uv1_triplanar_sharpness = 0.8
+uv1_world_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_Entrada"]
+material = SubResource("Mat_PisoPerimetro")
+size = Vector3(12, 0.2, 8)
+
+[sub_resource type="BoxShape3D" id="Col_Entrada"]
+size = Vector3(12, 2, 8)
+
+[sub_resource type="BoxMesh" id="BoxMesh_Lobby"]
+material = SubResource("Mat_PisoPerimetro")
+size = Vector3(28, 0.2, 22)
+
+[sub_resource type="BoxShape3D" id="Col_Lobby"]
+size = Vector3(28, 2, 22)
+
+[sub_resource type="BoxMesh" id="BoxMesh_AlaSalas"]
+material = SubResource("Mat_PisoPerimetro")
+size = Vector3(24, 0.2, 30)
+
+[sub_resource type="BoxShape3D" id="Col_AlaSalas"]
+size = Vector3(24, 0.18798828, 30)
+
+[sub_resource type="StandardMaterial3D" id="Mat_PisoVIP"]
+albedo_texture = ExtResource("tex_marble_color")
+normal_enabled = true
+normal_texture = ExtResource("tex_marble_normal")
+uv1_scale = Vector3(0.15, 0.15, 0.15)
+uv1_triplanar = true
+uv1_triplanar_sharpness = 0.8
+uv1_world_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_VIP"]
+material = SubResource("Mat_PisoVIP")
+size = Vector3(16, 0.2, 12)
+
+[sub_resource type="BoxShape3D" id="Col_VIP"]
+size = Vector3(16, 0.20587158, 12)
+
+[sub_resource type="BoxMesh" id="BoxMesh_Servicio"]
+material = SubResource("Mat_PisoPerimetro")
+size = Vector3(10, 0.2, 22)
+
+[sub_resource type="BoxShape3D" id="Col_Servicio"]
+size = Vector3(10, 2, 22)
+
+[node name="BlockoutAreas" type="Node3D" unique_id=1674612803]
+
+[node name="EntradaPrincipal" type="Node3D" parent="." unique_id=1771746343]
+transform = Transform3D(3.607576, 0, 0, 0, 1, 0, 0, 0, 1, 7.606516, 0, 25.968258)
+
+[node name="Floor" type="MeshInstance3D" parent="EntradaPrincipal" unique_id=1351577589]
+mesh = SubResource("BoxMesh_Entrada")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="EntradaPrincipal" unique_id=130482712]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EntradaPrincipal/StaticBody3D" unique_id=1600076522]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.9, 0)
+shape = SubResource("Col_Entrada")
+
+[node name="Label" type="Label3D" parent="EntradaPrincipal" unique_id=1197878097]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+billboard = 1
+modulate = Color(1, 0.85, 0.3, 1)
+text = "ENTRADA PRINCIPAL"
+font_size = 48
+
+[node name="CuartoEntregas" type="Node3D" parent="." unique_id=302702801]
+transform = Transform3D(3.607576, 0, 0, 0, 1, 0, 0, 0, 2.1898887, 7.606516, 0, -25.185362)
+
+[node name="Floor" type="MeshInstance3D" parent="CuartoEntregas" unique_id=1510257437]
+mesh = SubResource("BoxMesh_Entrada")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="CuartoEntregas" unique_id=1744821064]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CuartoEntregas/StaticBody3D" unique_id=1671843497]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.9, 0)
+shape = SubResource("Col_Entrada")
+
+[node name="Label" type="Label3D" parent="CuartoEntregas" unique_id=2137913177]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+billboard = 1
+modulate = Color(1, 0.85, 0.3, 1)
+text = "CUARTO ENTREGAS"
+
+[node name="LobbyCentral" type="Node3D" parent="." unique_id=1483058568]
+transform = Transform3D(1.268, 0, 0, 0, 1, 0, 0, 0, 1.7570294, 3.7, 0, 2.7843578)
+
+[node name="Floor" type="MeshInstance3D" parent="LobbyCentral" unique_id=406902927]
+mesh = SubResource("BoxMesh_Lobby")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="LobbyCentral" unique_id=456224751]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LobbyCentral/StaticBody3D" unique_id=814405957]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.9, 0)
+shape = SubResource("Col_Lobby")
+
+[node name="Label" type="Label3D" parent="LobbyCentral" unique_id=872233435]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 4)
+billboard = 1
+modulate = Color(0.3, 1, 0.5, 1)
+text = "LOBBY CENTRAL"
+font_size = 60
+
+[node name="Concesion" type="Node3D" parent="LobbyCentral" unique_id=1457182266]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+
+[node name="Label" type="Label3D" parent="LobbyCentral/Concesion" unique_id=2041034261]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+billboard = 1
+modulate = Color(1, 0.6, 0.2, 1)
+text = "CONFITERÍA + BOLETERÍA
+(CURVED COUNTER - HERO ELEMENT)"
+font_size = 26
+
+[node name="AlaSalas" type="Node3D" parent="." unique_id=1684983048]
+transform = Transform3D(1.5884349, 0, 0, 0, 1, 0, 0, 0, 1.3763126, -32.92388, 0, -13.264345)
+
+[node name="Floor" type="MeshInstance3D" parent="AlaSalas" unique_id=650590218]
+mesh = SubResource("BoxMesh_AlaSalas")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="AlaSalas" unique_id=360279114]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AlaSalas/StaticBody3D" unique_id=1200744171]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.006005883, 0)
+shape = SubResource("Col_AlaSalas")
+
+[node name="Label" type="Label3D" parent="AlaSalas" unique_id=1746196249]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+billboard = 1
+modulate = Color(0.4, 0.85, 1, 1)
+text = "SALAS DE CINE"
+font_size = 52
+
+[node name="Sala2" type="Node3D" parent="." unique_id=1627042068]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.63085, 0.009582, -12.96593)
+
+[node name="Label" type="Label3D" parent="Sala2" unique_id=1883056918]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+billboard = 1
+modulate = Color(0.8, 0.9, 1, 1)
+text = "SALA 2"
+font_size = 30
+
+[node name="DecoracionSala" parent="Sala2" unique_id=905032705 instance=ExtResource("sala2")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.19955826, 0.10496521, -0.66412354)
+
+[node name="Sala3" type="Node3D" parent="." unique_id=88363062]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -40.43582, 0.006812, -35.068806)
+
+[node name="Label" type="Label3D" parent="Sala3" unique_id=571910977]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+billboard = 1
+modulate = Color(0.8, 0.9, 1, 1)
+text = "SALA 3"
+font_size = 30
+
+[node name="DecoracionSala" parent="Sala3" unique_id=1005032705 instance=ExtResource("sala3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3973408, 0.29099822, -1.0853882)
+
+[node name="Sala4" type="Node3D" parent="." unique_id=1462547788]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.488604, 0.11534425, -16.83858)
+
+[node name="Label" type="Label3D" parent="Sala4" unique_id=2016663988]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+visible = false
+billboard = 1
+modulate = Color(0.8, 0.9, 1, 1)
+text = "SALA 4"
+font_size = 30
+
+[node name="DecoracionSala" parent="Sala4" unique_id=1105032705 instance=ExtResource("sala4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.015155792, 0, 0.0016098022)
+
+[node name="ZonaVIP" type="Node3D" parent="." unique_id=1228212713]
+transform = Transform3D(2.2621562, 0, 0, 0, 1, 0, 0, 0, 2.2621562, -32.0462, 0.00091100857, 20.460033)
+
+[node name="Floor" type="MeshInstance3D" parent="ZonaVIP" unique_id=1314707473]
+mesh = SubResource("BoxMesh_VIP")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="ZonaVIP" unique_id=1870148524]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ZonaVIP/StaticBody3D" unique_id=1586139930]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0029357672, 0)
+shape = SubResource("Col_VIP")
+
+[node name="Label" type="Label3D" parent="ZonaVIP" unique_id=755998452]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+billboard = 1
+modulate = Color(0.85, 0.5, 1, 1)
+text = "ZONA VIP LOUNGE"
+font_size = 40
+
+[node name="Decoracion" parent="ZonaVIP" unique_id=534246762 instance=ExtResource("decoracion_vip")]
+transform = Transform3D(0.442, 0, 0, 0, 1, 0, 0, 0, 0.442, 0.13622352, 0.08384627, -1.0094659)
+
+[node name="AreaServicio" type="Node3D" parent="." unique_id=1419184795]
+transform = Transform3D(0.91646564, 0, 0, 0, 1, 0, 0, 0, 1.787964, 25.674294, 0, 3.286415)
+
+[node name="Floor" type="MeshInstance3D" parent="AreaServicio" unique_id=1137828691]
+mesh = SubResource("BoxMesh_Servicio")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="AreaServicio" unique_id=70981527]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AreaServicio/StaticBody3D" unique_id=640176396]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.9, 0)
+shape = SubResource("Col_Servicio")
+
+[node name="LabelBanos" type="Label3D" parent="AreaServicio" unique_id=1926166730]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+billboard = 1
+modulate = Color(0.4, 1, 0.8, 1)
+text = "BAÑOS
+(MUJERES / HOMBRES / ACCESIBLES)"
+font_size = 22
+
+[node name="LabelTecnicoSup" type="Label3D" parent="AreaServicio" unique_id=1909168750]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -8)
+billboard = 1
+modulate = Color(0.9, 0.7, 0.4, 1)
+text = "CUARTO
+TÉCNICO"
+font_size = 20
+
+[node name="LabelTecnicoInf" type="Label3D" parent="AreaServicio" unique_id=401421275]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 8)
+billboard = 1
+modulate = Color(0.9, 0.7, 0.4, 1)
+text = "CUARTO
+TÉCNICO"
+font_size = 20
+
+[node name="Sala1_Premium" parent="." unique_id=277703621 instance=ExtResource("sala2")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -41.462246, 0.10693377, -0.03847763)

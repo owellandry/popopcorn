@@ -1,0 +1,71 @@
+[gd_scene load_steps=8 format=3 uid="uid://bcuartoemp01"]
+
+[sub_resource type="StandardMaterial3D" id="mat_floor"]
+albedo_color = Color(0.4, 0.35, 0.3, 1)
+
+[sub_resource type="StandardMaterial3D" id="mat_wall"]
+albedo_color = Color(0.7, 0.65, 0.55, 1)
+
+[sub_resource type="BoxMesh" id="mesh_floor"]
+size = Vector3(5, 0.2, 5)
+material = SubResource("mat_floor")
+
+[sub_resource type="BoxShape3D" id="shape_floor"]
+size = Vector3(5, 0.2, 5)
+
+[sub_resource type="BoxMesh" id="mesh_wall_long"]
+size = Vector3(5, 3.5, 0.25)
+material = SubResource("mat_wall")
+
+[sub_resource type="BoxShape3D" id="shape_wall_long"]
+size = Vector3(5, 3.5, 0.25)
+
+[sub_resource type="BoxMesh" id="mesh_wall_short"]
+size = Vector3(0.25, 3.5, 5)
+material = SubResource("mat_wall")
+
+[sub_resource type="BoxShape3D" id="shape_wall_short"]
+size = Vector3(0.25, 3.5, 5)
+
+[node name="CuartoEmpleados" type="Node3D"]
+
+[node name="Piso" type="StaticBody3D" parent="."]
+
+[node name="Mesh" type="MeshInstance3D" parent="Piso"]
+mesh = SubResource("mesh_floor")
+
+[node name="Col" type="CollisionShape3D" parent="Piso"]
+shape = SubResource("shape_floor")
+
+[node name="ParedFondo" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75, -2.6)
+
+[node name="Mesh" type="MeshInstance3D" parent="ParedFondo"]
+mesh = SubResource("mesh_wall_long")
+
+[node name="Col" type="CollisionShape3D" parent="ParedFondo"]
+shape = SubResource("shape_wall_long")
+
+[node name="ParedIzq" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6, 1.75, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="ParedIzq"]
+mesh = SubResource("mesh_wall_short")
+
+[node name="Col" type="CollisionShape3D" parent="ParedIzq"]
+shape = SubResource("shape_wall_short")
+
+[node name="ParedDer" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6, 1.75, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="ParedDer"]
+mesh = SubResource("mesh_wall_short")
+
+[node name="Col" type="CollisionShape3D" parent="ParedDer"]
+shape = SubResource("shape_wall_short")
+
+[node name="Luz" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.2, 0)
+light_energy = 2.0
+omni_range = 5.0
+shadow_enabled = true

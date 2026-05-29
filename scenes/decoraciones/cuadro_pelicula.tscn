@@ -1,0 +1,112 @@
+[gd_scene load_steps=14 format=3 uid="uid://dy1sjtjqt6kc2"]
+
+[ext_resource type="Script" path="res://scenes/decoraciones/cuadro_vip.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://textures/carteles/movie1.jpg" id="2_default"]
+[ext_resource type="Texture2D" uid="uid://y11isdyo647r" path="res://textures/mostrador/Wood027_1K-PNG_Color.png" id="tex_wood_color"]
+[ext_resource type="Texture2D" uid="uid://cgtdfogv0a5ys" path="res://textures/mostrador/Wood027_1K-PNG_NormalGL.png" id="tex_wood_normal"]
+[ext_resource type="Texture2D" uid="uid://dnmv2s7uisuig" path="res://textures/mostrador/Wood027_1K-PNG_Roughness.png" id="tex_wood_roughness"]
+
+[sub_resource type="StandardMaterial3D" id="mat_base"]
+albedo_color = Color(0.05, 0.03, 0.02, 1)
+
+[sub_resource type="QuadMesh" id="mesh_base"]
+material = SubResource("mat_base")
+size = Vector2(1.15, 1.65)
+
+[sub_resource type="StandardMaterial3D" id="mat_poster"]
+albedo_texture = ExtResource("2_default")
+
+[sub_resource type="QuadMesh" id="mesh_poster"]
+material = SubResource("mat_poster")
+size = Vector2(0.95, 1.4)
+
+[sub_resource type="StandardMaterial3D" id="mat_glass"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.06)
+metallic = 0.2
+roughness = 0.02
+
+[sub_resource type="QuadMesh" id="mesh_glass"]
+material = SubResource("mat_glass")
+size = Vector2(0.95, 1.4)
+
+[sub_resource type="StandardMaterial3D" id="mat_frame"]
+albedo_color = Color(0.3, 0.18, 0.08, 1)
+albedo_texture = ExtResource("tex_wood_color")
+roughness_texture = ExtResource("tex_wood_roughness")
+normal_enabled = true
+normal_texture = ExtResource("tex_wood_normal")
+uv1_scale = Vector3(3, 3, 3)
+
+[sub_resource type="BoxMesh" id="mesh_frame_top"]
+material = SubResource("mat_frame")
+size = Vector3(1.15, 0.08, 0.08)
+
+[sub_resource type="BoxMesh" id="mesh_frame_bottom"]
+material = SubResource("mat_frame")
+size = Vector3(1.15, 0.08, 0.08)
+
+[sub_resource type="BoxMesh" id="mesh_frame_left"]
+material = SubResource("mat_frame")
+size = Vector3(0.08, 1.65, 0.08)
+
+[sub_resource type="BoxMesh" id="mesh_frame_right"]
+material = SubResource("mat_frame")
+size = Vector3(0.08, 1.65, 0.08)
+
+[sub_resource type="BoxShape3D" id="shape_cuadro"]
+size = Vector3(1.15, 1.65, 0.1)
+
+[node name="CuadroPelicula" type="StaticBody3D"]
+script = ExtResource("1_script")
+
+[node name="Base" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.03)
+mesh = SubResource("mesh_base")
+
+[node name="Poster" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.065)
+mesh = SubResource("mesh_poster")
+
+[node name="Cristal" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.075)
+mesh = SubResource("mesh_glass")
+
+[node name="Marco" type="Node3D" parent="."]
+
+[node name="Top" type="MeshInstance3D" parent="Marco"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.785, 0.06)
+mesh = SubResource("mesh_frame_top")
+
+[node name="Bottom" type="MeshInstance3D" parent="Marco"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.785, 0.06)
+mesh = SubResource("mesh_frame_bottom")
+
+[node name="Left" type="MeshInstance3D" parent="Marco"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.535, 0, 0.06)
+mesh = SubResource("mesh_frame_left")
+
+[node name="Right" type="MeshInstance3D" parent="Marco"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.535, 0, 0.06)
+mesh = SubResource("mesh_frame_right")
+
+[node name="Colision" type="CollisionShape3D" parent="."]
+shape = SubResource("shape_cuadro")
+
+[node name="Luces" type="Node3D" parent="."]
+
+[node name="LuzSup" type="SpotLight3D" parent="Luces"]
+transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 0.70473623, 0.07110569)
+light_color = Color(1, 0.95, 0.85, 1)
+light_energy = 1.5
+spot_range = 1.6187184
+spot_angle = 89.99
+shadow_enabled = false
+
+[node name="LuzInf" type="SpotLight3D" parent="Luces"]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 0, -0.71361166, 0.068944454)
+light_color = Color(1, 0.95, 0.85, 1)
+light_energy = 1.5
+spot_range = 1.0
+spot_angle = 89.99
+shadow_enabled = false

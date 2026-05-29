@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://bks7ybc6wmmmr"]
+
+[sub_resource type="StandardMaterial3D" id="mat_soporte"]
+albedo_color = Color(0.1, 0.1, 0.1, 1)
+metallic = 0.8
+roughness = 0.3
+
+[sub_resource type="BoxMesh" id="mesh_soporte"]
+material = SubResource("mat_soporte")
+size = Vector3(0.8, 0.04, 0.02)
+
+[sub_resource type="StandardMaterial3D" id="mat_led"]
+albedo_color = Color(0.2, 0.2, 0.2, 1)
+emission_enabled = true
+emission = Color(1, 0.95, 0.8, 1)
+emission_energy_multiplier = 2.0
+
+[sub_resource type="BoxMesh" id="mesh_led"]
+material = SubResource("mat_led")
+size = Vector3(0.76, 0.02, 0.025)
+
+[node name="Lampara" type="Node3D" unique_id=1975769567]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Soporte" type="MeshInstance3D" parent="." unique_id=1191989730]
+mesh = SubResource("mesh_soporte")
+
+[node name="LED" type="MeshInstance3D" parent="." unique_id=494383700]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.005)
+mesh = SubResource("mesh_led")
+
+[node name="Luz" type="OmniLight3D" parent="." unique_id=1885219389]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.05)
+light_color = Color(1, 0.92, 0.75, 1)
+light_energy = 0.4
+omni_range = 3.5
+omni_attenuation = 1.2

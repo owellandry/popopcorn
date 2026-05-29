@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://b7hww3ilib5xu"]
+
+[ext_resource type="PackedScene" uid="uid://cpf25bfgggwkp" path="res://models/popcorn_bucket.glb" id="bucket"]
+[ext_resource type="PackedScene" path="res://scenes/decoraciones/popcorn/relleno_completo.tscn" id="relleno"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_spyec"]
+
+[sub_resource type="StandardMaterial3D" id="mat_limite"]
+transparency = 1
+albedo_color = Color(0.8, 0.6, 0.2, 0.3)
+
+[node name="CubetaMedia" type="Node3D" unique_id=1013055879]
+
+[node name="Cubeta" parent="." unique_id=141297779 instance=ExtResource("bucket")]
+
+[node name="LimitePalomitas" type="MeshInstance3D" parent="." unique_id=1829068536]
+transform = Transform3D(0.060027845, 0, 0, 0, 1, 0, 0, 0, 0.065, 0, 0.0807046, 0)
+mesh = SubResource("PlaneMesh_spyec")
+surface_material_override/0 = SubResource("mat_limite")
+
+[node name="Relleno" parent="." unique_id=971346184 instance=ExtResource("relleno")]
+transform = Transform3D(0.9766775, 0, 0, 0, 0.91799235, 0, 0, 0, 0.95601344, 0, 0.10717712, 0)

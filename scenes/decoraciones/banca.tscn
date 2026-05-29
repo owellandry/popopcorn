@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://bbanca00001"]
+
+[ext_resource type="PackedScene" uid="uid://cncct7ayfmq2l" path="res://models/modern_sofa.glb" id="model_sofa"]
+
+[sub_resource type="BoxShape3D" id="shape_banca"]
+size = Vector3(2.65576, 0.68146, 1.05305)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vcssy"]
+size = Vector3(2.3143, 0.80524, 0.42491)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v51hy"]
+size = Vector3(0.22793, 0.56104, 1.07285)
+
+[node name="Banca" type="StaticBody3D" unique_id=1454778292]
+
+[node name="Modelo" parent="." unique_id=1263106979 instance=ExtResource("model_sofa")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0, 0)
+
+[node name="Col" type="CollisionShape3D" parent="." unique_id=1060255212]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0007, 0.34, 0.039)
+shape = SubResource("shape_banca")
+
+[node name="Col2" type="CollisionShape3D" parent="." unique_id=1764152561]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.006, 0.948, -0.412)
+shape = SubResource("BoxShape3D_vcssy")
+
+[node name="Col3" type="CollisionShape3D" parent="." unique_id=1254363044]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.225, 0.748, 0.045)
+shape = SubResource("BoxShape3D_v51hy")
+
+[node name="Col4" type="CollisionShape3D" parent="." unique_id=440207132]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.219, 0.8, 0.045)
+shape = SubResource("BoxShape3D_v51hy")

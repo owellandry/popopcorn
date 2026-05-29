@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://tvvip001"]
+
+[ext_resource type="PackedScene" uid="uid://da07pdphet7ka" path="res://models/smart_tv_minimal_model_-_low_poly.glb" id="model_tv"]
+
+[sub_resource type="BoxShape3D" id="Col_TV"]
+size = Vector3(0.3, 2.5, 4)
+
+[node name="TvVIP" type="Node3D" unique_id=1703132619]
+
+[node name="Modelo" parent="." unique_id=1090456601 instance=ExtResource("model_tv")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=361748325]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=686984016]
+shape = SubResource("Col_TV")

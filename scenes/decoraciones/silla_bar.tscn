@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://c42rr1uaprigd"]
+
+[ext_resource type="PackedScene" uid="uid://mp6bksoxdfda" path="res://models/sillabar/sillabar.glb" id="modelo_silla"]
+[ext_resource type="Script" uid="uid://v7grbncah1v0" path="res://scenes/decoraciones/silla_bar.gd" id="script_silla"]
+
+[sub_resource type="BoxShape3D" id="shape_silla"]
+size = Vector3(0.45, 1, 0.45)
+
+[node name="SillaBar" type="StaticBody3D" unique_id=690142650]
+script = ExtResource("script_silla")
+
+[node name="Modelo" parent="." unique_id=2094735227 instance=ExtResource("modelo_silla")]
+transform = Transform3D(-8.742278e-11, 0, 0.002, 0, 0.002, 0, -0.002, 0, -8.742278e-11, 0, 0, 0)
+
+[node name="Colision" type="CollisionShape3D" parent="." unique_id=1578749336]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("shape_silla")

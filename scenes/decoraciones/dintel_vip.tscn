@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://dintelvip001"]
+
+[ext_resource type="Texture2D" uid="uid://daev1wcxmgf6x" path="res://textures/piso_lobby/Marble021_1K-PNG_Color.png" id="tex_marble_color"]
+[ext_resource type="Texture2D" uid="uid://cq0qe0bhf2w0j" path="res://textures/piso_lobby/Marble021_1K-PNG_NormalGL.png" id="tex_marble_normal"]
+
+[sub_resource type="StandardMaterial3D" id="Mat_PisoVIP"]
+albedo_texture = ExtResource("tex_marble_color")
+normal_enabled = true
+normal_texture = ExtResource("tex_marble_normal")
+uv1_scale = Vector3(0.15, 0.15, 0.15)
+uv1_triplanar = true
+uv1_triplanar_sharpness = 0.8
+uv1_world_triplanar = true
+
+[sub_resource type="BoxMesh" id="mesh_lintel"]
+material = SubResource("Mat_PisoVIP")
+size = Vector3(2.21, 1.5, 0.25)
+
+[sub_resource type="BoxShape3D" id="shape_lintel"]
+size = Vector3(2.21, 1.5, 0.25)
+
+[node name="DintelVIP" type="StaticBody3D"]
+
+[node name="MeshLintel" type="MeshInstance3D" parent="."]
+mesh = SubResource("mesh_lintel")
+
+[node name="ColLintel" type="CollisionShape3D" parent="."]
+shape = SubResource("shape_lintel")

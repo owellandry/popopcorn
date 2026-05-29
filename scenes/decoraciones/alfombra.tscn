@@ -1,0 +1,84 @@
+[gd_scene load_steps=13 format=3 uid="uid://balfombra01"]
+
+[ext_resource type="PackedScene" path="res://models/alfombra.glb" id="model_alfombra"]
+
+[sub_resource type="StandardMaterial3D" id="mat_base"]
+albedo_color = Color(0.08, 0.12, 0.15, 1)
+roughness = 0.95
+
+[sub_resource type="StandardMaterial3D" id="mat_g1"]
+albedo_color = Color(0.12, 0.18, 0.22, 1)
+roughness = 0.95
+
+[sub_resource type="StandardMaterial3D" id="mat_g2"]
+albedo_color = Color(0.17, 0.24, 0.3, 1)
+roughness = 0.95
+
+[sub_resource type="StandardMaterial3D" id="mat_g3"]
+albedo_color = Color(0.22, 0.31, 0.38, 1)
+roughness = 0.95
+
+[sub_resource type="StandardMaterial3D" id="mat_g4"]
+albedo_color = Color(0.27, 0.37, 0.45, 1)
+roughness = 0.95
+
+[sub_resource type="StandardMaterial3D" id="mat_g5"]
+albedo_color = Color(0.31, 0.42, 0.51, 1)
+roughness = 0.95
+
+[sub_resource type="StandardMaterial3D" id="mat_g6"]
+albedo_color = Color(0.35, 0.47, 0.57, 1)
+roughness = 0.95
+
+[sub_resource type="StandardMaterial3D" id="mat_g7"]
+albedo_color = Color(0.39, 0.52, 0.63, 1)
+roughness = 0.95
+
+[sub_resource type="StandardMaterial3D" id="mat_g8"]
+albedo_color = Color(0.43, 0.57, 0.69, 1)
+roughness = 0.95
+
+[sub_resource type="StandardMaterial3D" id="mat_g9"]
+albedo_color = Color(0.47, 0.62, 0.75, 1)
+roughness = 0.95
+
+[sub_resource type="StandardMaterial3D" id="mat_g10"]
+albedo_color = Color(0.51, 0.67, 0.8, 1)
+roughness = 0.95
+
+[node name="Alfombra" type="Node3D"]
+
+[node name="Modelo" parent="." instance=ExtResource("model_alfombra")]
+
+[node name="model_0" parent="Modelo" index="0"]
+surface_material_override/0 = SubResource("mat_base")
+
+[node name="model_1" parent="Modelo" index="1"]
+surface_material_override/0 = SubResource("mat_g1")
+
+[node name="model_2" parent="Modelo" index="2"]
+surface_material_override/0 = SubResource("mat_g2")
+
+[node name="model_3" parent="Modelo" index="3"]
+surface_material_override/0 = SubResource("mat_g3")
+
+[node name="model_4" parent="Modelo" index="4"]
+surface_material_override/0 = SubResource("mat_g4")
+
+[node name="model_5" parent="Modelo" index="5"]
+surface_material_override/0 = SubResource("mat_g5")
+
+[node name="model_6" parent="Modelo" index="6"]
+surface_material_override/0 = SubResource("mat_g6")
+
+[node name="model_7" parent="Modelo" index="7"]
+surface_material_override/0 = SubResource("mat_g7")
+
+[node name="model_8" parent="Modelo" index="8"]
+surface_material_override/0 = SubResource("mat_g8")
+
+[node name="model_9" parent="Modelo" index="9"]
+surface_material_override/0 = SubResource("mat_g9")
+
+[node name="model_10" parent="Modelo" index="10"]
+surface_material_override/0 = SubResource("mat_g10")

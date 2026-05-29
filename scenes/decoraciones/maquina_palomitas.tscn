@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bpalomit0001"]
+
+[ext_resource type="PackedScene" uid="uid://bpopcornmach1" path="res://models/popcornmachine.glb" id="model_popcorn"]
+
+[node name="MaquinaPalomitas" type="Node3D" unique_id=365946788]
+
+[node name="Modelo" parent="." unique_id=2065282561 instance=ExtResource("model_popcorn")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.8591471, 0, 0)

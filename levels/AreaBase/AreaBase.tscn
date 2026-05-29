@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://cdhnuv8m2ixs6"]
+
+[ext_resource type="PackedScene" uid="uid://bbhiorheharyc" path="res://levels/AreaBase/modules/blockout_areas.tscn" id="blockout"]
+[ext_resource type="PackedScene" uid="uid://decorext001" path="res://scenes/decoraciones/decoracion_exterior.tscn" id="decoracion_exterior"]
+[ext_resource type="PackedScene" uid="uid://dquyqsslnvw14" path="res://levels/AreaBase/modules/entorno.tscn" id="entorno"]
+[ext_resource type="PackedScene" uid="uid://ilu001" path="res://levels/AreaBase/modules/iluminacion_general.tscn" id="iluminacion_general"]
+[ext_resource type="PackedScene" uid="uid://xvcyudurm0x0" path="res://levels/AreaBase/modules/paredes_conjunto.tscn" id="paredes"]
+[ext_resource type="PackedScene" uid="uid://bpersonaje01" path="res://scenes/personaje/personaje.tscn" id="personaje"]
+[ext_resource type="PackedScene" uid="uid://ddm8pg74c28se" path="res://levels/AreaBase/modules/techo.tscn" id="techo"]
+
+[node name="JuegoV2" type="Node3D" unique_id=392865289]
+
+[node name="Entorno" parent="." unique_id=397549690 instance=ExtResource("entorno")]
+transform = Transform3D(3.2653859, 0.10548495, 0, -1.0691223, 0.3221793, 0, 0, 0, 1, -12.688849, 32.64633, 0)
+
+[node name="Personaje" parent="." unique_id=494187340 instance=ExtResource("personaje")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 5.0769157, 0.095394045, -12.215202)
+
+[node name="Blockout" parent="." unique_id=1919571524 instance=ExtResource("blockout")]
+
+[node name="Paredes" parent="." unique_id=999999001 instance=ExtResource("paredes")]
+
+[node name="Techo" parent="." unique_id=1211018848 instance=ExtResource("techo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.11674309, 0)
+
+[node name="DecoracionExterior" parent="." unique_id=999999002 instance=ExtResource("decoracion_exterior")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.155571, 0, 50)
+
+[node name="IluminacionGeneral" parent="." unique_id=-294967295 instance=ExtResource("iluminacion_general")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.7347693, 0)

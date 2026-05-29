@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scenes/ui/transicion.gd" id="1_script"]
+[ext_resource type="Shader" path="res://shaders/transicion.gdshader" id="2_shader"]
+
+[sub_resource type="ShaderMaterial" id="shader_mat"]
+shader = ExtResource("2_shader")
+shader_parameter/progress = 0.0
+shader_parameter/noise_scale = 8.0
+shader_parameter/color_popcorn = Color(1, 0.92, 0.6, 1)
+shader_parameter/reverse = false
+
+[node name="Transicion" type="CanvasLayer"]
+layer = 100
+script = ExtResource("1_script")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+material = SubResource("shader_mat")
+color = Color(1, 1, 1, 1)

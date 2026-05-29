@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dpcrn_cubeta_vacia"]
+
+[ext_resource type="PackedScene" path="res://models/popcorn_bucket.glb" id="bucket"]
+
+[node name="CubetaVacia" type="Node3D"]
+
+[node name="Cubeta" parent="." instance=ExtResource("bucket")]

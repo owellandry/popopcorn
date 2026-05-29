@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://boff4xjyrs3fe"]
+
+[ext_resource type="PackedScene" uid="uid://4dt4nd7j4hrn" path="res://models/silla_cine.glb" id="1_modelo"]
+
+[sub_resource type="BoxShape3D" id="col_shape"]
+size = Vector3(0.5, 0.9, 0.5)
+
+[node name="SillaCine" type="StaticBody3D" unique_id=2138548148]
+transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 0, 0, 0)
+
+[node name="Modelo" parent="." unique_id=500011526 instance=ExtResource("1_modelo")]
+
+[node name="Colision" type="CollisionShape3D" parent="." unique_id=236227075]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 0)
+shape = SubResource("col_shape")

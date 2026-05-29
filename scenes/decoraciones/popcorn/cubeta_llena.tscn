@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://dfmhiqlrjlwx0"]
+
+[ext_resource type="PackedScene" uid="uid://cpf25bfgggwkp" path="res://models/popcorn_bucket.glb" id="bucket"]
+[ext_resource type="PackedScene" path="res://scenes/decoraciones/popcorn/relleno_completo.tscn" id="relleno"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_spyec"]
+
+[sub_resource type="StandardMaterial3D" id="mat_limite"]
+transparency = 1
+albedo_color = Color(0.8, 0.6, 0.2, 0.3)
+
+[sub_resource type="BoxShape3D" id="box_fondo"]
+size = Vector3(0.13, 0.01, 0.13)
+
+[sub_resource type="BoxShape3D" id="box_pared_x"]
+size = Vector3(0.01, 0.25, 0.13)
+
+[sub_resource type="BoxShape3D" id="box_pared_z"]
+size = Vector3(0.13, 0.25, 0.01)
+
+[node name="CubetaLlena" type="Node3D"]
+
+[node name="Cubeta" parent="." instance=ExtResource("bucket")]
+
+[node name="CubetaCollision" type="StaticBody3D" parent="."]
+
+[node name="Fondo" type="CollisionShape3D" parent="CubetaCollision"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.005, 0)
+shape = SubResource("box_fondo")
+
+[node name="ParedIzq" type="CollisionShape3D" parent="CubetaCollision"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.065, 0.125, 0)
+shape = SubResource("box_pared_x")
+
+[node name="ParedDer" type="CollisionShape3D" parent="CubetaCollision"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.065, 0.125, 0)
+shape = SubResource("box_pared_x")
+
+[node name="ParedFront" type="CollisionShape3D" parent="CubetaCollision"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.125, 0.065)
+shape = SubResource("box_pared_z")
+
+[node name="ParedBack" type="CollisionShape3D" parent="CubetaCollision"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.125, -0.065)
+shape = SubResource("box_pared_z")
+
+[node name="LimitePalomitas" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.065, 0, 0, 0, 1, 0, 0, 0, 0.065, 0, 0.2, 0)
+mesh = SubResource("PlaneMesh_spyec")
+surface_material_override/0 = SubResource("mat_limite")
+
+[node name="Relleno" parent="." instance=ExtResource("relleno")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.19, 0)

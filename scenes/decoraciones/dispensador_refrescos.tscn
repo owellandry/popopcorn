@@ -1,0 +1,64 @@
+[gd_scene load_steps=4 format=3 uid="uid://bdispensa001"]
+
+[sub_resource type="StandardMaterial3D" id="mat_body"]
+albedo_color = Color(0.7, 0.7, 0.75, 1)
+metallic = 0.7
+roughness = 0.25
+
+[sub_resource type="StandardMaterial3D" id="mat_panel"]
+albedo_color = Color(0.15, 0.15, 0.2, 1)
+
+[sub_resource type="StandardMaterial3D" id="mat_nozzle"]
+albedo_color = Color(0.1, 0.1, 0.1, 1)
+metallic = 0.8
+
+[sub_resource type="BoxMesh" id="mesh_body"]
+size = Vector3(0.8, 1.2, 0.5)
+material = SubResource("mat_body")
+
+[sub_resource type="BoxMesh" id="mesh_panel"]
+size = Vector3(0.7, 0.5, 0.02)
+material = SubResource("mat_panel")
+
+[sub_resource type="CylinderMesh" id="mesh_nozzle"]
+top_radius = 0.02
+bottom_radius = 0.03
+height = 0.08
+material = SubResource("mat_nozzle")
+
+[sub_resource type="BoxMesh" id="mesh_tray"]
+size = Vector3(0.7, 0.03, 0.35)
+material = SubResource("mat_nozzle")
+
+[sub_resource type="BoxShape3D" id="shape_body"]
+size = Vector3(0.8, 1.2, 0.5)
+
+[node name="Dispensador" type="StaticBody3D"]
+
+[node name="Cuerpo" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+mesh = SubResource("mesh_body")
+
+[node name="Panel" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, 0.26)
+mesh = SubResource("mesh_panel")
+
+[node name="Nozzle1" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 0.55, 0.22)
+mesh = SubResource("mesh_nozzle")
+
+[node name="Nozzle2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55, 0.22)
+mesh = SubResource("mesh_nozzle")
+
+[node name="Nozzle3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.55, 0.22)
+mesh = SubResource("mesh_nozzle")
+
+[node name="Bandeja" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.32, 0.08)
+mesh = SubResource("mesh_tray")
+
+[node name="Col" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("shape_body")

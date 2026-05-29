@@ -1,0 +1,189 @@
+[gd_scene format=3 uid="uid://c6fm3rb8klbi0"]
+
+[ext_resource type="Texture2D" uid="uid://xr8awbq02n5k" path="res://textures/carteles/movie5.jpg" id="2_2vq8x"]
+[ext_resource type="Texture2D" uid="uid://dlr5ganjmxofw" path="res://textures/carteles/movie4.jpg" id="3_l1hf2"]
+[ext_resource type="Texture2D" uid="uid://du1fg8xflg30g" path="res://textures/carteles/movie15.jpg" id="5_ig68j"]
+[ext_resource type="Texture2D" uid="uid://b4l25mjeceg6k" path="res://textures/carteles/movie10.jpg" id="5_l6dl6"]
+[ext_resource type="Texture2D" uid="uid://cfwmxc6kg6o8a" path="res://textures/carteles/movie1.jpg" id="5_siexc"]
+[ext_resource type="Texture2D" uid="uid://bxojitvjppego" path="res://textures/carteles/movie13.jpg" id="6_1qig4"]
+[ext_resource type="Texture2D" uid="uid://csln5edn7nihl" path="res://textures/carteles/movie6.jpg" id="6_l6dl6"]
+[ext_resource type="Texture2D" uid="uid://d2oq3d3gyhvdb" path="res://textures/carteles/movie12.jpg" id="7_4nf8k"]
+[ext_resource type="Texture2D" uid="uid://edgsna7b8sgh" path="res://textures/carteles/movie7.jpg" id="7_erbds"]
+[ext_resource type="Texture2D" uid="uid://dgpgiexhb5kab" path="res://textures/carteles/movie8.jpg" id="8_f6rib"]
+[ext_resource type="Texture2D" uid="uid://dr1o1jkqf8hqh" path="res://textures/carteles/movie11.jpg" id="8_l5b61"]
+[ext_resource type="Texture2D" uid="uid://cs1np330xocvj" path="res://textures/carteles/movie9.jpg" id="9_v1hqj"]
+[ext_resource type="PackedScene" uid="uid://bcartel00001" path="res://scenes/cartel/cartel.tscn" id="cartel_scene"]
+[ext_resource type="PackedScene" uid="uid://balfombra01" path="res://scenes/decoraciones/alfombra.tscn" id="dec_alfombra"]
+[ext_resource type="PackedScene" uid="uid://bbanca00001" path="res://scenes/decoraciones/banca.tscn" id="dec_banca"]
+[ext_resource type="PackedScene" uid="uid://bdispensa001" path="res://scenes/decoraciones/dispensador_refrescos.tscn" id="dec_dispensador"]
+[ext_resource type="PackedScene" uid="uid://bneon000001" path="res://scenes/decoraciones/letrero_neon.tscn" id="dec_neon"]
+[ext_resource type="PackedScene" uid="uid://bpalomit0001" path="res://scenes/decoraciones/maquina_palomitas.tscn" id="dec_palomitas"]
+[ext_resource type="PackedScene" uid="uid://bpapelera01" path="res://scenes/decoraciones/papelera.tscn" id="dec_papelera"]
+[ext_resource type="PackedScene" uid="uid://bvitrina0001" path="res://scenes/decoraciones/vitrina_dulces.tscn" id="dec_vitrina"]
+[ext_resource type="PackedScene" uid="uid://bestructsal1" path="res://scenes/sala/estructura_sala.tscn" id="estructura_sala"]
+[ext_resource type="PackedScene" uid="uid://7f2ussu718fe" path="res://scenes/sala/fila_entrada.tscn" id="fila_entrada"]
+[ext_resource type="PackedScene" uid="uid://bilumsal0001" path="res://scenes/iluminacion/iluminacion_sala.tscn" id="iluminacion_sala"]
+[ext_resource type="PackedScene" uid="uid://bmesasilla01" path="res://scenes/decoraciones/mesa_con_sillas.tscn" id="mesa_sillas"]
+[ext_resource type="PackedScene" uid="uid://bplanta00001" path="res://scenes/decoraciones/planta.tscn" id="model_planta"]
+[ext_resource type="PackedScene" uid="uid://d046jd2dhsu8t" path="res://scenes/sala/mostrador_sala.tscn" id="mostrador_sala"]
+[ext_resource type="PackedScene" uid="uid://cymcm24yldlq4" path="res://scenes/decoraciones/pantalla.tscn" id="pantalla_scene"]
+[ext_resource type="PackedScene" uid="uid://bpuertalimp1" path="res://scenes/puertas/puerta_cuarto_limpieza.tscn" id="puerta_limpieza"]
+
+[node name="Sala" type="Node3D" unique_id=802070973]
+
+[node name="EstructuraSala" parent="." unique_id=1806222497 instance=ExtResource("estructura_sala")]
+
+[node name="Mostrador" parent="." unique_id=1522397513 instance=ExtResource("mostrador_sala")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 7.5)
+
+[node name="PantallaMostrador" parent="." unique_id=1611004213 instance=ExtResource("pantalla_scene")]
+transform = Transform3D(-0.01473371, 0, -0.27797619, 0, 0.24005893, 0, 0.091872714, 0, -0.044579297, 3.9336066, 1.01407, 7.0455513)
+
+[node name="PuertaCuartoLimpieza" parent="." unique_id=848854852 instance=ExtResource("puerta_limpieza")]
+transform = Transform3D(-0.7043983, 0, -8.742278e-08, 0, 1.0304996, 0, 6.158045e-08, 0, -1, -11.979568, 0.06548852, 12.1484995)
+
+[node name="Carteles" type="Node3D" parent="." unique_id=203250450]
+transform = Transform3D(1.0094434, 0, 0, 0, 1, 0, 0, 0, 1.0130044, 0, -0.63678026, 0)
+
+[node name="CartelIzq1" parent="Carteles" unique_id=831339564 instance=ExtResource("cartel_scene")]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -14.85, 2.5, -8)
+poster_texture = ExtResource("2_2vq8x")
+
+[node name="CartelIzq2" parent="Carteles" unique_id=1354692203 instance=ExtResource("cartel_scene")]
+transform = Transform3D(-1.0000001, 0, -8.742274e-08, 0, 1, 0, 8.7422784e-08, 0, -1, 7.2751884, 2.5, 11.856476)
+poster_texture = ExtResource("3_l1hf2")
+
+[node name="CartelIzq4" parent="Carteles" unique_id=22239776 instance=ExtResource("cartel_scene")]
+transform = Transform3D(-0.9999999, 0, -8.7422755e-08, 0, 1, 0, 8.742277e-08, 0, -1, -8.618182, 2.5, 11.834859)
+poster_texture = ExtResource("5_siexc")
+
+[node name="CartelIzq5" parent="Carteles" unique_id=1535502177 instance=ExtResource("cartel_scene")]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -14.85, 2.5, 8)
+
+[node name="CartelDer1" parent="Carteles" unique_id=324211403 instance=ExtResource("cartel_scene")]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 14.85, 2.5, -8)
+poster_texture = ExtResource("5_ig68j")
+
+[node name="CartelDer2" parent="Carteles" unique_id=256257281 instance=ExtResource("cartel_scene")]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 14.85, 2.5, -4)
+poster_texture = ExtResource("6_1qig4")
+
+[node name="CartelDer3" parent="Carteles" unique_id=130489339 instance=ExtResource("cartel_scene")]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 14.85, 2.5, 0)
+poster_texture = ExtResource("7_4nf8k")
+
+[node name="CartelDer4" parent="Carteles" unique_id=102722984 instance=ExtResource("cartel_scene")]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 14.85, 2.5, 4)
+poster_texture = ExtResource("8_l5b61")
+
+[node name="CartelDer5" parent="Carteles" unique_id=1717096407 instance=ExtResource("cartel_scene")]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 14.85, 2.5, 8)
+poster_texture = ExtResource("5_l6dl6")
+
+[node name="CartelFondo1" parent="Carteles" unique_id=1239739436 instance=ExtResource("cartel_scene")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 2.5, -11.85)
+poster_texture = ExtResource("6_l6dl6")
+
+[node name="CartelFondo2" parent="Carteles" unique_id=853311702 instance=ExtResource("cartel_scene")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 2.5, -11.85)
+poster_texture = ExtResource("7_erbds")
+
+[node name="CartelFondo3" parent="Carteles" unique_id=1534881692 instance=ExtResource("cartel_scene")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2.5, -11.85)
+poster_texture = ExtResource("8_f6rib")
+
+[node name="CartelFondo4" parent="Carteles" unique_id=1589605687 instance=ExtResource("cartel_scene")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 2.5, -11.85)
+poster_texture = ExtResource("9_v1hqj")
+
+[node name="Decoraciones" type="Node3D" parent="." unique_id=350447917]
+
+[node name="Palomitas1" parent="Decoraciones" unique_id=292044912 instance=ExtResource("dec_palomitas")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, -3, 0, 11.06972)
+
+[node name="Palomitas2" parent="Decoraciones" unique_id=842336904 instance=ExtResource("dec_palomitas")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 3, 0, 11.06972)
+
+[node name="Vitrina1" parent="Decoraciones" unique_id=218341078 instance=ExtResource("dec_vitrina")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, -6, 0, 8.8)
+
+[node name="Vitrina2" parent="Decoraciones" unique_id=2093669431 instance=ExtResource("dec_vitrina")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 6, 0, 8.8)
+
+[node name="Dispensador1" parent="Decoraciones" unique_id=308705834 instance=ExtResource("dec_dispensador")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, -1, 0, 11.26972)
+
+[node name="Dispensador2" parent="Decoraciones" unique_id=2108771550 instance=ExtResource("dec_dispensador")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 1, 0, 11.26972)
+
+[node name="Banca1" parent="Decoraciones" unique_id=969627867 instance=ExtResource("dec_banca")]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 7.7596016, 0, -3.3241954)
+
+[node name="Banca2" parent="Decoraciones" unique_id=47399969 instance=ExtResource("dec_banca")]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 7.7596464, 0, 0.91030335)
+
+[node name="Banca3" parent="Decoraciones" unique_id=664030352 instance=ExtResource("dec_banca")]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 11.95844, 0, -3.4924471)
+
+[node name="Banca4" parent="Decoraciones" unique_id=933251275 instance=ExtResource("dec_banca")]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 11.718586, 0, 0.8142266)
+
+[node name="Alfombra1" parent="Decoraciones" unique_id=1197060858 instance=ExtResource("dec_alfombra")]
+transform = Transform3D(-1.09278474e-07, 0, 2.5, 0, 2.5, 0, -2.5, 0, -1.09278474e-07, -2.952112, 0.081, 4.56109)
+visible = false
+
+[node name="NeonCartelera" parent="Decoraciones" unique_id=1723918347 instance=ExtResource("dec_neon")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.026368618, 4.510086, -11.9)
+
+[node name="NeonSnacks" parent="Decoraciones" unique_id=2038075655 instance=ExtResource("dec_neon")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 0, 4.2, 11.975327)
+
+[node name="FilaEntrada" parent="Decoraciones" unique_id=1657105095 instance=ExtResource("fila_entrada")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06437278, 5.2397637)
+
+[node name="Papelera1" parent="Decoraciones" unique_id=797036881 instance=ExtResource("dec_papelera")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.683461, 0.06280482, 6.6774697)
+
+[node name="Papelera2" parent="Decoraciones" unique_id=1986480501 instance=ExtResource("dec_papelera")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.698063, 0.07136124, 6.645929)
+
+[node name="Papelera3" parent="Decoraciones" unique_id=850502693 instance=ExtResource("dec_papelera")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -10.183206, 0.05985993, -11.678861)
+
+[node name="Papelera4" parent="Decoraciones" unique_id=697157017 instance=ExtResource("dec_papelera")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.652589, 0.07074192, -9.282372)
+
+[node name="Alfombra7" parent="Decoraciones" unique_id=1298475095 instance=ExtResource("dec_alfombra")]
+transform = Transform3D(-1.09278474e-07, 0, 2.5, 0, 2.5, 0, -2.5, 0, -1.09278474e-07, 9.776, 0.08, -1.072)
+
+[node name="FilaEntrada2" parent="Decoraciones" unique_id=1140284140 instance=ExtResource("fila_entrada")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06437278, 3.236353)
+
+[node name="Planta" parent="." unique_id=747916566 instance=ExtResource("model_planta")]
+transform = Transform3D(-12.633538, 0, 8.086637, 0, 14.999999, 0, -8.086637, 0, -12.633538, 14.273748, 0.08849186, 11.309066)
+
+[node name="Planta2" parent="." unique_id=972185923 instance=ExtResource("model_planta")]
+transform = Transform3D(-5.8715663, 0, 13.803069, 0, 15, 0, -13.803069, 0, -5.8715663, -14.244908, 0.05714929, 11.225119)
+
+[node name="Planta3" parent="." unique_id=1301386132 instance=ExtResource("model_planta")]
+transform = Transform3D(-10.152754, 0, 11.041811, 0, 15, 0, -11.041811, 0, -10.152754, -14.342627, 0.06956351, -11.197682)
+
+[node name="Planta4" parent="." unique_id=1664497186 instance=ExtResource("model_planta")]
+transform = Transform3D(4.940662, 0, 14.162972, 0, 14.999999, 0, -14.162972, 0, 4.940662, 14.050542, 0.14462143, -11.332388)
+
+[node name="IluminacionSala" parent="." unique_id=2042702855 instance=ExtResource("iluminacion_sala")]
+
+[node name="Mesa1" parent="." unique_id=1079570919 instance=ExtResource("mesa_sillas")]
+transform = Transform3D(1.2552679, 0, 0.33808625, 0, 1.3, 0, -0.33808625, 0, 1.2552679, -9.290143, 0, -4.228816)
+
+[node name="Mesa2" parent="." unique_id=1407159466 instance=ExtResource("mesa_sillas")]
+transform = Transform3D(0.91607267, 0, 0.922394, 0, 1.3, 0, -0.922394, 0, 0.91607267, -6.2132792, 0, -4.648241)
+
+[node name="Mesa3" parent="." unique_id=1659728701 instance=ExtResource("mesa_sillas")]
+transform = Transform3D(1.2011214, 0, -0.4972998, 0, 1.3, 0, 0.4972998, 0, 1.2011214, -7.188649, 0, -10.130861)
+
+[node name="Mesa4" parent="." unique_id=784699086 instance=ExtResource("mesa_sillas")]
+transform = Transform3D(1.2168933, 0, 0.45735162, 0, 1.3, 0, -0.45735162, 0, 1.2168933, -4.352983, 0, -7.547188)
+
+[node name="Mesa5" parent="." unique_id=86657512 instance=ExtResource("mesa_sillas")]
+transform = Transform3D(1.0434732, 0, 0.77534735, 0, 1.3, 0, -0.77534735, 0, 1.0434732, -9.8559265, 0, -7.7908835)

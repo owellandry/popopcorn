@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://doev481m8fagm"]
+
+[ext_resource type="Texture2D" uid="uid://bkboasdvrvsh0" path="res://textures/cuerda/Carpet015_1K-JPG_Color.jpg" id="tex_cuerda_color"]
+[ext_resource type="Texture2D" uid="uid://diblpmxja7qqx" path="res://textures/cuerda/Carpet015_1K-JPG_NormalGL.jpg" id="tex_cuerda_normal"]
+[ext_resource type="Texture2D" uid="uid://jf8ddedi7urb" path="res://textures/cuerda/Carpet015_1K-JPG_Roughness.jpg" id="tex_cuerda_roughness"]
+
+[sub_resource type="StandardMaterial3D" id="mat_cuerda"]
+albedo_color = Color(0.84876955, 0.29959196, 0.29001042, 1)
+albedo_texture = ExtResource("tex_cuerda_color")
+metallic = 0.1
+roughness = 0.85
+roughness_texture = ExtResource("tex_cuerda_roughness")
+normal_enabled = true
+normal_texture = ExtResource("tex_cuerda_normal")
+uv1_scale = Vector3(10, 10, 10)
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="mesh_cuerda"]
+material = SubResource("mat_cuerda")
+size = Vector3(1, 0.03, 0.006)
+
+[sub_resource type="BoxShape3D" id="shape_cuerda"]
+size = Vector3(1, 0.03, 0.006)
+
+[node name="CuerdaPoste" type="Node3D" unique_id=1597515371]
+transform = Transform3D(1.6915882, 0, 0, 0, 1.3187797, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="." unique_id=2013754630]
+transform = Transform3D(1.0000001, 0, 0, 0, 1.5642151, 0, 0, 0, 1, 0.0023635926, 0.03002423, 0)
+mesh = SubResource("mesh_cuerda")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Mesh" unique_id=1047002908]
+
+[node name="Col" type="CollisionShape3D" parent="Mesh/StaticBody3D"]
+shape = SubResource("shape_cuerda")

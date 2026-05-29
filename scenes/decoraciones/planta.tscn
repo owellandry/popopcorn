@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bplanta00001"]
+
+[ext_resource type="PackedScene" uid="uid://cf6pqedxljqbg" path="res://models/planta.glb" id="model_planta"]
+
+[sub_resource type="BoxShape3D" id="shape_planta"]
+size = Vector3(0.18, 0.13, 0.18)
+
+[node name="Planta" type="StaticBody3D" unique_id=1234594932]
+
+[node name="Modelo" parent="." unique_id=687139756 instance=ExtResource("model_planta")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+
+[node name="Col" type="CollisionShape3D" parent="." unique_id=703792081]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0648706, 0)
+shape = SubResource("shape_planta")

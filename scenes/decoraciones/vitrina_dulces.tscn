@@ -1,0 +1,124 @@
+[gd_scene load_steps=5 format=3 uid="uid://bvitrina0001"]
+
+[sub_resource type="StandardMaterial3D" id="mat_frame"]
+albedo_color = Color(0.3, 0.3, 0.3, 1)
+metallic = 0.6
+roughness = 0.3
+
+[sub_resource type="StandardMaterial3D" id="mat_glass"]
+transparency = 1
+albedo_color = Color(0.9, 0.95, 1, 0.2)
+metallic = 0.1
+roughness = 0.02
+
+[sub_resource type="StandardMaterial3D" id="mat_shelf"]
+albedo_color = Color(0.25, 0.25, 0.28, 1)
+metallic = 0.4
+
+[sub_resource type="StandardMaterial3D" id="mat_candy"]
+albedo_color = Color(0.9, 0.3, 0.2, 1)
+
+[sub_resource type="StandardMaterial3D" id="mat_candy2"]
+albedo_color = Color(0.2, 0.5, 0.9, 1)
+
+[sub_resource type="StandardMaterial3D" id="mat_candy3"]
+albedo_color = Color(0.9, 0.8, 0.1, 1)
+
+[sub_resource type="BoxMesh" id="mesh_frame_back"]
+size = Vector3(1.2, 1.8, 0.05)
+material = SubResource("mat_frame")
+
+[sub_resource type="BoxMesh" id="mesh_side"]
+size = Vector3(0.05, 1.8, 0.5)
+material = SubResource("mat_frame")
+
+[sub_resource type="BoxMesh" id="mesh_top"]
+size = Vector3(1.2, 0.05, 0.5)
+material = SubResource("mat_frame")
+
+[sub_resource type="BoxMesh" id="mesh_shelf"]
+size = Vector3(1.1, 0.03, 0.45)
+material = SubResource("mat_shelf")
+
+[sub_resource type="BoxMesh" id="mesh_glass_front"]
+size = Vector3(1.1, 1.75, 0.02)
+material = SubResource("mat_glass")
+
+[sub_resource type="BoxMesh" id="mesh_candy_box"]
+size = Vector3(0.3, 0.2, 0.15)
+material = SubResource("mat_candy")
+
+[sub_resource type="BoxMesh" id="mesh_candy_box2"]
+size = Vector3(0.3, 0.2, 0.15)
+material = SubResource("mat_candy2")
+
+[sub_resource type="BoxMesh" id="mesh_candy_box3"]
+size = Vector3(0.3, 0.2, 0.15)
+material = SubResource("mat_candy3")
+
+[sub_resource type="BoxShape3D" id="shape_vitrina"]
+size = Vector3(1.2, 1.8, 0.5)
+
+[node name="Vitrina" type="StaticBody3D"]
+
+[node name="Back" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, -0.225)
+mesh = SubResource("mesh_frame_back")
+
+[node name="Left" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.575, 0.9, 0)
+mesh = SubResource("mesh_side")
+
+[node name="Right" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.575, 0.9, 0)
+mesh = SubResource("mesh_side")
+
+[node name="Top" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
+mesh = SubResource("mesh_top")
+
+[node name="Shelf1" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+mesh = SubResource("mesh_shelf")
+
+[node name="Shelf2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
+mesh = SubResource("mesh_shelf")
+
+[node name="Glass" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0.24)
+mesh = SubResource("mesh_glass_front")
+
+[node name="Candy1" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0.72, 0)
+mesh = SubResource("mesh_candy_box")
+
+[node name="Candy2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.72, 0)
+mesh = SubResource("mesh_candy_box2")
+
+[node name="Candy3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.72, 0)
+mesh = SubResource("mesh_candy_box3")
+
+[node name="Candy4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 1.32, 0)
+mesh = SubResource("mesh_candy_box3")
+
+[node name="Candy5" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.32, 0)
+mesh = SubResource("mesh_candy_box")
+
+[node name="Candy6" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 1.32, 0)
+mesh = SubResource("mesh_candy_box2")
+
+[node name="Luz" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0.1)
+light_energy = 0.6
+omni_range = 1.0
+shadow_enabled = true
+
+[node name="Col" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("shape_vitrina")

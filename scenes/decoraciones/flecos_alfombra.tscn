@@ -1,0 +1,111 @@
+[gd_scene format=3 uid="uid://bflecos00001"]
+
+[sub_resource type="StandardMaterial3D" id="mat_fleco"]
+albedo_color = Color(0.75, 0.1, 0.1, 1)
+roughness = 0.9
+cull_mode = 2
+
+[sub_resource type="BoxMesh" id="mesh_tira"]
+size = Vector3(0.015, 0.08, 0.003)
+
+[node name="FlecosAlfombra" type="Node3D"]
+
+[node name="T1" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.04, 0)
+mesh = SubResource("mesh_tira")
+surface_material_override/0 = SubResource("mat_fleco")
+
+[node name="T2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.03, -0.04, 0)
+mesh = SubResource("mesh_tira")
+surface_material_override/0 = SubResource("mat_fleco")
+
+[node name="T3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06, -0.04, 0)
+mesh = SubResource("mesh_tira")
+surface_material_override/0 = SubResource("mat_fleco")
+
+[node name="T4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09, -0.04, 0)
+mesh = SubResource("mesh_tira")
+surface_material_override/0 = SubResource("mat_fleco")
+
+[node name="T5" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12, -0.04, 0)
+mesh = SubResource("mesh_tira")
+surface_material_override/0 = SubResource("mat_fleco")
+
+[node name="T6" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15, -0.04, 0)
+mesh = SubResource("mesh_tira")
+surface_material_override/0 = SubResource("mat_fleco")
+
+[node name="T7" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18, -0.04, 0)
+mesh = SubResource("mesh_tira")
+surface_material_override/0 = SubResource("mat_fleco")
+
+[node name="T8" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.21, -0.04, 0)
+mesh = SubResource("mesh_tira")
+surface_material_override/0 = SubResource("mat_fleco")
+
+[node name="T9" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24, -0.04, 0)
+mesh = SubResource("mesh_tira")
+surface_material_override/0 = SubResource("mat_fleco")
+
+[node name="T10" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.27, -0.04, 0)
+mesh = SubResource("mesh_tira")
+surface_material_override/0 = SubResource("mat_fleco")
+
+[node name="T11" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.30, -0.04, 0)
+mesh = SubResource("mesh_tira")
+surface_material_override/0 = SubResource("mat_fleco")
+
+[node name="T12" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.33, -0.04, 0)
+mesh = SubResource("mesh_tira")
+surface_material_override/0 = SubResource("mat_fleco")
+
+[node name="T13" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.36, -0.04, 0)
+mesh = SubResource("mesh_tira")
+surface_material_override/0 = SubResource("mat_fleco")
+
+[node name="T14" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.39, -0.04, 0)
+mesh = SubResource("mesh_tira")
+surface_material_override/0 = SubResource("mat_fleco")
+
+[node name="T15" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.42, -0.04, 0)
+mesh = SubResource("mesh_tira")
+surface_material_override/0 = SubResource("mat_fleco")
+
+[node name="T16" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45, -0.04, 0)
+mesh = SubResource("mesh_tira")
+surface_material_override/0 = SubResource("mat_fleco")
+
+[node name="T17" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.48, -0.04, 0)
+mesh = SubResource("mesh_tira")
+surface_material_override/0 = SubResource("mat_fleco")
+
+[node name="T18" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.51, -0.04, 0)
+mesh = SubResource("mesh_tira")
+surface_material_override/0 = SubResource("mat_fleco")
+
+[node name="T19" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.54, -0.04, 0)
+mesh = SubResource("mesh_tira")
+surface_material_override/0 = SubResource("mat_fleco")
+
+[node name="T20" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.57, -0.04, 0)
+mesh = SubResource("mesh_tira")
+surface_material_override/0 = SubResource("mat_fleco")

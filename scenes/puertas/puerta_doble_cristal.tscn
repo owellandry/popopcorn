@@ -1,0 +1,206 @@
+[gd_scene format=3 uid="uid://vvlgmqr7o37a"]
+
+[ext_resource type="Script" uid="uid://cg5p2lrfvsw0l" path="res://scripts/puerta_doble.gd" id="script_puerta_doble"]
+
+[sub_resource type="StandardMaterial3D" id="mat_aluminio"]
+albedo_color = Color(0.12, 0.12, 0.14, 1)
+metallic = 0.8
+roughness = 0.3
+
+[sub_resource type="BoxMesh" id="mesh_marco_lat"]
+material = SubResource("mat_aluminio")
+size = Vector3(0.06, 3.5, 0.25)
+
+[sub_resource type="BoxMesh" id="mesh_marco_sup"]
+material = SubResource("mat_aluminio")
+size = Vector3(2.21, 0.06, 0.25)
+
+[sub_resource type="StandardMaterial3D" id="mat_vidrio"]
+transparency = 1
+cull_mode = 2
+albedo_color = Color(0.75, 0.88, 0.95, 0.15)
+metallic = 0.5
+roughness = 0.0
+
+[sub_resource type="BoxMesh" id="mesh_vidrio"]
+material = SubResource("mat_vidrio")
+uv2_padding = 10.0
+size = Vector3(1.005, 3.34, 0.012)
+
+[sub_resource type="BoxMesh" id="mesh_submarco_vert"]
+material = SubResource("mat_aluminio")
+size = Vector3(0.04, 3.38, 0.04)
+
+[sub_resource type="BoxMesh" id="mesh_submarco_hor"]
+material = SubResource("mat_aluminio")
+size = Vector3(0.965, 0.04, 0.04)
+
+[sub_resource type="StandardMaterial3D" id="mat_manilla"]
+albedo_color = Color(0.8, 0.8, 0.82, 1)
+metallic = 0.95
+roughness = 0.15
+
+[sub_resource type="BoxMesh" id="mesh_manilla_barra"]
+material = SubResource("mat_manilla")
+size = Vector3(0.02, 0.4, 0.02)
+
+[sub_resource type="BoxMesh" id="mesh_manilla_soporte"]
+material = SubResource("mat_manilla")
+size = Vector3(0.015, 0.015, 0.04)
+
+[sub_resource type="BoxShape3D" id="shape_col_hoja"]
+size = Vector3(1.045, 3.38, 0.04)
+
+[sub_resource type="BoxShape3D" id="shape_interaccion"]
+size = Vector3(2.21, 3.5, 0.5)
+
+[node name="PuertaDobleCristal" type="Node3D" unique_id=-2089934592]
+script = ExtResource("script_puerta_doble")
+
+[node name="Marco" type="Node3D" parent="." unique_id=-2089934591]
+
+[node name="MarcoIzq" type="MeshInstance3D" parent="Marco" unique_id=-2089934590]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.105, 1.75, 0)
+mesh = SubResource("mesh_marco_lat")
+
+[node name="MarcoDer" type="MeshInstance3D" parent="Marco" unique_id=-2089934589]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.105, 1.75, 0)
+mesh = SubResource("mesh_marco_lat")
+
+[node name="MarcoSup" type="MeshInstance3D" parent="Marco" unique_id=-2089934588]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.47, 0)
+mesh = SubResource("mesh_marco_sup")
+
+[node name="PivotIzq" type="Node3D" parent="." unique_id=-2089934587]
+transform = Transform3D(1.0351655, 0, 0, 0, 1.008403, 0, 0, 0, 1, -1.075, 0.036, 0)
+
+[node name="Vidrio" type="MeshInstance3D" parent="PivotIzq" unique_id=-2089934586]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5225, 1.69, 0)
+mesh = SubResource("mesh_vidrio")
+
+[node name="SubMarcoVertIzq" type="MeshInstance3D" parent="PivotIzq" unique_id=-2089934585]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.02, 1.69, 0)
+mesh = SubResource("mesh_submarco_vert")
+
+[node name="SubMarcoVertDer" type="MeshInstance3D" parent="PivotIzq" unique_id=-2089934584]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.025, 1.69, 0)
+mesh = SubResource("mesh_submarco_vert")
+
+[node name="SubMarcoHorInf" type="MeshInstance3D" parent="PivotIzq" unique_id=-2089934583]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5225, 0.02, 0)
+mesh = SubResource("mesh_submarco_hor")
+
+[node name="SubMarcoHorSup" type="MeshInstance3D" parent="PivotIzq" unique_id=-2089934582]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5225, 3.36, 0)
+mesh = SubResource("mesh_submarco_hor")
+
+[node name="ManillaFront" type="MeshInstance3D" parent="PivotIzq" unique_id=-2089934581]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.95, 1.5, 0.05)
+mesh = SubResource("mesh_manilla_barra")
+
+[node name="ManillaFrontSoporte1" type="MeshInstance3D" parent="PivotIzq" unique_id=-2089934580]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.95, 1.65, 0.02)
+mesh = SubResource("mesh_manilla_soporte")
+
+[node name="ManillaFrontSoporte2" type="MeshInstance3D" parent="PivotIzq" unique_id=-2089934579]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.95, 1.35, 0.02)
+mesh = SubResource("mesh_manilla_soporte")
+
+[node name="ManillaBack" type="MeshInstance3D" parent="PivotIzq" unique_id=-2089934578]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.95, 1.5, -0.05)
+mesh = SubResource("mesh_manilla_barra")
+
+[node name="ManillaBackSoporte1" type="MeshInstance3D" parent="PivotIzq" unique_id=-2089934577]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.95, 1.65, -0.02)
+mesh = SubResource("mesh_manilla_soporte")
+
+[node name="ManillaBackSoporte2" type="MeshInstance3D" parent="PivotIzq" unique_id=-2089934576]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.95, 1.35, -0.02)
+mesh = SubResource("mesh_manilla_soporte")
+
+[node name="CuerpoFisico" type="StaticBody3D" parent="PivotIzq" unique_id=-2089934575]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5225, 1.69, 0)
+
+[node name="ColHoja" type="CollisionShape3D" parent="PivotIzq/CuerpoFisico" unique_id=-2089934574]
+shape = SubResource("shape_col_hoja")
+
+[node name="AreaInteraccion" type="Area3D" parent="PivotIzq" unique_id=-2089934569]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5225, 1.69, 0)
+
+[node name="ColArea" type="CollisionShape3D" parent="PivotIzq/AreaInteraccion" unique_id=-2089934568]
+transform = Transform3D(0.4514194, 0, 0, 0, 0.9823399, 0, 0, 0, 0.22428083, 0, 0.030195475, 0)
+shape = SubResource("shape_interaccion")
+
+[node name="PivotDer" type="Node3D" parent="." unique_id=-2089934573]
+transform = Transform3D(1.0348318, 0, 0, 0, 1.0083287, 0, 0, 0, 1, 1.075, 0.03632939, 0)
+
+[node name="Vidrio" type="MeshInstance3D" parent="PivotDer" unique_id=-2089934572]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5225, 1.69, 0)
+mesh = SubResource("mesh_vidrio")
+
+[node name="SubMarcoVertIzq" type="MeshInstance3D" parent="PivotDer" unique_id=-2089934571]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.02, 1.69, 0)
+mesh = SubResource("mesh_submarco_vert")
+
+[node name="SubMarcoVertDer" type="MeshInstance3D" parent="PivotDer" unique_id=-2089934570]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.025, 1.69, 0)
+mesh = SubResource("mesh_submarco_vert")
+
+[node name="SubMarcoHorInf" type="MeshInstance3D" parent="PivotDer" unique_id=693967572]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5225, 0.02, 0)
+mesh = SubResource("mesh_submarco_hor")
+
+[node name="SubMarcoHorSup" type="MeshInstance3D" parent="PivotDer" unique_id=1101424237]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5225, 3.36, 0)
+mesh = SubResource("mesh_submarco_hor")
+
+[node name="ManillaFront" type="MeshInstance3D" parent="PivotDer" unique_id=-2089934567]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.95, 1.5, 0.05)
+mesh = SubResource("mesh_manilla_barra")
+
+[node name="ManillaFrontSoporte1" type="MeshInstance3D" parent="PivotDer" unique_id=-2089934566]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.95, 1.65, 0.02)
+mesh = SubResource("mesh_manilla_soporte")
+
+[node name="ManillaFrontSoporte2" type="MeshInstance3D" parent="PivotDer" unique_id=-2089934565]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.95, 1.35, 0.02)
+mesh = SubResource("mesh_manilla_soporte")
+
+[node name="ManillaBack" type="MeshInstance3D" parent="PivotDer" unique_id=-2089934564]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.95, 1.5, -0.05)
+mesh = SubResource("mesh_manilla_barra")
+
+[node name="ManillaBackSoporte1" type="MeshInstance3D" parent="PivotDer" unique_id=-2089934563]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.95, 1.65, -0.02)
+mesh = SubResource("mesh_manilla_soporte")
+
+[node name="ManillaBackSoporte2" type="MeshInstance3D" parent="PivotDer" unique_id=-2089934562]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.95, 1.35, -0.02)
+mesh = SubResource("mesh_manilla_soporte")
+
+[node name="CuerpoFisico" type="StaticBody3D" parent="PivotDer" unique_id=-2089934561]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5225, 1.69, 0)
+
+[node name="ColHoja" type="CollisionShape3D" parent="PivotDer/CuerpoFisico" unique_id=-2089934560]
+shape = SubResource("shape_col_hoja")
+
+[node name="AreaInteraccion" type="Area3D" parent="PivotDer" unique_id=-2089934559]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5225, 1.69, 0)
+
+[node name="ColArea" type="CollisionShape3D" parent="PivotDer/AreaInteraccion" unique_id=-2089934558]
+transform = Transform3D(0.46502903, 0, 0, 0, 0.9832502, 0, 0, 0, 0.23003942, 0, 0.03422594, 0)
+shape = SubResource("shape_interaccion")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=-2089934557]
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=-2089934556]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -60.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Presiona E para abrir"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -1,0 +1,181 @@
+[gd_scene format=3 uid="uid://bparking0001"]
+
+[ext_resource type="Texture2D" uid="uid://6es0jirmhf43" path="res://textures/piso_exterior/Concrete032_1K-PNG_Color.png" id="tex_concrete_color"]
+[ext_resource type="Texture2D" uid="uid://cj0ip2m30nery" path="res://textures/piso_exterior/Concrete032_1K-PNG_NormalGL.png" id="tex_concrete_normal"]
+[ext_resource type="Texture2D" uid="uid://djb56jklxcwoc" path="res://textures/piso_exterior/Concrete032_1K-PNG_Roughness.png" id="tex_concrete_roughness"]
+
+[sub_resource type="BoxMesh" id="mesh_piso_parking"]
+size = Vector3(40, 0.1, 30)
+
+[sub_resource type="StandardMaterial3D" id="mat_asfalto"]
+albedo_color = Color(0.3, 0.3, 0.32, 1)
+albedo_texture = ExtResource("tex_concrete_color")
+roughness = 0.9
+roughness_texture = ExtResource("tex_concrete_roughness")
+normal_enabled = true
+normal_texture = ExtResource("tex_concrete_normal")
+uv1_scale = Vector3(0.2, 0.2, 0.2)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="BoxShape3D" id="shape_piso_parking"]
+size = Vector3(40, 0.1, 30)
+
+[sub_resource type="BoxMesh" id="mesh_linea"]
+size = Vector3(0.12, 0.02, 5)
+
+[sub_resource type="StandardMaterial3D" id="mat_lineas"]
+albedo_color = Color(0.9, 0.9, 0.9, 1)
+roughness = 0.7
+
+[sub_resource type="BoxMesh" id="mesh_poste"]
+size = Vector3(0.15, 5, 0.15)
+
+[sub_resource type="StandardMaterial3D" id="mat_poste_luz"]
+albedo_color = Color(0.3, 0.3, 0.32, 1)
+metallic = 0.6
+roughness = 0.4
+
+[sub_resource type="BoxMesh" id="mesh_lampara"]
+size = Vector3(0.8, 0.1, 0.4)
+
+[sub_resource type="CylinderShape3D" id="shape_poste"]
+height = 5.0
+radius = 0.1
+
+[node name="Parking" type="Node3D" unique_id=570646189]
+
+[node name="Piso" type="StaticBody3D" parent="." unique_id=1593312223]
+
+[node name="Mesh" type="MeshInstance3D" parent="Piso" unique_id=1211050770]
+mesh = SubResource("mesh_piso_parking")
+surface_material_override/0 = SubResource("mat_asfalto")
+
+[node name="Col" type="CollisionShape3D" parent="Piso" unique_id=2093834116]
+shape = SubResource("shape_piso_parking")
+
+[node name="Lineas" type="Node3D" parent="." unique_id=1200309492]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.040413316, 0)
+
+[node name="L1" type="MeshInstance3D" parent="Lineas" unique_id=562570688]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, -5)
+mesh = SubResource("mesh_linea")
+surface_material_override/0 = SubResource("mat_lineas")
+
+[node name="L2" type="MeshInstance3D" parent="Lineas" unique_id=2024780377]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, 0, -5)
+mesh = SubResource("mesh_linea")
+surface_material_override/0 = SubResource("mat_lineas")
+
+[node name="L3" type="MeshInstance3D" parent="Lineas" unique_id=1403961888]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -5)
+mesh = SubResource("mesh_linea")
+surface_material_override/0 = SubResource("mat_lineas")
+
+[node name="L4" type="MeshInstance3D" parent="Lineas" unique_id=1569106362]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 0, -5)
+mesh = SubResource("mesh_linea")
+surface_material_override/0 = SubResource("mat_lineas")
+
+[node name="L5" type="MeshInstance3D" parent="Lineas" unique_id=2092873671]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -5)
+mesh = SubResource("mesh_linea")
+surface_material_override/0 = SubResource("mat_lineas")
+
+[node name="L6" type="MeshInstance3D" parent="Lineas" unique_id=229051869]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -5)
+mesh = SubResource("mesh_linea")
+surface_material_override/0 = SubResource("mat_lineas")
+
+[node name="L7" type="MeshInstance3D" parent="Lineas" unique_id=454330497]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, -5)
+mesh = SubResource("mesh_linea")
+surface_material_override/0 = SubResource("mat_lineas")
+
+[node name="L8" type="MeshInstance3D" parent="Lineas" unique_id=1438471017]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -5)
+mesh = SubResource("mesh_linea")
+surface_material_override/0 = SubResource("mat_lineas")
+
+[node name="L9" type="MeshInstance3D" parent="Lineas" unique_id=77737343]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, -5)
+mesh = SubResource("mesh_linea")
+surface_material_override/0 = SubResource("mat_lineas")
+
+[node name="L10" type="MeshInstance3D" parent="Lineas" unique_id=2106950023]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, -5)
+mesh = SubResource("mesh_linea")
+surface_material_override/0 = SubResource("mat_lineas")
+
+[node name="Postes" type="Node3D" parent="." unique_id=998161302]
+
+[node name="Poste1" type="StaticBody3D" parent="Postes" unique_id=1322098766]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="Postes/Poste1" unique_id=1129672542]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+mesh = SubResource("mesh_poste")
+surface_material_override/0 = SubResource("mat_poste_luz")
+
+[node name="Lampara" type="MeshInstance3D" parent="Postes/Poste1" unique_id=675671496]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+mesh = SubResource("mesh_lampara")
+surface_material_override/0 = SubResource("mat_poste_luz")
+
+[node name="Luz" type="OmniLight3D" parent="Postes/Poste1" unique_id=157011707]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.8, 0)
+light_color = Color(1, 0.9, 0.7, 1)
+light_energy = 2.0
+shadow_enabled = true
+omni_range = 12.0
+
+[node name="Col" type="CollisionShape3D" parent="Postes/Poste1" unique_id=1630647372]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+shape = SubResource("shape_poste")
+
+[node name="Poste2" type="StaticBody3D" parent="Postes" unique_id=1854032543]
+
+[node name="Mesh" type="MeshInstance3D" parent="Postes/Poste2" unique_id=617485834]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+mesh = SubResource("mesh_poste")
+surface_material_override/0 = SubResource("mat_poste_luz")
+
+[node name="Lampara" type="MeshInstance3D" parent="Postes/Poste2" unique_id=962503480]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+mesh = SubResource("mesh_lampara")
+surface_material_override/0 = SubResource("mat_poste_luz")
+
+[node name="Luz" type="OmniLight3D" parent="Postes/Poste2" unique_id=1412130440]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.8, 0)
+light_color = Color(1, 0.9, 0.7, 1)
+light_energy = 2.0
+shadow_enabled = true
+omni_range = 12.0
+
+[node name="Col" type="CollisionShape3D" parent="Postes/Poste2" unique_id=363420871]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+shape = SubResource("shape_poste")
+
+[node name="Poste3" type="StaticBody3D" parent="Postes" unique_id=2009279016]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="Postes/Poste3" unique_id=501252872]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+mesh = SubResource("mesh_poste")
+surface_material_override/0 = SubResource("mat_poste_luz")
+
+[node name="Lampara" type="MeshInstance3D" parent="Postes/Poste3" unique_id=1855866501]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+mesh = SubResource("mesh_lampara")
+surface_material_override/0 = SubResource("mat_poste_luz")
+
+[node name="Luz" type="OmniLight3D" parent="Postes/Poste3" unique_id=1890088511]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.8, 0)
+light_color = Color(1, 0.9, 0.7, 1)
+light_energy = 2.0
+shadow_enabled = true
+omni_range = 12.0
+
+[node name="Col" type="CollisionShape3D" parent="Postes/Poste3" unique_id=103650980]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+shape = SubResource("shape_poste")

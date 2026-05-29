@@ -1,0 +1,224 @@
+[gd_scene format=3 uid="uid://cmknuc1sokou8"]
+
+[ext_resource type="Script" uid="uid://bsij1h8qc0xj0" path="res://scenes/menu/menu_principal.gd" id="1_script"]
+[ext_resource type="FontFile" uid="uid://bab2aklqec7ul" path="res://fonts/TitanOne-Regular.ttf" id="font_titan"]
+[ext_resource type="PackedScene" uid="uid://c3y507dfyo70v" path="res://scenes/menu/objetos_menu.tscn" id="objetos_scene"]
+
+[sub_resource type="Environment" id="env_menu"]
+background_mode = 1
+background_color = Color(0.043137256, 0.69411767, 0.6117647, 1)
+ambient_light_source = 2
+ambient_light_energy = 2.0
+glow_enabled = true
+glow_intensity = 0.5
+glow_bloom = 0.25
+
+[sub_resource type="PlaneMesh" id="blur_mesh"]
+size = Vector2(1, 1)
+orientation = 2
+
+[sub_resource type="StandardMaterial3D" id="blur_material"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.23137255)
+
+[sub_resource type="LabelSettings" id="title_settings"]
+font = ExtResource("font_titan")
+font_size = 180
+outline_size = 12
+outline_color = Color(0.9, 0.55, 0, 1)
+shadow_size = 8
+shadow_color = Color(0.6, 0, 0.03, 1)
+shadow_offset = Vector2(0, 6)
+
+[sub_resource type="LabelSettings" id="title_o_settings"]
+font = ExtResource("font_titan")
+font_size = 180
+font_color = Color(1, 0.8, 0, 0.9)
+outline_size = 12
+outline_color = Color(0.9, 0.55, 0, 1)
+shadow_size = 8
+shadow_color = Color(0.6, 0, 0.03, 1)
+shadow_offset = Vector2(0, 6)
+
+[sub_resource type="LabelSettings" id="subtitle_settings"]
+font = ExtResource("font_titan")
+font_size = 40
+font_color = Color(1, 0.8, 0, 0.9)
+outline_size = 6
+outline_color = Color(0.9, 0.55, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="style_btn_empty"]
+
+[sub_resource type="StyleBoxEmpty" id="style_btn_empty_hover"]
+
+[node name="MenuPrincipal" type="Node3D" unique_id=1262410866]
+script = ExtResource("1_script")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1490426833]
+environment = SubResource("env_menu")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=165104823]
+transform = Transform3D(1, 0, 0, 0, 0.8711624, -0.490995, 0, 0.490995, 0.8711624, 0.11496806, -1.8810687, 4.902609)
+fov = 39.374996
+
+[node name="BlurPlane" type="MeshInstance3D" parent="Camera3D" unique_id=1392144786]
+transform = Transform3D(12, 0, 0, 0, 8, 0, 0, 0, 1, 0, -0.48050094, -0.5910425)
+mesh = SubResource("blur_mesh")
+surface_material_override/0 = SubResource("blur_material")
+
+[node name="Objetos" parent="." unique_id=182807756 instance=ExtResource("objetos_scene")]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, -0.70710677, 0, 0.70710677, 0.70710677, 0, 1.4662395, 0.06730467)
+
+[node name="LuzPrincipal" type="OmniLight3D" parent="." unique_id=918485280]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.60421634, -1.4584419, 4.7293096)
+light_color = Color(1, 0.48235294, 0, 1)
+light_energy = 1.5
+omni_range = 30.0
+
+[node name="SpotLight" type="SpotLight3D" parent="." unique_id=1543767884]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0.07583618, 0.035461187, 15.95618)
+light_energy = 2.0
+spot_range = 16.06987
+spot_angle = 7.89366
+
+[node name="LuzSecundaria" type="OmniLight3D" parent="." unique_id=1314904732]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6213752, -1.3645191, 4.675793)
+light_color = Color(0, 0, 0, 1)
+light_energy = 6.0
+omni_range = 25.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1963192969]
+
+[node name="UI" type="Control" parent="CanvasLayer" unique_id=1656079550]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitleWrapper" type="VBoxContainer" parent="CanvasLayer/UI" unique_id=1051079120]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -658.0
+offset_top = -87.00003
+offset_right = 511.0
+offset_bottom = 120.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.13296197
+theme_override_constants/separation = 4
+
+[node name="TitleMain" type="HBoxContainer" parent="CanvasLayer/UI/TitleWrapper" unique_id=678306919]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="Part1" type="Label" parent="CanvasLayer/UI/TitleWrapper/TitleMain" unique_id=367268152]
+layout_mode = 2
+text = "POP"
+label_settings = SubResource("title_settings")
+
+[node name="PartO" type="Label" parent="CanvasLayer/UI/TitleWrapper/TitleMain" unique_id=207346251]
+layout_mode = 2
+mouse_behavior_recursive = 2
+text = "O"
+label_settings = SubResource("title_o_settings")
+
+[node name="Part2" type="Label" parent="CanvasLayer/UI/TitleWrapper/TitleMain" unique_id=1056884370]
+layout_mode = 2
+text = "PCORN"
+label_settings = SubResource("title_settings")
+vertical_alignment = 1
+
+[node name="BetaLabel" type="Label" parent="CanvasLayer/UI" unique_id=1520339717]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 490.0
+offset_top = 19.0
+offset_right = 646.0
+offset_bottom = 89.00006
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -1.6929693
+scale = Vector2(1.4610914, 1.4423046)
+text = "BETA"
+label_settings = SubResource("subtitle_settings")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Botones" type="HBoxContainer" parent="CanvasLayer/UI" unique_id=950828488]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.00086805556
+anchor_top = 0.5694444
+anchor_right = 1.0008681
+anchor_bottom = 0.66358024
+offset_top = 3.0517578e-05
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="BtnPuntajes" type="Button" parent="CanvasLayer/UI/Botones" unique_id=301144058]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.8, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 0.9, 0.3, 1)
+theme_override_colors/font_outline_color = Color(0.9, 0.55, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("font_titan")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("style_btn_empty")
+theme_override_styles/pressed = SubResource("style_btn_empty")
+theme_override_styles/hover = SubResource("style_btn_empty_hover")
+theme_override_styles/focus = SubResource("style_btn_empty")
+text = "PUNTAJES"
+
+[node name="BtnJugar" type="Button" parent="CanvasLayer/UI/Botones" unique_id=639361169]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.8, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 0.9, 0.3, 1)
+theme_override_colors/font_outline_color = Color(0.9, 0.55, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("font_titan")
+theme_override_font_sizes/font_size = 52
+theme_override_styles/normal = SubResource("style_btn_empty")
+theme_override_styles/pressed = SubResource("style_btn_empty")
+theme_override_styles/hover = SubResource("style_btn_empty_hover")
+theme_override_styles/focus = SubResource("style_btn_empty")
+text = "JUGAR"
+
+[node name="BtnOpciones" type="Button" parent="CanvasLayer/UI/Botones" unique_id=1032201338]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.8, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 0.9, 0.3, 1)
+theme_override_colors/font_outline_color = Color(0.9, 0.55, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("font_titan")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("style_btn_empty")
+theme_override_styles/pressed = SubResource("style_btn_empty")
+theme_override_styles/hover = SubResource("style_btn_empty_hover")
+theme_override_styles/focus = SubResource("style_btn_empty")
+text = "OPCIONES"
+
+[node name="LuzTrasera" type="OmniLight3D" parent="." unique_id=2037949112]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1218788, -1.5029718, 4.3057084)
+light_energy = 0.5
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+light_specular = 0.0
+light_bake_mode = 1
+omni_range = 20.0
+
+[node name="Objetos2" parent="." unique_id=51713159 instance=ExtResource("objetos_scene")]
+transform = Transform3D(1, 0, 0, 0, 0.7071067, -0.7071067, 0, 0.7071067, 0.7071067, 0.2, 1.672, 0.23605515)

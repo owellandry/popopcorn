@@ -1,0 +1,345 @@
+[gd_scene format=3 uid="uid://bexterior001"]
+
+[ext_resource type="Texture2D" uid="uid://w4s0vm0upc6" path="res://textures/piso_exterior_styrofoam/Styrofoam005_1K-PNG_Color.png" id="tex_styro_color"]
+[ext_resource type="Texture2D" uid="uid://cvlbjq1t6kk6j" path="res://textures/piso_exterior_styrofoam/Styrofoam005_1K-PNG_NormalGL.png" id="tex_styro_normal"]
+[ext_resource type="Texture2D" uid="uid://civyl1s5hhdi" path="res://textures/piso_exterior_styrofoam/Styrofoam005_1K-PNG_Roughness.png" id="tex_styro_roughness"]
+
+[sub_resource type="BoxMesh" id="mesh_fachada_frontal_seg"]
+size = Vector3(10, 8, 0.4)
+
+[sub_resource type="StandardMaterial3D" id="mat_fachada"]
+albedo_color = Color(0.85, 0.82, 0.78, 1)
+roughness = 0.8
+
+[sub_resource type="BoxShape3D" id="shape_fachada_frontal_seg"]
+size = Vector3(10, 8, 0.4)
+
+[sub_resource type="BoxMesh" id="mesh_dintel_puertas"]
+size = Vector3(12, 3, 0.4)
+
+[sub_resource type="BoxShape3D" id="shape_dintel_puertas"]
+size = Vector3(12, 3, 0.4)
+
+[sub_resource type="BoxMesh" id="mesh_pilar_puerta"]
+size = Vector3(0.3, 3.5, 0.4)
+
+[sub_resource type="StandardMaterial3D" id="mat_fachada_acento"]
+albedo_color = Color(0.6, 0.08, 0.08, 1)
+roughness = 0.5
+
+[sub_resource type="BoxShape3D" id="shape_pilar_puerta"]
+size = Vector3(0.3, 3.5, 0.4)
+
+[sub_resource type="BoxMesh" id="mesh_fachada_lateral"]
+size = Vector3(0.4, 8, 40)
+
+[sub_resource type="BoxShape3D" id="shape_fachada_lateral"]
+size = Vector3(0.4, 8, 40)
+
+[sub_resource type="BoxMesh" id="mesh_fachada_frontal"]
+size = Vector3(32, 8, 0.4)
+
+[sub_resource type="BoxShape3D" id="shape_fachada_frontal"]
+size = Vector3(32, 8, 0.4)
+
+[sub_resource type="BoxMesh" id="mesh_techo"]
+size = Vector3(32, 0.3, 40)
+
+[sub_resource type="StandardMaterial3D" id="mat_techo"]
+albedo_color = Color(0.15, 0.15, 0.18, 1)
+metallic = 0.2
+roughness = 0.6
+
+[sub_resource type="BoxShape3D" id="shape_techo"]
+size = Vector3(32, 0.3, 40)
+
+[sub_resource type="BoxMesh" id="mesh_marquesina_frente"]
+size = Vector3(20, 1.5, 0.1)
+
+[sub_resource type="BoxMesh" id="mesh_marquesina"]
+size = Vector3(20, 0.15, 3)
+
+[sub_resource type="StandardMaterial3D" id="mat_marquesina"]
+albedo_color = Color(0.9, 0.75, 0.1, 1)
+emission_enabled = true
+emission = Color(0.9, 0.75, 0.1, 1)
+emission_energy_multiplier = 0.5
+
+[sub_resource type="BoxMesh" id="mesh_pilar_entrada"]
+size = Vector3(0.4, 4, 0.4)
+
+[sub_resource type="BoxMesh" id="mesh_vidrio_puerta"]
+size = Vector3(2.5, 3, 0.05)
+
+[sub_resource type="StandardMaterial3D" id="mat_vidrio"]
+transparency = 1
+albedo_color = Color(0.2, 0.3, 0.4, 0.4)
+metallic = 0.3
+roughness = 0.05
+
+[sub_resource type="BoxMesh" id="mesh_piso"]
+size = Vector3(60, 0.1, 60)
+
+[sub_resource type="StandardMaterial3D" id="mat_piso_exterior"]
+albedo_color = Color(0.5, 0.48, 0.45, 1)
+albedo_texture = ExtResource("tex_styro_color")
+roughness = 0.9
+roughness_texture = ExtResource("tex_styro_roughness")
+normal_enabled = true
+normal_texture = ExtResource("tex_styro_normal")
+uv1_scale = Vector3(400, 400, 400)
+uv1_triplanar_sharpness = 1e-05
+uv1_world_triplanar = true
+
+[sub_resource type="BoxShape3D" id="shape_piso"]
+size = Vector3(60, 0.1, 59.041992)
+
+[sub_resource type="BoxMesh" id="mesh_acera"]
+size = Vector3(36, 0.15, 5)
+
+[sub_resource type="StandardMaterial3D" id="mat_acera"]
+albedo_color = Color(0.6, 0.58, 0.55, 1)
+roughness = 0.85
+
+[sub_resource type="BoxShape3D" id="shape_acera"]
+size = Vector3(36, 0.15, 5)
+
+[sub_resource type="BoxMesh" id="mesh_borde_acera"]
+size = Vector3(36, 0.15, 0.2)
+
+[sub_resource type="StandardMaterial3D" id="mat_borde"]
+albedo_color = Color(0.4, 0.4, 0.4, 1)
+roughness = 0.7
+
+[sub_resource type="BoxShape3D" id="shape_borde_acera"]
+size = Vector3(36, 0.15, 0.2)
+
+[node name="Exterior" type="Node3D" unique_id=837735486]
+
+[node name="Fachada" type="Node3D" parent="." unique_id=1631313121]
+
+[node name="FachadaFrontalIzq" type="StaticBody3D" parent="Fachada" unique_id=1528517179]
+transform = Transform3D(0.6974237, 0, 0, 0, 1, 0, 0, 0, 1, -9.319572, 4, 20)
+
+[node name="Mesh" type="MeshInstance3D" parent="Fachada/FachadaFrontalIzq" unique_id=2107283833]
+mesh = SubResource("mesh_fachada_frontal_seg")
+surface_material_override/0 = SubResource("mat_fachada")
+
+[node name="Col" type="CollisionShape3D" parent="Fachada/FachadaFrontalIzq" unique_id=191159349]
+shape = SubResource("shape_fachada_frontal_seg")
+
+[node name="FachadaFrontalDer" type="StaticBody3D" parent="Fachada" unique_id=1953360461]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 4, 20)
+
+[node name="Mesh" type="MeshInstance3D" parent="Fachada/FachadaFrontalDer" unique_id=2030303466]
+mesh = SubResource("mesh_fachada_frontal_seg")
+surface_material_override/0 = SubResource("mat_fachada")
+
+[node name="Col" type="CollisionShape3D" parent="Fachada/FachadaFrontalDer" unique_id=1884387524]
+shape = SubResource("shape_fachada_frontal_seg")
+
+[node name="DintelPuertas" type="StaticBody3D" parent="Fachada" unique_id=1747398291]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.5, 20)
+
+[node name="Mesh" type="MeshInstance3D" parent="Fachada/DintelPuertas" unique_id=1138719189]
+mesh = SubResource("mesh_dintel_puertas")
+surface_material_override/0 = SubResource("mat_fachada")
+
+[node name="Col" type="CollisionShape3D" parent="Fachada/DintelPuertas" unique_id=829516186]
+shape = SubResource("shape_dintel_puertas")
+
+[node name="PilarP1" type="StaticBody3D" parent="Fachada" unique_id=1418910062]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 1.75, 20)
+
+[node name="Mesh" type="MeshInstance3D" parent="Fachada/PilarP1" unique_id=88796146]
+mesh = SubResource("mesh_pilar_puerta")
+surface_material_override/0 = SubResource("mat_fachada_acento")
+
+[node name="Col" type="CollisionShape3D" parent="Fachada/PilarP1" unique_id=531381232]
+shape = SubResource("shape_pilar_puerta")
+
+[node name="PilarP2" type="StaticBody3D" parent="Fachada" unique_id=795644727]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 1.75, 20)
+
+[node name="Mesh" type="MeshInstance3D" parent="Fachada/PilarP2" unique_id=1472570412]
+mesh = SubResource("mesh_pilar_puerta")
+surface_material_override/0 = SubResource("mat_fachada_acento")
+
+[node name="Col" type="CollisionShape3D" parent="Fachada/PilarP2" unique_id=822053389]
+shape = SubResource("shape_pilar_puerta")
+
+[node name="PilarP3" type="StaticBody3D" parent="Fachada" unique_id=1091040619]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 1.75, 20)
+
+[node name="Mesh" type="MeshInstance3D" parent="Fachada/PilarP3" unique_id=609425673]
+mesh = SubResource("mesh_pilar_puerta")
+surface_material_override/0 = SubResource("mat_fachada_acento")
+
+[node name="Col" type="CollisionShape3D" parent="Fachada/PilarP3" unique_id=1600972008]
+shape = SubResource("shape_pilar_puerta")
+
+[node name="PilarP4" type="StaticBody3D" parent="Fachada" unique_id=544308666]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 1.75, 20)
+
+[node name="Mesh" type="MeshInstance3D" parent="Fachada/PilarP4" unique_id=1731147801]
+mesh = SubResource("mesh_pilar_puerta")
+surface_material_override/0 = SubResource("mat_fachada_acento")
+
+[node name="Col" type="CollisionShape3D" parent="Fachada/PilarP4" unique_id=42226942]
+shape = SubResource("shape_pilar_puerta")
+
+[node name="FachadaIzq" type="StaticBody3D" parent="Fachada" unique_id=794292596]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.085, -96.52795, 4, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="Fachada/FachadaIzq" unique_id=1244959716]
+mesh = SubResource("mesh_fachada_lateral")
+surface_material_override/0 = SubResource("mat_fachada")
+
+[node name="Col" type="CollisionShape3D" parent="Fachada/FachadaIzq" unique_id=599533041]
+shape = SubResource("shape_fachada_lateral")
+
+[node name="FachadaDer" type="StaticBody3D" parent="Fachada" unique_id=1883515284]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.547129, 4, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="Fachada/FachadaDer" unique_id=728754941]
+mesh = SubResource("mesh_fachada_lateral")
+surface_material_override/0 = SubResource("mat_fachada")
+
+[node name="Col" type="CollisionShape3D" parent="Fachada/FachadaDer" unique_id=1972104386]
+shape = SubResource("shape_fachada_lateral")
+
+[node name="FachadaTrasera" type="StaticBody3D" parent="Fachada" unique_id=1492767664]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -20)
+
+[node name="Mesh" type="MeshInstance3D" parent="Fachada/FachadaTrasera" unique_id=208763188]
+mesh = SubResource("mesh_fachada_frontal")
+surface_material_override/0 = SubResource("mat_fachada")
+
+[node name="Col" type="CollisionShape3D" parent="Fachada/FachadaTrasera" unique_id=1396177492]
+shape = SubResource("shape_fachada_frontal")
+
+[node name="Techo" type="StaticBody3D" parent="Fachada" unique_id=1733084199]
+transform = Transform3D(3.4797142, 0, 0, 0, 1, 0, 0, 0, 1, -40.79776, 8.15, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="Fachada/Techo" unique_id=1046765834]
+mesh = SubResource("mesh_techo")
+surface_material_override/0 = SubResource("mat_techo")
+
+[node name="Col" type="CollisionShape3D" parent="Fachada/Techo" unique_id=751839089]
+shape = SubResource("shape_techo")
+
+[node name="AcentoSuperior" type="MeshInstance3D" parent="Fachada" unique_id=28658239]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 20.21)
+mesh = SubResource("mesh_marquesina_frente")
+surface_material_override/0 = SubResource("mat_fachada_acento")
+
+[node name="FachadaFrontalIzq2" type="StaticBody3D" parent="Fachada" unique_id=1343060963]
+transform = Transform3D(-8.0501435e-05, 0, 0.5517807, 0, 1, 0, -0.17741197, 0, -0.00025037286, -12.893204, 4, 20.814245)
+
+[node name="Mesh" type="MeshInstance3D" parent="Fachada/FachadaFrontalIzq2" unique_id=250706673]
+mesh = SubResource("mesh_fachada_frontal_seg")
+surface_material_override/0 = SubResource("mat_fachada")
+
+[node name="Col" type="CollisionShape3D" parent="Fachada/FachadaFrontalIzq2" unique_id=3499693]
+shape = SubResource("shape_fachada_frontal_seg")
+
+[node name="FachadaIzq2" type="StaticBody3D" parent="Fachada" unique_id=1469823662]
+transform = Transform3D(-4.3711385e-08, 0, 2.0873952, 0, 1, 0, -0.99999994, 0, -9.124294e-08, -54.58951, 4, 21.501)
+
+[node name="Mesh" type="MeshInstance3D" parent="Fachada/FachadaIzq2" unique_id=1986492865]
+mesh = SubResource("mesh_fachada_lateral")
+surface_material_override/0 = SubResource("mat_fachada")
+
+[node name="Col" type="CollisionShape3D" parent="Fachada/FachadaIzq2" unique_id=790416805]
+shape = SubResource("shape_fachada_lateral")
+
+[node name="Marquesina" type="Node3D" parent="." unique_id=1898113100]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20)
+
+[node name="Toldo" type="MeshInstance3D" parent="Marquesina" unique_id=975881597]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5, 1.7)
+mesh = SubResource("mesh_marquesina")
+surface_material_override/0 = SubResource("mat_fachada_acento")
+
+[node name="Frente" type="MeshInstance3D" parent="Marquesina" unique_id=1895516288]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 3.1)
+mesh = SubResource("mesh_marquesina_frente")
+surface_material_override/0 = SubResource("mat_marquesina")
+
+[node name="Pilares" type="Node3D" parent="." unique_id=1650442999]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20)
+
+[node name="Pilar1" type="MeshInstance3D" parent="Pilares" unique_id=1086367506]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 2, 2)
+mesh = SubResource("mesh_pilar_entrada")
+surface_material_override/0 = SubResource("mat_fachada_acento")
+
+[node name="Pilar2" type="MeshInstance3D" parent="Pilares" unique_id=2034043470]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 2, 2)
+mesh = SubResource("mesh_pilar_entrada")
+surface_material_override/0 = SubResource("mat_fachada_acento")
+
+[node name="Pilar3" type="MeshInstance3D" parent="Pilares" unique_id=435565952]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 2, 2)
+mesh = SubResource("mesh_pilar_entrada")
+surface_material_override/0 = SubResource("mat_fachada_acento")
+
+[node name="Pilar4" type="MeshInstance3D" parent="Pilares" unique_id=525850249]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 2, 2)
+mesh = SubResource("mesh_pilar_entrada")
+surface_material_override/0 = SubResource("mat_fachada_acento")
+
+[node name="PuertasVidrio" type="Node3D" parent="." unique_id=1973011110]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20.2)
+
+[node name="Vidrio1" type="MeshInstance3D" parent="PuertasVidrio" unique_id=1104106733]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 1.5, 0)
+mesh = SubResource("mesh_vidrio_puerta")
+surface_material_override/0 = SubResource("mat_vidrio")
+
+[node name="Vidrio2" type="MeshInstance3D" parent="PuertasVidrio" unique_id=1217476535]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 1.5, 0)
+mesh = SubResource("mesh_vidrio_puerta")
+surface_material_override/0 = SubResource("mat_vidrio")
+
+[node name="Vidrio3" type="MeshInstance3D" parent="PuertasVidrio" unique_id=1827844135]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 1.5, 0)
+mesh = SubResource("mesh_vidrio_puerta")
+surface_material_override/0 = SubResource("mat_vidrio")
+
+[node name="Vidrio4" type="MeshInstance3D" parent="PuertasVidrio" unique_id=1319407600]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 1.5, 0)
+mesh = SubResource("mesh_vidrio_puerta")
+surface_material_override/0 = SubResource("mat_vidrio")
+
+[node name="PisoExterior" type="StaticBody3D" parent="." unique_id=1156075766]
+transform = Transform3D(5.126543, 0, 0, 0, 1, 0, 0, 0, 3.7865927, 0, -0.05, 131.32135)
+
+[node name="Mesh" type="MeshInstance3D" parent="PisoExterior" unique_id=2129684727]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.9276352)
+mesh = SubResource("mesh_piso")
+surface_material_override/0 = SubResource("mat_piso_exterior")
+
+[node name="Col" type="CollisionShape3D" parent="PisoExterior" unique_id=2673850]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.47901154)
+shape = SubResource("shape_piso")
+
+[node name="Acera" type="StaticBody3D" parent="." unique_id=1630371728]
+transform = Transform3D(0.7143384, 0, 0, 0, 1, 0, 0, 0, 1.0470232, 0, 0.03, 22.570892)
+
+[node name="Mesh" type="MeshInstance3D" parent="Acera" unique_id=264608927]
+mesh = SubResource("mesh_acera")
+surface_material_override/0 = SubResource("mat_acera")
+
+[node name="Col" type="CollisionShape3D" parent="Acera" unique_id=2010970350]
+shape = SubResource("shape_acera")
+
+[node name="BordeAcera" type="StaticBody3D" parent="." unique_id=271643222]
+transform = Transform3D(0.71354735, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08, 25.1)
+
+[node name="Mesh" type="MeshInstance3D" parent="BordeAcera" unique_id=1538975173]
+mesh = SubResource("mesh_borde_acera")
+surface_material_override/0 = SubResource("mat_borde")
+
+[node name="Col" type="CollisionShape3D" parent="BordeAcera" unique_id=410174335]
+shape = SubResource("shape_borde_acera")

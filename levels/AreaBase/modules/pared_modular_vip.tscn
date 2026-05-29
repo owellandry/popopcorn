@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://paredvip001"]
+
+[ext_resource type="Texture2D" uid="uid://bubovgxbpd05c" path="res://textures/concreto_pared_vip/Concrete040_1K-JPG_Color.jpg" id="tex_concrete_color"]
+[ext_resource type="Texture2D" uid="uid://b6okedbjuk8iu" path="res://textures/concreto_pared_vip/Concrete040_1K-JPG_NormalGL.jpg" id="tex_concrete_normal"]
+[ext_resource type="Texture2D" uid="uid://cfowl7oielu3c" path="res://textures/concreto_pared_vip/Concrete040_1K-JPG_Roughness.jpg" id="tex_concrete_rough"]
+[ext_resource type="Texture2D" uid="uid://daev1wcxmgf6x" path="res://textures/piso_lobby/Marble021_1K-PNG_Color.png" id="tex_marble_color"]
+[ext_resource type="Texture2D" uid="uid://cq0qe0bhf2w0j" path="res://textures/piso_lobby/Marble021_1K-PNG_NormalGL.png" id="tex_marble_normal"]
+
+[sub_resource type="BoxShape3D" id="Col_ParedBajaVIP"]
+size = Vector3(20, 1.4, 0.15678711)
+
+[sub_resource type="BoxShape3D" id="Col_ParedAltaVIP"]
+size = Vector3(20, 3.4, 0.15300293)
+
+[sub_resource type="BoxMesh" id="Wall_LowerVIP"]
+size = Vector3(20, 1.4, 0.15)
+
+[sub_resource type="StandardMaterial3D" id="Mat_ParedBajaVIP"]
+albedo_color = Color(1.1, 1.1, 1.1, 1)
+albedo_texture = ExtResource("tex_concrete_color")
+roughness_texture = ExtResource("tex_concrete_rough")
+normal_enabled = true
+normal_texture = ExtResource("tex_concrete_normal")
+uv1_scale = Vector3(0.3, 0.3, 0.3)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="BoxMesh" id="Wall_UpperVIP"]
+size = Vector3(20, 3.4, 0.15)
+
+[sub_resource type="StandardMaterial3D" id="Mat_ParedAltaVIP"]
+albedo_texture = ExtResource("tex_marble_color")
+normal_enabled = true
+normal_texture = ExtResource("tex_marble_normal")
+uv1_scale = Vector3(0.15, 0.15, 0.15)
+uv1_triplanar = true
+uv1_triplanar_sharpness = 0.8
+uv1_world_triplanar = true
+
+[node name="ParedModularVIP" type="Node3D" unique_id=78082053]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1755796649]
+
+[node name="CollisionBaja" type="CollisionShape3D" parent="StaticBody3D" unique_id=1175775590]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, -0.00021972507)
+shape = SubResource("Col_ParedBajaVIP")
+
+[node name="CollisionAlta" type="CollisionShape3D" parent="StaticBody3D" unique_id=1567302882]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.1, -0.0011352524)
+shape = SubResource("Col_ParedAltaVIP")
+
+[node name="ParedBaja" type="MeshInstance3D" parent="." unique_id=832901912]
+transform = Transform3D(1.001, 0, 0, 0, 1, 0, 0, 0, 1.029, 0, 0.7, 0)
+mesh = SubResource("Wall_LowerVIP")
+surface_material_override/0 = SubResource("Mat_ParedBajaVIP")
+
+[node name="ParedAlta" type="MeshInstance3D" parent="." unique_id=1966596196]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.1, 0)
+mesh = SubResource("Wall_UpperVIP")
+surface_material_override/0 = SubResource("Mat_ParedAltaVIP")

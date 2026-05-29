@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://materiales_compartidos_001"]
+
+[ext_resource type="Texture2D" uid="uid://cakcofmd6o3y5" path="res://textures/piso_sala_tiles/Tiles074_1K-PNG_Color.png" id="tex_sala_color"]
+[ext_resource type="Texture2D" uid="uid://bmj8r726osdpw" path="res://textures/piso_sala_tiles/Tiles074_1K-PNG_NormalGL.png" id="tex_sala_normal"]
+[ext_resource type="Texture2D" uid="uid://dqbovq7r5u6og" path="res://textures/piso_sala_tiles/Tiles074_1K-PNG_Roughness.png" id="tex_sala_rough"]
+
+[sub_resource type="StandardMaterial3D" id="Mat_PisoPerimetro"]
+albedo_texture = ExtResource("tex_sala_color")
+roughness_texture = ExtResource("tex_sala_rough")
+normal_enabled = true
+normal_texture = ExtResource("tex_sala_normal")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_triplanar = true
+uv1_triplanar_sharpness = 0.8
+uv1_world_triplanar = true
+
+[node name="MaterialesCompartidos" type="Node3D"]

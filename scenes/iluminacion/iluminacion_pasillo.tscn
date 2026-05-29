@@ -1,0 +1,123 @@
+[gd_scene format=3 uid="uid://bilumpas0001"]
+
+[ext_resource type="PackedScene" path="res://models/lampara.glb" id="model_lampara"]
+
+[node name="IluminacionPasillo" type="Node3D" unique_id=225623818]
+
+[node name="Lampara1" parent="." unique_id=196697222 instance=ExtResource("model_lampara")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -1.2, 3.8, 35)
+
+[node name="Luz1" type="OmniLight3D" parent="Lampara1" unique_id=741963429]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.24, 0)
+light_energy = 2.0
+shadow_enabled = false
+omni_range = 8.0
+omni_attenuation = 0.5
+
+[node name="Lampara2" parent="." unique_id=1597132444 instance=ExtResource("model_lampara")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 1.2, 3.8, 35)
+
+[node name="Luz2" type="OmniLight3D" parent="Lampara2" unique_id=755749823]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.24, 0)
+light_energy = 2.0
+shadow_enabled = false
+omni_range = 8.0
+omni_attenuation = 0.5
+
+[node name="Lampara3" parent="." unique_id=585728526 instance=ExtResource("model_lampara")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -1.2, 3.8, 21)
+
+[node name="Luz3" type="OmniLight3D" parent="Lampara3" unique_id=1480818883]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.24, 0)
+light_energy = 2.0
+shadow_enabled = false
+omni_range = 8.0
+omni_attenuation = 0.5
+
+[node name="Lampara4" parent="." unique_id=1637841860 instance=ExtResource("model_lampara")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 1.2, 3.8, 21)
+
+[node name="Luz4" type="OmniLight3D" parent="Lampara4" unique_id=1118449073]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.24, 0)
+light_energy = 2.0
+shadow_enabled = false
+omni_range = 8.0
+omni_attenuation = 0.5
+
+[node name="Lampara5" parent="." unique_id=687511499 instance=ExtResource("model_lampara")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -1.2, 3.8, 7)
+
+[node name="Luz5" type="OmniLight3D" parent="Lampara5" unique_id=1300181876]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.24, 0)
+light_energy = 2.0
+shadow_enabled = false
+omni_range = 8.0
+omni_attenuation = 0.5
+
+[node name="Lampara6" parent="." unique_id=318358616 instance=ExtResource("model_lampara")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 1.2, 3.8, 7)
+
+[node name="Luz6" type="OmniLight3D" parent="Lampara6" unique_id=1444733098]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.24, 0)
+light_energy = 2.0
+shadow_enabled = false
+omni_range = 8.0
+omni_attenuation = 0.5
+
+[node name="Lampara7" parent="." unique_id=473802376 instance=ExtResource("model_lampara")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -1.2, 3.8, -7)
+
+[node name="Luz7" type="OmniLight3D" parent="Lampara7" unique_id=944652046]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.24, 0)
+light_energy = 2.0
+shadow_enabled = false
+omni_range = 8.0
+omni_attenuation = 0.5
+
+[node name="Lampara8" parent="." unique_id=2139305682 instance=ExtResource("model_lampara")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 1.2, 3.8, -7)
+
+[node name="Luz8" type="OmniLight3D" parent="Lampara8" unique_id=1885567161]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.24, 0)
+light_energy = 2.0
+shadow_enabled = false
+omni_range = 8.0
+omni_attenuation = 0.5
+
+[node name="Lampara9" parent="." unique_id=1989582571 instance=ExtResource("model_lampara")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -1.2, 3.8, -21)
+
+[node name="Luz9" type="OmniLight3D" parent="Lampara9" unique_id=2002490846]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.24, 0)
+light_energy = 2.0
+shadow_enabled = false
+omni_range = 8.0
+omni_attenuation = 0.5
+
+[node name="Lampara10" parent="." unique_id=1115231821 instance=ExtResource("model_lampara")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 1.2, 3.8, -21)
+
+[node name="Luz10" type="OmniLight3D" parent="Lampara10" unique_id=304376652]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.24, 0)
+light_energy = 2.0
+shadow_enabled = false
+omni_range = 8.0
+omni_attenuation = 0.5
+
+[node name="Lampara11" parent="." unique_id=1436644235 instance=ExtResource("model_lampara")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -1.2, 3.8, -35)
+
+[node name="Luz11" type="OmniLight3D" parent="Lampara11" unique_id=93135577]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.24, 0)
+light_energy = 2.0
+omni_range = 8.0
+omni_attenuation = 0.5
+
+[node name="Lampara12" parent="." unique_id=1464249686 instance=ExtResource("model_lampara")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 1.2, 3.8, -35)
+
+[node name="Luz12" type="OmniLight3D" parent="Lampara12" unique_id=33183864]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.24, 0)
+light_energy = 2.0
+omni_range = 8.0
+omni_attenuation = 0.5

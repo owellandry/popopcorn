@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://bpersonaje01"]
+
+[ext_resource type="Script" uid="uid://uhswrcr2lbgh" path="res://scenes/personaje/personaje.gd" id="1_script"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_body"]
+radius = 0.3
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_body"]
+albedo_color = Color(0.2, 0.4, 0.9, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_body"]
+material = SubResource("StandardMaterial3D_body")
+radius = 0.3
+
+[node name="Personaje" type="CharacterBody3D" unique_id=2052374627 groups=["jugador"]]
+script = ExtResource("1_script")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1558397639]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_body")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=277309530]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_body")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1944146082]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.85, 0)
+far = 180.0
+
+[node name="Linterna" type="SpotLight3D" parent="Camera3D" unique_id=99926945]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.35)
+visible = false
+light_color = Color(1, 0.95, 0.85, 1)
+light_energy = 3.5
+spot_range = 12.0
+spot_attenuation = 0.8
+spot_angle = 25.0
+spot_angle_attenuation = 0.7

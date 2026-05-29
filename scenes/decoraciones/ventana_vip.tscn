@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://b2mhcdomopm77"]
+
+[ext_resource type="Texture2D" uid="uid://daev1wcxmgf6x" path="res://textures/piso_lobby/Marble021_1K-PNG_Color.png" id="tex_marble_color"]
+[ext_resource type="Texture2D" uid="uid://cq0qe0bhf2w0j" path="res://textures/piso_lobby/Marble021_1K-PNG_NormalGL.png" id="tex_marble_normal"]
+[ext_resource type="Texture2D" uid="uid://bjgtmcinia3d2" path="res://textures/piso_lobby/Marble021_1K-PNG_Roughness.png" id="tex_marble_rough"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_MarcoArriba"]
+size = Vector3(0.3, 0.3, 10)
+
+[sub_resource type="StandardMaterial3D" id="Mat_Marco"]
+albedo_color = Color(0.15, 0.15, 0.15, 1)
+albedo_texture = ExtResource("tex_marble_color")
+roughness_texture = ExtResource("tex_marble_rough")
+normal_enabled = true
+normal_texture = ExtResource("tex_marble_normal")
+uv1_scale = Vector3(0.3, 0.3, 0.3)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_MarcoAbajo"]
+size = Vector3(0.3, 0.3, 10)
+
+[sub_resource type="BoxMesh" id="BoxMesh_MarcoIzquierda"]
+size = Vector3(0.3, 4, 0.3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_MarcoDerecha"]
+size = Vector3(0.3, 4, 0.3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_Vidrio"]
+size = Vector3(0.05, 3.4, 9.4)
+
+[sub_resource type="StandardMaterial3D" id="Mat_Vidrio"]
+transparency = 1
+albedo_color = Color(0.9, 0.95, 1, 0.1)
+roughness = 0.01
+refraction_enabled = false
+
+[sub_resource type="BoxShape3D" id="Col_Ventana"]
+size = Vector3(0.3, 4, 9.5)
+
+[node name="VentanaVIP" type="Node3D" unique_id=1800000010]
+
+[node name="MarcoArriba" type="MeshInstance3D" parent="." unique_id=1800000011]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.6435032, 0, 3.1473734, 0)
+mesh = SubResource("BoxMesh_MarcoArriba")
+surface_material_override/0 = SubResource("Mat_Marco")
+
+[node name="MarcoAbajo" type="MeshInstance3D" parent="." unique_id=1800000012]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.644, 0, -3.1458414, 0)
+mesh = SubResource("BoxMesh_MarcoAbajo")
+surface_material_override/0 = SubResource("Mat_Marco")
+
+[node name="MarcoIzquierda" type="MeshInstance3D" parent="." unique_id=1800000013]
+transform = Transform3D(1, 0, 0, 0, 1.6478491, 0, 0, 0, 1, 0, 0, -3.1616879)
+mesh = SubResource("BoxMesh_MarcoIzquierda")
+surface_material_override/0 = SubResource("Mat_Marco")
+
+[node name="MarcoDerecha" type="MeshInstance3D" parent="." unique_id=1800000014]
+transform = Transform3D(1, 0, 0, 0, 1.648, 0, 0, 0, 1, 0, 0, 3.1549063)
+mesh = SubResource("BoxMesh_MarcoDerecha")
+surface_material_override/0 = SubResource("Mat_Marco")
+
+[node name="Vidrio" type="MeshInstance3D" parent="." unique_id=1800000015]
+transform = Transform3D(1, 0, 0, 0, 1.762, 0, 0, 0, 0.638, 0.125, 0, 0)
+mesh = SubResource("BoxMesh_Vidrio")
+surface_material_override/0 = SubResource("Mat_Vidrio")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1800000016]
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1800000017]
+shape = SubResource("Col_Ventana")

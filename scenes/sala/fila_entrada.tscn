@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://7f2ussu718fe"]
+
+[ext_resource type="PackedScene" uid="uid://doev481m8fagm" path="res://scenes/decoraciones/cuerda_poste.tscn" id="dec_cuerda"]
+[ext_resource type="PackedScene" uid="uid://bposte00001" path="res://scenes/decoraciones/poste_fila.tscn" id="dec_poste"]
+
+[node name="FilaEntrada" type="Node3D" unique_id=1140284140]
+
+[node name="LimiteIzquierdo" type="Node3D" parent="." unique_id=2131376593]
+
+[node name="PosteFila1" parent="LimiteIzquierdo" unique_id=597839976 instance=ExtResource("dec_poste")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4.725, 0.0022906065, 1.0038929)
+
+[node name="PosteFila3" parent="LimiteIzquierdo" unique_id=1871636187 instance=ExtResource("dec_poste")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4.725, 0.0022906065, -0.9961071)
+
+[node name="Cuerda1" parent="LimiteIzquierdo" unique_id=1311863954 instance=ExtResource("dec_cuerda")]
+transform = Transform3D(-8.3380996e-08, 0, 0.7728082, 0, 2.848726, 0, -1.9075347, 0, -3.378052e-08, -4.725, 1.2857106, -0.00810957)
+
+[node name="LimiteDerecho" type="Node3D" parent="." unique_id=9492361]
+
+[node name="PosteFila2" parent="LimiteDerecho" unique_id=346546899 instance=ExtResource("dec_poste")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4.725, 0.0022906065, 1.0038929)
+
+[node name="PosteFila4" parent="LimiteDerecho" unique_id=1468962967 instance=ExtResource("dec_poste")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4.725, 0.0022906065, -0.9961071)
+
+[node name="Cuerda2" parent="LimiteDerecho" unique_id=1535881917 instance=ExtResource("dec_cuerda")]
+transform = Transform3D(-8.3380996e-08, 0, 0.7728082, 0, 2.848726, 0, -1.9075347, 0, -3.378052e-08, 4.725, 1.2857106, -0.00810957)
+
+[node name="Centro" type="Node3D" parent="." unique_id=18777491]
+
+[node name="PosteFila5" parent="Centro" unique_id=438148845 instance=ExtResource("dec_poste")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -3.15, 0.0022906065, 1.0038929)
+
+[node name="PosteFila6" parent="Centro" unique_id=53074891 instance=ExtResource("dec_poste")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -3.15, 0.0022906065, -0.9961071)
+
+[node name="Cuerda3" parent="Centro" unique_id=993750422 instance=ExtResource("dec_cuerda")]
+transform = Transform3D(-8.3380996e-08, 0, 0.7728082, 0, 2.848726, 0, -1.9075347, 0, -3.378052e-08, -3.15, 1.2857106, -0.00810957)
+
+[node name="PosteFila7" parent="Centro" unique_id=384453262 instance=ExtResource("dec_poste")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.575, 0.0022906065, 1.0038929)
+
+[node name="PosteFila8" parent="Centro" unique_id=2107247749 instance=ExtResource("dec_poste")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.575, 0.0022906065, -0.9961071)
+
+[node name="Cuerda4" parent="Centro" unique_id=1369974032 instance=ExtResource("dec_cuerda")]
+transform = Transform3D(-8.3380996e-08, 0, 0.7728082, 0, 2.848726, 0, -1.9075347, 0, -3.378052e-08, -1.575, 1.2857106, -0.00810957)
+
+[node name="PosteFila9" parent="Centro" unique_id=1287446203 instance=ExtResource("dec_poste")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0.0022906065, 1.0038929)
+
+[node name="PosteFila10" parent="Centro" unique_id=747827025 instance=ExtResource("dec_poste")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0.0022906065, -0.9961071)
+
+[node name="Cuerda5" parent="Centro" unique_id=1658221758 instance=ExtResource("dec_cuerda")]
+transform = Transform3D(-8.3380996e-08, 0, 0.7728082, 0, 2.848726, 0, -1.9075347, 0, -3.378052e-08, 0, 1.2857106, -0.00810957)
+
+[node name="PosteFila11" parent="Centro" unique_id=1900291900 instance=ExtResource("dec_poste")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.575, 0.0022906065, 1.0038929)
+
+[node name="PosteFila12" parent="Centro" unique_id=511585954 instance=ExtResource("dec_poste")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.575, 0.0022906065, -0.9961071)
+
+[node name="Cuerda6" parent="Centro" unique_id=1758254258 instance=ExtResource("dec_cuerda")]
+transform = Transform3D(-8.3380996e-08, 0, 0.7728082, 0, 2.848726, 0, -1.9075347, 0, -3.378052e-08, 1.575, 1.2857106, -0.00810957)
+
+[node name="PosteFila13" parent="Centro" unique_id=1333692465 instance=ExtResource("dec_poste")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.15, 0.0022906065, 1.0038929)
+
+[node name="PosteFila14" parent="Centro" unique_id=1982020804 instance=ExtResource("dec_poste")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.15, 0.0022906065, -0.9961071)
+
+[node name="Cuerda7" parent="Centro" unique_id=81621148 instance=ExtResource("dec_cuerda")]
+transform = Transform3D(-8.3380996e-08, 0, 0.7728082, 0, 2.848726, 0, -1.9075347, 0, -3.378052e-08, 3.15, 1.2857106, -0.00810957)

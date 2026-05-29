@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dynsoq28pbps1"]
+
+[ext_resource type="PackedScene" uid="uid://nedioua4x6p7" path="res://models/baso_soda.glb" id="soda_model"]
+
+[node name="SodaInstance" type="Node3D" unique_id=65993585]
+
+[node name="SodaModel" parent="." unique_id=663759836 instance=ExtResource("soda_model")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)

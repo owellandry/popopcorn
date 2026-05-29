@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://bjuego00001"]
+
+[ext_resource type="PackedScene" path="res://scenes/sala/sala.tscn" id="1_sala"]
+[ext_resource type="PackedScene" uid="uid://bpersonaje01" path="res://scenes/personaje/personaje.tscn" id="2_personaje"]
+[ext_resource type="PackedScene" uid="uid://bbano000001" path="res://scenes/bano/bano.tscn" id="3_bano"]
+[ext_resource type="PackedScene" uid="uid://bcuartoemp01" path="res://scenes/cuarto_empleados/cuarto_empleados.tscn" id="4_empleados"]
+[ext_resource type="PackedScene" uid="uid://bcuartolim01" path="res://scenes/cuarto_limpieza/cuarto_limpieza.tscn" id="5_limpieza"]
+[ext_resource type="PackedScene" uid="uid://bpasillosal1" path="res://scenes/pasillo_salas/pasillo_salas.tscn" id="6_pasillo"]
+[ext_resource type="Shader" uid="uid://kgjsu8n7pyom" path="res://shaders/sky/sky_day_night.gdshader" id="7_sky_shader"]
+[ext_resource type="Script" uid="uid://gimnkg3f2c2p" path="res://scripts/ciclo_dia_noche.gd" id="8_ciclo"]
+[ext_resource type="PackedScene" uid="uid://bexterior001" path="res://scenes/exterior/exterior_cine.tscn" id="9_exterior"]
+[ext_resource type="PackedScene" uid="uid://bparking0001" path="res://scenes/exterior/parking.tscn" id="10_parking"]
+
+[sub_resource type="ShaderMaterial" id="sky_shader_mat"]
+shader = ExtResource("7_sky_shader")
+shader_parameter/sky_day = Color(0, 0.3, 0.7, 1)
+shader_parameter/horizon_day = Color(0.75, 0.85, 0.85, 1)
+shader_parameter/horizon_sunset = Color(0.9, 0.4, 0.1, 1)
+shader_parameter/sky_sunset = Color(0.15, 0.2, 0.4, 1)
+shader_parameter/horizon_night = Color(0.1, 0.15, 0.2, 1)
+shader_parameter/sky_night = Color(0.05, 0.1, 0.15, 1)
+shader_parameter/day_night_mix = 0.0
+shader_parameter/use_directional_light = true
+shader_parameter/horizon_exponent = 2.0
+shader_parameter/sunset_amount_exponent = 0.7
+shader_parameter/night_amount_exponent = 4.0
+shader_parameter/cloud_color = Color(0.8, 0.8, 0.8, 1)
+shader_parameter/cloud_tiling = Vector2(1, 1)
+shader_parameter/wind_speed = Vector2(0.5, 0.5)
+shader_parameter/cloud_density = 0.7
+shader_parameter/cloud_depth = 2.0
+shader_parameter/cloud_shape_exponent = 2.0
+shader_parameter/cloud_occlude_exponent = 1.0
+shader_parameter/sun_scale = 0.05
+shader_parameter/sun_strength = 15.0
+shader_parameter/sun_color = Color(1, 0.9, 0, 1)
+
+[sub_resource type="Sky" id="sky_main"]
+sky_material = SubResource("sky_shader_mat")
+
+[sub_resource type="Environment" id="Environment_main"]
+background_mode = 2
+sky = SubResource("sky_main")
+ambient_light_source = 2
+ambient_light_color = Color(0.02, 0.02, 0.02, 1)
+ambient_light_energy = 0.05
+
+[node name="Juego" type="Node3D" unique_id=1836860244]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1440091239]
+environment = SubResource("Environment_main")
+
+[node name="Sala" parent="." unique_id=1033594780 instance=ExtResource("1_sala")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 26.20565, 0)
+
+[node name="Personaje" parent="." unique_id=1502607292 instance=ExtResource("2_personaje")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 26.405651, 8.548651)
+
+[node name="Bano" parent="." unique_id=1225837827 instance=ExtResource("3_bano")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.101143, 26.20565, -15)
+visible = false
+
+[node name="CuartoEmpleados" parent="." unique_id=522147385 instance=ExtResource("4_empleados")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66.383675, 26.20565, -15)
+visible = false
+
+[node name="CuartoLimpieza" parent="." unique_id=1931189246 instance=ExtResource("5_limpieza")]
+transform = Transform3D(-1, 0, -3.019916e-07, 0, 1, 0, 1.509958e-07, 0, -2, -12.160778, 26.20565, 15.637381)
+
+[node name="PasilloSalas" parent="." unique_id=125106890 instance=ExtResource("6_pasillo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 26.20565, -54.06151)
+
+[node name="Sol" type="DirectionalLight3D" parent="." unique_id=1115185911]
+transform = Transform3D(0.7239687, -0.26504302, -0.63688433, 0.6179462, -0.1611875, 0.76952004, -0.3066137, -0.95066863, 0.047087625, -93.49288, 46.20565, 66.38718)
+light_color = Color(1, 0.95, 0.85, 1)
+light_energy = 1.2
+shadow_enabled = true
+script = ExtResource("8_ciclo")
+
+[node name="ExteriorCine" parent="." unique_id=1883369058 instance=ExtResource("9_exterior")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4.5382385, 26.20565, 0)
+
+[node name="Parking" parent="." unique_id=1043709502 instance=ExtResource("10_parking")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -40.029266, 26.212004, -0.59459686)
