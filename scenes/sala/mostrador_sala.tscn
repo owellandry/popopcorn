@@ -37,7 +37,7 @@ material = SubResource("mat_counter_top")
 size = Vector3(10, 0.08, 2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vx5nu"]
-size = Vector3(10.001556, 0.3248291, 0.1081543)
+size = Vector3(10.001556, 0.6822815, 1.8214722)
 
 [sub_resource type="BoxShape3D" id="shape_counter"]
 size = Vector3(10, 1.0838623, 1.9314454)
@@ -57,7 +57,7 @@ transform = Transform3D(0.9828456, 0, 0, 0, 0.2217114, 0, 0, 0, 0.038725495, 0, 
 mesh = SubResource("mesh_counter")
 
 [node name="col" type="CollisionShape3D" parent="FrenteElevado" unique_id=224511881]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0015393817, 0.041809082, -0.0030517578)
+transform = Transform3D(1, 0, 0, 0, 1.0000004, 0, 0, 0, 1, -0.0015393817, 0.15867591, 0.0131549835)
 shape = SubResource("BoxShape3D_vx5nu")
 
 [node name="Col" type="CollisionShape3D" parent="." unique_id=1345705803]

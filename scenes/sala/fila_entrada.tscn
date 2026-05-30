@@ -14,7 +14,7 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4.7
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4.725, 0.0022906065, -0.9961071)
 
 [node name="Cuerda1" parent="LimiteIzquierdo" unique_id=1311863954 instance=ExtResource("dec_cuerda")]
-transform = Transform3D(-8.3380996e-08, 0, 0.7728082, 0, 2.848726, 0, -1.9075347, 0, -3.378052e-08, -4.725, 1.2857106, -0.00810957)
+transform = Transform3D(-8.3380996e-08, 0, 0.7728082, 0, 2.3059988, 0, -1.9075347, 0, -3.378052e-08, -4.728479, 1.0266607, 0.0041700862)
 
 [node name="LimiteDerecho" type="Node3D" parent="." unique_id=9492361]
 
@@ -25,7 +25,7 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4.72
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4.725, 0.0022906065, -0.9961071)
 
 [node name="Cuerda2" parent="LimiteDerecho" unique_id=1535881917 instance=ExtResource("dec_cuerda")]
-transform = Transform3D(-8.3380996e-08, 0, 0.7728082, 0, 2.848726, 0, -1.9075347, 0, -3.378052e-08, 4.725, 1.2857106, -0.00810957)
+transform = Transform3D(-8.3380996e-08, 0, 0.7728082, 0, 2.3059988, 0, -1.9075347, 0, -3.378052e-08, 4.721521, 1.0266607, 0.0041700862)
 
 [node name="Centro" type="Node3D" parent="." unique_id=18777491]
 
@@ -36,7 +36,7 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -3.1
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -3.15, 0.0022906065, -0.9961071)
 
 [node name="Cuerda3" parent="Centro" unique_id=993750422 instance=ExtResource("dec_cuerda")]
-transform = Transform3D(-8.3380996e-08, 0, 0.7728082, 0, 2.848726, 0, -1.9075347, 0, -3.378052e-08, -3.15, 1.2857106, -0.00810957)
+transform = Transform3D(-8.3380996e-08, 0, 0.7728082, 0, 2.3059988, 0, -1.9075347, 0, -3.378052e-08, -3.1534784, 1.0266607, 0.0041700862)
 
 [node name="PosteFila7" parent="Centro" unique_id=384453262 instance=ExtResource("dec_poste")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.575, 0.0022906065, 1.0038929)
@@ -45,7 +45,7 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.5
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.575, 0.0022906065, -0.9961071)
 
 [node name="Cuerda4" parent="Centro" unique_id=1369974032 instance=ExtResource("dec_cuerda")]
-transform = Transform3D(-8.3380996e-08, 0, 0.7728082, 0, 2.848726, 0, -1.9075347, 0, -3.378052e-08, -1.575, 1.2857106, -0.00810957)
+transform = Transform3D(-8.3380996e-08, 0, 0.7728082, 0, 2.3059988, 0, -1.9075347, 0, -3.378052e-08, -1.5784785, 1.0266607, 0.0041700862)
 
 [node name="PosteFila9" parent="Centro" unique_id=1287446203 instance=ExtResource("dec_poste")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0.0022906065, 1.0038929)
@@ -54,7 +54,7 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0.0022906065, -0.9961071)
 
 [node name="Cuerda5" parent="Centro" unique_id=1658221758 instance=ExtResource("dec_cuerda")]
-transform = Transform3D(-8.3380996e-08, 0, 0.7728082, 0, 2.848726, 0, -1.9075347, 0, -3.378052e-08, 0, 1.2857106, -0.00810957)
+transform = Transform3D(-8.3380996e-08, 0, 0.7728082, 0, 2.3059988, 0, -1.9075347, 0, -3.378052e-08, -0.0034784228, 1.0266607, 0.0041700862)
 
 [node name="PosteFila11" parent="Centro" unique_id=1900291900 instance=ExtResource("dec_poste")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.575, 0.0022906065, 1.0038929)
@@ -63,7 +63,7 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.57
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.575, 0.0022906065, -0.9961071)
 
 [node name="Cuerda6" parent="Centro" unique_id=1758254258 instance=ExtResource("dec_cuerda")]
-transform = Transform3D(-8.3380996e-08, 0, 0.7728082, 0, 2.848726, 0, -1.9075347, 0, -3.378052e-08, 1.575, 1.2857106, -0.00810957)
+transform = Transform3D(-8.3380996e-08, 0, 0.7728082, 0, 2.3059988, 0, -1.9075347, 0, -3.378052e-08, 1.5715216, 1.0266607, 0.0041700862)
 
 [node name="PosteFila13" parent="Centro" unique_id=1333692465 instance=ExtResource("dec_poste")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.15, 0.0022906065, 1.0038929)
@@ -72,4 +72,4 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.15
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.15, 0.0022906065, -0.9961071)
 
 [node name="Cuerda7" parent="Centro" unique_id=81621148 instance=ExtResource("dec_cuerda")]
-transform = Transform3D(-8.3380996e-08, 0, 0.7728082, 0, 2.848726, 0, -1.9075347, 0, -3.378052e-08, 3.15, 1.2857106, -0.00810957)
+transform = Transform3D(-8.3380996e-08, 0, 0.7728082, 0, 2.3059988, 0, -1.9075347, 0, -3.378052e-08, 3.1465218, 1.0266607, 0.0041700862)

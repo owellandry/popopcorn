@@ -14,7 +14,7 @@
 transform = Transform3D(3.2653859, 0.10548495, 0, -1.0691223, 0.3221793, 0, 0, 0, 1, -12.688849, 32.64633, 0)
 
 [node name="Personaje" parent="." unique_id=494187340 instance=ExtResource("personaje")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 5.0769157, 0.095394045, -12.215202)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 5.0769157, 0.095394045, -13.241004)
 
 [node name="Blockout" parent="." unique_id=1919571524 instance=ExtResource("blockout")]
 

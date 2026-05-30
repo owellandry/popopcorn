@@ -18,6 +18,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 Transicion="*res://scenes/ui/transicion.tscn"
+SistemaNombreCine="*res://scripts/sistema_nombre_cine.gd"
+GestorInicio="*res://scripts/gestor_inicio.gd"
 
 [display]
 

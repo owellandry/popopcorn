@@ -1,9 +1,15 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=3 format=3]
 
 [ext_resource type="PackedScene" path="res://models/decoraciones/exterior/cardboard_box.glb" id="1_model"]
 
+[sub_resource type="BoxShape3D" id="shape_box"]
+size = Vector3(0.5, 0.5, 0.5)
 
-[node name="CardboardBox" type="Node3D"]
+[node name="CardboardBox" type="StaticBody3D"]
 
 [node name="Modelo" parent="." instance=ExtResource("1_model")]
+
+[node name="Col" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+shape = SubResource("shape_box")
 

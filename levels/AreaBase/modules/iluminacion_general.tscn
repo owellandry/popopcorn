@@ -123,13 +123,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, -1.8584397)
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 3.7, 0, 2.7843578)
 
 [node name="Lampara1" parent="IluminacionPasilloSalas" unique_id=-294967278 instance=ExtResource("lampara_vip")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.178274, 0, -5.7423096)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.05065, 0, -6.502536)
 
 [node name="Lampara2" parent="IluminacionPasilloSalas" unique_id=-294967277 instance=ExtResource("lampara_vip")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.178274, 0, -2.9671688)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.05065, 0, -3.6306615)
 
 [node name="Lampara3" parent="IluminacionPasilloSalas" unique_id=-294967276 instance=ExtResource("lampara_vip")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.178274, 0, 0.13535285)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.05065, 0, -0.071837366)
 
 [node name="Lampara4" parent="IluminacionPasilloSalas" unique_id=1378366766 instance=ExtResource("lampara_vip")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.927882, 0, 0.13535285)

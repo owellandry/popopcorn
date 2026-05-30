@@ -1,9 +1,15 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=3 format=3]
 
 [ext_resource type="PackedScene" path="res://models/decoraciones/exterior/mesa.glb" id="1_model"]
 
+[sub_resource type="BoxShape3D" id="shape_mesa"]
+size = Vector3(1.2, 0.1, 0.8)
 
-[node name="Mesa" type="Node3D"]
+[node name="Mesa" type="StaticBody3D"]
 
 [node name="Modelo" parent="." instance=ExtResource("1_model")]
+
+[node name="Col" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+shape = SubResource("shape_mesa")
 

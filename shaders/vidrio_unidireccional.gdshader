@@ -15,7 +15,7 @@ uniform float suavizado_lado : hint_range(0.0, 0.25) = 0.04;
 
 void fragment() {
 	vec3 lado_world = normalize((MODEL_NORMAL_MATRIX * lado_transparente));
-	vec3 hacia_camara = normalize(CAMERA_POSITION_WORLD - WORLD_POSITION);
+	vec3 hacia_camara = normalize(CAMERA_POSITION_WORLD - NODE_POSITION_WORLD);
 	float lado = dot(hacia_camara, lado_world);
 	float ver_a_traves = smoothstep(
 		umbral_lado - suavizado_lado,

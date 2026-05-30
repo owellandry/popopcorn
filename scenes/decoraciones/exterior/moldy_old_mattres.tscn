@@ -1,9 +1,16 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene format=3 uid="uid://ycrcuitx6xhx"]
 
-[ext_resource type="PackedScene" path="res://models/decoraciones/exterior/moldy_old_mattres.glb" id="1_model"]
+[ext_resource type="PackedScene" uid="uid://cjxpjtllimjwm" path="res://models/decoraciones/exterior/moldy_old_mattres.glb" id="1_model"]
+[ext_resource type="Script" uid="uid://bn6nle1hosfj8" path="res://scripts/sistema_dormir.gd" id="2_script"]
 
+[sub_resource type="BoxShape3D" id="shape_colchon"]
+size = Vector3(2, 0.24345703, 1.2878418)
 
-[node name="MoldyOldMattres" type="Node3D"]
+[node name="MoldyOldMattres" type="StaticBody3D" unique_id=2053662451]
+script = ExtResource("2_script")
 
-[node name="Modelo" parent="." instance=ExtResource("1_model")]
+[node name="Modelo" parent="." unique_id=690057877 instance=ExtResource("1_model")]
 
+[node name="Col" type="CollisionShape3D" parent="." unique_id=543889456]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0211856, -0.09851844, -0.00012207031)
+shape = SubResource("shape_colchon")
