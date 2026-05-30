@@ -1,18 +1,17 @@
 [gd_scene format=3 uid="uid://decorext001"]
 
-[ext_resource type="PackedScene" uid="uid://djsx3nfvtgaii" path="res://scenes/decoraciones/lampara_exterior.tscn" id="lampara_exterior"]
 [ext_resource type="PackedScene" path="res://scenes/decoraciones/exterior/arbusto.tscn" id="ext_arbusto"]
-[ext_resource type="PackedScene" path="res://scenes/decoraciones/exterior/cardboard_box.tscn" id="ext_cardboard"]
-[ext_resource type="PackedScene" path="res://scenes/decoraciones/exterior/desktop_computer.tscn" id="ext_pc"]
-[ext_resource type="PackedScene" path="res://scenes/decoraciones/exterior/maceta_de_arrayan.tscn" id="ext_maceta1"]
-[ext_resource type="PackedScene" path="res://scenes/decoraciones/exterior/maceta_lp.tscn" id="ext_maceta2"]
-[ext_resource type="PackedScene" path="res://scenes/decoraciones/exterior/mesa.tscn" id="ext_mesa"]
-[ext_resource type="PackedScene" path="res://scenes/decoraciones/exterior/moldy_old_mattres.tscn" id="ext_mattress"]
-[ext_resource type="PackedScene" path="res://scenes/decoraciones/exterior/old_gas_stove.tscn" id="ext_stove"]
 [ext_resource type="PackedScene" path="res://scenes/decoraciones/exterior/old_paper__cardboard_boxes.tscn" id="ext_boxes"]
+[ext_resource type="PackedScene" path="res://scenes/decoraciones/exterior/cardboard_box.tscn" id="ext_cardboard"]
 [ext_resource type="PackedScene" path="res://scenes/decoraciones/exterior/old_soviet_chair.tscn" id="ext_chair"]
+[ext_resource type="PackedScene" uid="uid://t5ktrxqcdkrl" path="res://scenes/decoraciones/exterior/ventildador_de_teto_ceiling_fan.tscn" id="ext_fan"]
+[ext_resource type="PackedScene" path="res://scenes/decoraciones/exterior/maceta_lp.tscn" id="ext_maceta2"]
+[ext_resource type="PackedScene" path="res://scenes/decoraciones/exterior/moldy_old_mattres.tscn" id="ext_mattress"]
+[ext_resource type="PackedScene" path="res://scenes/decoraciones/exterior/mesa.tscn" id="ext_mesa"]
+[ext_resource type="PackedScene" path="res://scenes/decoraciones/exterior/desktop_computer.tscn" id="ext_pc"]
+[ext_resource type="PackedScene" path="res://scenes/decoraciones/exterior/old_gas_stove.tscn" id="ext_stove"]
 [ext_resource type="PackedScene" path="res://scenes/decoraciones/exterior/old_tv_model_download.tscn" id="ext_tv"]
-[ext_resource type="PackedScene" path="res://scenes/decoraciones/exterior/ventildador_de_teto_ceiling_fan.tscn" id="ext_fan"]
+[ext_resource type="PackedScene" uid="uid://djsx3nfvtgaii" path="res://scenes/decoraciones/lampara_exterior.tscn" id="lampara_exterior"]
 
 [node name="DecoracionExterior" type="Node3D" unique_id=2000000001]
 transform = Transform3D(1.1924881e-08, 0, -1, 0, 1, 0, 1, 0, 1.1924881e-08, 0, 0, 0)
@@ -34,42 +33,48 @@ transform = Transform3D(-1, -8.742278e-08, 0, -3.821371e-15, 4.371139e-08, 1, -8
 
 [node name="Lampara6" parent="." unique_id=2007830696 instance=ExtResource("lampara_exterior")]
 transform = Transform3D(-1, -8.742278e-08, 0, -3.821371e-15, 4.371139e-08, 1, -8.742278e-08, 1, -4.371139e-08, 12, 4.769, -20.855)
-[node name="ModelosExterior" type="Node3D" parent="."]
+
+[node name="ModelosExterior" type="Node3D" parent="." unique_id=1809347517]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
 
-[node name="Arbusto" parent="ModelosExterior" instance=ExtResource("ext_arbusto")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 0)
+[node name="Arbusto" parent="ModelosExterior" unique_id=1305022349 instance=ExtResource("ext_arbusto")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, -13.437466, 0.12716258, -10.78194)
 
-[node name="MacetaArrayan" parent="ModelosExterior" instance=ExtResource("ext_maceta1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 0)
+[node name="MacetaLp" parent="ModelosExterior" unique_id=1577103866 instance=ExtResource("ext_maceta2")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, -19.741217, 0.106487036, -13.275478)
 
-[node name="MacetaLp" parent="ModelosExterior" instance=ExtResource("ext_maceta2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 0)
+[node name="Mesa" parent="ModelosExterior" unique_id=1161937871 instance=ExtResource("ext_mesa")]
+transform = Transform3D(-0.5635261, 0, 0.82609826, 0, 1, 0, -0.82609826, 0, -0.5635261, 28.093798, 0.066206574, -70.161385)
 
-[node name="Mesa" parent="ModelosExterior" instance=ExtResource("ext_mesa")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0)
+[node name="Silla" parent="ModelosExterior" unique_id=1338086035 instance=ExtResource("ext_chair")]
+transform = Transform3D(0.84095854, 0, 1.2420905, 0, 1.5, 0, -1.2420905, 0, 0.84095854, 26.827044, 0.062312186, -71.03846)
 
-[node name="Silla" parent="ModelosExterior" instance=ExtResource("ext_chair")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
+[node name="TV" parent="ModelosExterior" unique_id=1836417837 instance=ExtResource("ext_tv")]
+transform = Transform3D(0.76604444, 0, -0.6427876, 0, 1, 0, 0.6427876, 0, 0.76604444, 28.036453, 0.8217416, -69.98713)
 
-[node name="TV" parent="ModelosExterior" instance=ExtResource("ext_tv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
+[node name="PC" parent="ModelosExterior" unique_id=1279046913 instance=ExtResource("ext_pc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.762152, 2.0413828, -70.21075)
 
-[node name="PC" parent="ModelosExterior" instance=ExtResource("ext_pc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+[node name="Stove" parent="ModelosExterior" unique_id=322707752 instance=ExtResource("ext_stove")]
+transform = Transform3D(-1.2, 0, -1.04907336e-07, 0, 1.2, 0, 1.04907336e-07, 0, -1.2, 27.895554, 0, -72.40898)
 
-[node name="Stove" parent="ModelosExterior" instance=ExtResource("ext_stove")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+[node name="Mattress" parent="ModelosExterior" unique_id=764104445 instance=ExtResource("ext_mattress")]
+transform = Transform3D(1.5684339, 0, -0.31625172, 0, 1.6, 0, 0.31625172, 0, 1.5684339, 29.107649, 0.37120503, -71.79169)
 
-[node name="Mattress" parent="ModelosExterior" instance=ExtResource("ext_mattress")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+[node name="CardboardBox" parent="ModelosExterior" unique_id=658003642 instance=ExtResource("ext_cardboard")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.762146, 0, -59.596848)
 
-[node name="CardboardBox" parent="ModelosExterior" instance=ExtResource("ext_cardboard")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
+[node name="Boxes" parent="ModelosExterior" unique_id=1074449550 instance=ExtResource("ext_boxes")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 35.489704, 0, -70.928276)
 
-[node name="Boxes" parent="ModelosExterior" instance=ExtResource("ext_boxes")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
+[node name="Fan" parent="ModelosExterior" unique_id=2143311367 instance=ExtResource("ext_fan")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.527977, 4.7780695, -68.63716)
 
-[node name="Fan" parent="ModelosExterior" instance=ExtResource("ext_fan")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
+[node name="Boxes2" parent="ModelosExterior" unique_id=477764011 instance=ExtResource("ext_boxes")]
+transform = Transform3D(-1.4535236, 0, -0.3704986, 0, 1.5, 0, 0.3704986, 0, -1.4535236, 34.8973, 0, -67.12702)
 
+[node name="Arbusto2" parent="ModelosExterior" unique_id=2047274070 instance=ExtResource("ext_arbusto")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, -4.4358554, 0.12716258, -10.78194)
+
+[node name="Arbusto3" parent="ModelosExterior" unique_id=1542498223 instance=ExtResource("ext_arbusto")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 4.6785083, 0.12716258, -10.78194)

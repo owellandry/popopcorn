@@ -10,6 +10,11 @@ class_name PuertaDoble
 @export var texto_cerrada: String = "Entrada Sala Premium"
 @export var texto_interaccion: String = "Presiona E para abrir"
 
+@export_group("Vidrio unidireccional")
+## Lado local desde el que se ve transparente (hacia el otro espacio). Por defecto +Z (manillas frontales).
+@export var lado_transparente: Vector3 = Vector3(0.0, 0.0, 1.0)
+@export var invertir_lados_vidrio: bool = false
+
 @onready var pivot_izq: Node3D = $PivotIzq
 @onready var pivot_der: Node3D = $PivotDer
 @onready var area_izq: Area3D = $PivotIzq/AreaInteraccion
@@ -30,6 +35,27 @@ func _ready() -> void:
 		area_der.body_entered.connect(_on_jugador_entro)
 		area_der.body_exited.connect(_on_jugador_salio)
 	$CanvasLayer.visible = false
+	_aplicar_material_vidrio()
+
+func _aplicar_material_vidrio() -> void:
+	var dir := lado_transparente
+	if invertir_lados_vidrio:
+		dir = -dir
+	for pivot in [pivot_izq, pivot_der]:
+		if pivot == null:
+			continue
+		var vidrio := pivot.get_node_or_null("Vidrio") as MeshInstance3D
+		if vidrio == null or vidrio.mesh == null:
+			continue
+		var mat := vidrio.get_surface_override_material(0)
+		if mat == null:
+			var base := vidrio.mesh.surface_get_material(0) as ShaderMaterial
+			if base == null:
+				continue
+			mat = base.duplicate() as ShaderMaterial
+			vidrio.set_surface_override_material(0, mat)
+		if mat is ShaderMaterial:
+			(mat as ShaderMaterial).set_shader_parameter("lado_transparente", dir)
 
 func _physics_process(delta: float) -> void:
 	if _animando:

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://vvlgmqr7o37a"]
 
 [ext_resource type="Script" uid="uid://cg5p2lrfvsw0l" path="res://scripts/puerta_doble.gd" id="script_puerta_doble"]
+[ext_resource type="Shader" path="res://shaders/vidrio_unidireccional.gdshader" id="shader_vidrio_unidir"]
 
 [sub_resource type="StandardMaterial3D" id="mat_aluminio"]
 albedo_color = Color(0.12, 0.12, 0.14, 1)
@@ -15,12 +16,15 @@ size = Vector3(0.06, 3.5, 0.25)
 material = SubResource("mat_aluminio")
 size = Vector3(2.21, 0.06, 0.25)
 
-[sub_resource type="StandardMaterial3D" id="mat_vidrio"]
-transparency = 1
-cull_mode = 2
-albedo_color = Color(0.75, 0.88, 0.95, 0.15)
-metallic = 0.5
-roughness = 0.0
+[sub_resource type="ShaderMaterial" id="mat_vidrio"]
+render_priority = 0
+shader = ExtResource("shader_vidrio_unidir")
+shader_parameter/lado_transparente = Vector3(0, 0, 1)
+shader_parameter/color_transparente = Color(0.75, 0.88, 0.95, 0.12)
+shader_parameter/color_opaco = Color(0.08, 0.09, 0.11, 1)
+shader_parameter/rugosidad_transparente = 0.03
+shader_parameter/rugosidad_opaco = 0.98
+shader_parameter/metalico_transparente = 0.4
 
 [sub_resource type="BoxMesh" id="mesh_vidrio"]
 material = SubResource("mat_vidrio")

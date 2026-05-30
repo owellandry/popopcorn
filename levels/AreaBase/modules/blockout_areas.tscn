@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bbhiorheharyc"]
 
 [ext_resource type="PackedScene" path="res://scenes/decoraciones/exterior/bardon_urinal.tscn" id="bardon_urinal"]
+[ext_resource type="PackedScene" uid="uid://c8lobbydecor01" path="res://levels/AreaBase/modules/decoracion_lobby.tscn" id="decoracion_lobby"]
 [ext_resource type="PackedScene" uid="uid://ebx1ichga51m" path="res://levels/AreaBase/modules/decoracion_vip.tscn" id="decoracion_vip"]
 [ext_resource type="PackedScene" uid="uid://sala2001" path="res://scenes/decoraciones/sala2.tscn" id="sala2"]
 [ext_resource type="PackedScene" uid="uid://sala3001" path="res://scenes/decoraciones/sala3.tscn" id="sala3"]
@@ -68,6 +69,9 @@ size = Vector3(10, 2, 22)
 
 [node name="BlockoutAreas" type="Node3D" unique_id=1674612803]
 
+[node name="DecoracionLobby" parent="." instance=ExtResource("decoracion_lobby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7, 0, 2.7843578)
+
 [node name="EntradaPrincipal" type="Node3D" parent="." unique_id=1771746343]
 transform = Transform3D(3.607576, 0, 0, 0, 1, 0, 0, 0, 1, 7.606516, 0, 25.968258)
 
@@ -119,6 +123,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.9, 0)
 shape = SubResource("Col_Lobby")
 
 [node name="Label" type="Label3D" parent="LobbyCentral" unique_id=872233435]
+visible = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 4)
 billboard = 1
 modulate = Color(0.3, 1, 0.5, 1)
@@ -129,6 +134,7 @@ font_size = 60
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
 
 [node name="Label" type="Label3D" parent="LobbyCentral/Concesion" unique_id=2041034261]
+visible = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 billboard = 1
 modulate = Color(1, 0.6, 0.2, 1)
