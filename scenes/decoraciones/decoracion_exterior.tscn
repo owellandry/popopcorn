@@ -19,7 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://c2c2oub5fkxl5" path="res://scenes/decoraciones/procedural_city_3.tscn" id="procedural_city_3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_piso"]
-albedo_color = Color(0.2, 0.25, 0.3, 1)
+albedo_color = Color(0, 0, 0, 1)
 roughness = 0.9
 
 [sub_resource type="BoxMesh" id="BoxMesh_piso"]
@@ -161,3 +161,21 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 122.
 
 [node name="ProceduralCity15" parent="Edificios" unique_id=1012165251 instance=ExtResource("procedural_city_3")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 170.63937, 0, -30.156952)
+
+[node name="ProceduralCity16" parent="Edificios" unique_id=1901018625 instance=ExtResource("procedural_city_2")]
+transform = Transform3D(0.9999973, 0, 0.0023038369, 0, 1, 0, -0.0023038369, 0, 0.9999973, -128.92062, 0, -130.25626)
+
+[node name="ProceduralCity17" parent="Edificios" unique_id=1112144239 instance=ExtResource("procedural_city_3")]
+transform = Transform3D(-0.9999973, 0, -0.0023037493, 0, 1, 0, 0.0023037493, 0, -0.9999973, 20.282372, 0, -350.81635)
+
+[node name="ProceduralCity18" parent="Edificios" unique_id=1201353609 instance=ExtResource("procedural_city_3")]
+transform = Transform3D(0.9999973, 0, 0.0023038369, 0, 1, 0, -0.0023038369, 0, 0.9999973, -277.176, 0, -143.43634)
+
+[node name="ProceduralCity19" parent="Edificios" unique_id=587521098 instance=ExtResource("procedural_city_2")]
+transform = Transform3D(-0.0023038804, 0, 0.9999973, 0, 1, 0, -0.9999973, 0, -0.0023038804, -219.30112, 0, -306.14233)
+
+[node name="ProceduralCity20" parent="Edificios" unique_id=1508980921 instance=ExtResource("procedural_city_2")]
+transform = Transform3D(-0.9999973, 0, -0.0023037493, 0, 1, 0, 0.0023037493, 0, -0.9999973, -129.42296, 0, -359.98492)
+
+[node name="ProceduralCity21" parent="Edificios" unique_id=173171273 instance=ExtResource("procedural_city_3")]
+transform = Transform3D(0.9999973, 0, 0.0023038369, 0, 1, 0, -0.0023038369, 0, 0.9999973, -30.31733, 0, -461.34293)

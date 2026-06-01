@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bcuvh1siesbdo"]
 
-[ext_resource type="PackedScene" uid="uid://modularmotelglb" path="res://assets/imported/modular_motel.glb" id="1_glb"]
+[ext_resource type="PackedScene" uid="uid://d4hynyw22qcyy" path="res://assets/imported/modular_motel.glb" id="1_glb"]
 
 [node name="ModularMotel" type="Node3D"]
 

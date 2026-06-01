@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://xvcyudurm0x0" path="res://levels/AreaBase/modules/paredes_conjunto.tscn" id="paredes"]
 [ext_resource type="PackedScene" uid="uid://bpersonaje01" path="res://scenes/personaje/personaje.tscn" id="personaje"]
 [ext_resource type="PackedScene" uid="uid://ddm8pg74c28se" path="res://levels/AreaBase/modules/techo.tscn" id="techo"]
+[ext_resource type="PackedScene" uid="uid://sistjugab001" path="res://scenes/jugabilidad/sistema_jugabilidad.tscn" id="sistema_jugabilidad"]
 
 [sub_resource type="ShaderMaterial" id="sky_shader_mat_ab"]
 shader = ExtResource("7_sky_shader")
@@ -75,6 +76,8 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 6.03
 
 [node name="HUD" parent="." unique_id=2072054269 instance=ExtResource("hud")]
 
+[node name="SistemaJugabilidad" parent="." unique_id=123456789 instance=ExtResource("sistema_jugabilidad")]
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=111222333]
 environment = SubResource("Environment_main_ab")
 
@@ -86,6 +89,6 @@ shadow_enabled = true
 script = ExtResource("8_ciclo")
 
 [node name="CamaraCinematica" type="Camera3D" parent="." unique_id=777888999]
-transform = Transform3D(0.872871, -0.14961839, -0.46444654, 0, 0.95183015, -0.30662578, 0.4879511, 0.26764473, 0.8308249, -43.174774, 1.9610317, 35.50615)
+transform = Transform3D(0.8433914, -0.096070364, 0.52864105, 0, 0.98388505, 0.17880222, -0.53729963, -0.15080026, 0.82980025, 10.631601, 2.4955924, 55.00411)
 fov = 60.0
 near = 0.1

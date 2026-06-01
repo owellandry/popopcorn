@@ -17,15 +17,12 @@ func _ready() -> void:
 	_esperar_hud()
 
 func _process(_delta: float) -> void:
-	_actualizar_rango()
+	_sincronizar_area_interaccion()
 	_actualizar_visibilidad_prompt()
 
-func _actualizar_rango() -> void:
-	var jugador := get_tree().get_first_node_in_group("jugador") as Node3D
-	if jugador == null:
-		_jugador_cerca = false
-		return
-	_jugador_cerca = jugador.global_position.distance_to(global_position) <= distancia_interaccion
+func _sincronizar_area_interaccion() -> void:
+	if _area_interaccion:
+		_area_interaccion.global_position = global_position
 
 func _crear_area_interaccion() -> void:
 	"""Crea el área de detección del jugador"""

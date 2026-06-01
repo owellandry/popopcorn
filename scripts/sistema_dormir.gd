@@ -1,21 +1,25 @@
 extends Node3D
 
 # Sistema de dormir - Interacción con colchón
-# Presiona E para dormir y ver una cinemática de fade a negro
+# Al dormir: Se establece la hora a las 9 PM y avanza hasta las 8 AM en 5 segundos
 
-@export var duracion_fade_out: float = 2.5  # Tiempo para oscurecer (más lento)
-@export var duracion_oscuro: float = 1.0    # Tiempo en negro (breve)
-@export var duracion_fade_in: float = 2.5   # Tiempo para aclarar (más lento)
-@export var duracion_ciclo_exterior: float = 10.0  # Duración de la cinemática exterior
+@export var duracion_fade_out: float = 1.0  # Tiempo para oscurecer
+@export var duracion_fade_in: float = 1.0   # Tiempo para aclarar
+@export var duracion_ciclo_noche: float = 5.0  # Duración del ciclo nocturno (5 segundos)
 @export var distancia_interaccion: float = 2.5
+
+# Horas del día en formato progreso_normalizado (0-1)
+# 0.0 = 00:00 (medianoche), 0.25 = 06:00, 0.5 = 12:00, 0.75 = 18:00, 1.0 = 24:00
+const HORA_9PM: float = 0.875  # 21:00 = 0.75 + (3/24) = 0.875
+const HORA_8AM: float = 0.3333  # 08:00 = 0.25 + (2/24) ≈ 0.333
 
 var _jugador_cerca := false
 var _durmiendo := false
 
 # Referencias a nodos
 var _area_interaccion: Area3D
-var _ui_canvas_layer: CanvasLayer  # Para el label de interacción
-var _fade_canvas_layer: CanvasLayer  # Para el panel de fade
+var _ui_canvas_layer: CanvasLayer
+var _fade_canvas_layer: CanvasLayer
 var _label_interaccion: Label
 var _panel_fade: ColorRect
 var _hud: Node
@@ -97,7 +101,7 @@ func _crear_panel_fade() -> void:
 	_fade_canvas_layer.layer = 500
 	_fade_canvas_layer.add_child(_panel_fade)
 	get_tree().root.add_child(_fade_canvas_layer)
-	_panel_fade.visible = true  # Siempre visible, solo cambiamos el alpha
+	_panel_fade.visible = true
 
 func _actualizar_visibilidad_prompt() -> void:
 	if not _jugador_cerca or _durmiendo:
@@ -166,9 +170,22 @@ func _iniciar_dormir() -> void:
 	await _fade_a_negro()
 	print("Paso 1 completado!")
 	
-	# Pasos 2: Activar la camara cinemática y empezar el ciclo rápido
-	print("Paso 2: Activar cámara cinemática...")
-	var tiempo_suenyo: float = 20.0  # Más rápido: 20 segundos en vez de 55
+	# Paso 2: Configurar hora a las 9 PM (0.875) y preparar ciclo hasta 8 AM (0.333)
+	print("Paso 2: Configurando hora a las 9 PM...")
+	var sol = get_node_or_null("/root/Juego/Sol")
+	if not sol:
+		sol = get_node_or_null("/root/JuegoV2/Sol")
+	
+	if sol:
+		# Establecer hora a las 9 PM (0.875)
+		sol.progreso_normalizado = HORA_9PM
+		sol.actualizar_ciclo()
+		print("  Hora establecida a las 9 PM (progreso: %f)" % HORA_9PM)
+	
+	print("Paso 2 completado!")
+	
+	# Paso 3: Activar cámara cinemática
+	print("Paso 3: Activando cámara cinemática...")
 	var camara_cinematica = get_node_or_null("/root/Juego/CamaraCinematica") as Camera3D
 	if not camara_cinematica:
 		camara_cinematica = get_node_or_null("/root/JuegoV2/CamaraCinematica") as Camera3D
@@ -180,50 +197,52 @@ func _iniciar_dormir() -> void:
 	if camara_jugador and camara_cinematica:
 		camara_jugador.current = false
 		camara_cinematica.current = true
-		print("Cámara cinemática activada!")
+		print("  Cámara cinemática activada!")
 	else:
-		print("ERROR: No se encontró cámara jugador o cámara cinemática!")
+		print("  ERROR: No se encontró cámara jugador o cámara cinemática!")
 	
-	# Obtener el script del sol para controlar el ciclo
-	print("Paso 3: Empezar ciclo día/noche rápido...")
-	var sol = get_node_or_null("/root/Juego/Sol")
-	if not sol:
-		sol = get_node_or_null("/root/JuegoV2/Sol")
+	print("Paso 3 completado!")
 	
+	# Paso 4: Fade in a la cinemática exterior
+	print("Paso 4: Fade in a cinemática exterior...")
+	await _fade_a_claro()
+	print("Paso 4 completado!")
+	
+	# Paso 5: Iniciar ciclo nocturno (9 PM -> 8 AM en 5 segundos)
+	print("Paso 5: Iniciando ciclo nocturno (9 PM -> 8 AM en 5 segundos)...")
 	if sol:
-		# Empezar el día-night cycle rápido (de noche 75% a día 25% = de noche a amanecer/día)
-		print("  Sol encontrado, empezando animación...")
-		# Fade in a la cinemática exterior y esperar el ciclo al mismo tiempo
-		print("Paso 4: Fade a claro y empezar ciclo...")
-		await _fade_a_claro()
-		print("Paso 4 completado!")
-		# Esperamos a que termine el ciclo (ahora avanzar_ciclo tiene await)
-		print("Paso 5: Esperando ciclo día/noche...")
-		await sol.avanzar_ciclo(sol.get_progreso_normalizado(), 0.25, tiempo_suenyo)
-		print("Paso 5 completado!")
+		# El ciclo debe ir desde 0.875 (9 PM) hasta 0.333 (8 AM)
+		# Como 0.333 es menor que 0.875, debemos ir hasta 1.0 y luego desde 0.0 hasta 0.333
+		# Total de progreso a recorrer: (1.0 - 0.875) + 0.333 = 0.458
+		await sol.avanzar_ciclo(HORA_9PM, 1.0, duracion_ciclo_noche * 0.27)  # Hasta medianoche
+		await sol.avanzar_ciclo(0.0, HORA_8AM, duracion_ciclo_noche * 0.73)  # Desde medianoche hasta 8 AM
+		print("  Ciclo nocturno completado!")
 	else:
 		print("  ERROR: No se encontró el sol!")
-		await _fade_a_claro()
-		await get_tree().create_timer(tiempo_suenyo).timeout
+		await get_tree().create_timer(duracion_ciclo_noche).timeout
 	
-	# Fade a negro de nuevo
-	print("Paso 6: Fade a negro de nuevo...")
+	print("Paso 5 completado!")
+	
+	# Paso 6: Fade a negro de nuevo
+	print("Paso 6: Fade a negro...")
 	await _fade_a_negro()
 	print("Paso 6 completado!")
 	
-	# Volver a la cámara del jugador
-	print("Paso 7: Volver a cámara jugador...")
+	# Paso 7: Volver a la cámara del jugador
+	print("Paso 7: Volviendo a cámara del jugador...")
 	if camara_jugador and camara_cinematica:
 		camara_cinematica.current = false
 		camara_jugador.current = true
-		print("Cámara jugador activada!")
+		print("  Cámara del jugador activada!")
 	
 	# Mostrar el HUD normal
 	if _hud and is_instance_valid(_hud):
 		_hud.visible = true
 	
-	# Fade in de vuelta al interior
-	print("Paso 8: Fade a claro final...")
+	print("Paso 7 completado!")
+	
+	# Paso 8: Fade in de vuelta al interior
+	print("Paso 8: Fade in final...")
 	await _fade_a_claro()
 	print("Paso 8 completado!")
 	
@@ -235,10 +254,10 @@ func _iniciar_dormir() -> void:
 	_durmiendo = false
 	_label_interaccion.visible = true
 	
-	print("☀️ Secuencia de dormir completada, es de día!")
+	print("☀️ Secuencia de dormir completada! Son las 8:00 AM")
 
 func _fade_a_negro() -> void:
-	print("  _fade_a_negro: Empezando...")
+	print("  _fade_a_negro: Iniciando...")
 	var tween = create_tween()
 	tween.set_ease(Tween.EASE_IN_OUT)
 	tween.tween_property(_panel_fade, "color:a", 1.0, duracion_fade_out)
@@ -247,7 +266,7 @@ func _fade_a_negro() -> void:
 	print("  _fade_a_negro: Completado!")
 
 func _fade_a_claro() -> void:
-	print("  _fade_a_claro: Empezando...")
+	print("  _fade_a_claro: Iniciando...")
 	var tween = create_tween()
 	tween.set_ease(Tween.EASE_IN_OUT)
 	tween.tween_property(_panel_fade, "color:a", 0.0, duracion_fade_in)

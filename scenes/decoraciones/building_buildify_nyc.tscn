@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://eu58uk42irfc"]
 
-[ext_resource type="PackedScene" uid="uid://buildingnycglb" path="res://assets/imported/building_buildify_nyc.glb" id="1_glb"]
+[ext_resource type="PackedScene" uid="uid://b5l5vhb5lcqex" path="res://assets/imported/building_buildify_nyc.glb" id="1_glb"]
 
 [node name="BuildingBuildifyNYC" type="Node3D"]
 

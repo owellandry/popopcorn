@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://sistjugab001"]
+
+[ext_resource type="Script" path="res://scripts/sistema_fila.gd" id="1_sistema_fila"]
+[ext_resource type="Script" path="res://scripts/carta_explicativa.gd" id="2_carta"]
+[ext_resource type="Script" path="res://scripts/dialogo_cliente.gd" id="3_dialogo"]
+
+[sub_resource type="BoxShape3D" id="1_carta_shape"]
+size = Vector3(0.4, 0.5, 0.1)
+
+[sub_resource type="BoxMesh" id="2_carta_mesh"]
+size = Vector3(0.3, 0.4, 0.02)
+
+[node name="SistemaJugabilidad" type="Node3D"]
+
+[node name="CartaExplicativa" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.0, 0.5, -10.0)
+script = ExtResource("2_carta")
+distancia_interaccion = 2.5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CartaExplicativa"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+shape = SubResource("1_carta_shape")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CartaExplicativa"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+mesh = SubResource("2_carta_mesh")
+
+[node name="SistemaFila" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -15)
+script = ExtResource("1_sistema_fila")
+groups = ["sistema_fila"]
+
+[node name="PuntoFrente" type="Node3D" parent="SistemaFila"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="PuntoEspera1" type="Node3D" parent="SistemaFila"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="PuntoEspera2" type="Node3D" parent="SistemaFila"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
+
+[node name="PuntoEspera3" type="Node3D" parent="SistemaFila"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
+
+[node name="PuntoEspera4" type="Node3D" parent="SistemaFila"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
+
+[node name="DialogoCliente" type="Control" parent="."]
+script = ExtResource("3_dialogo")

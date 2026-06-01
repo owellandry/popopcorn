@@ -228,8 +228,7 @@ func _run_animation(original_pill_y: float) -> void:
 	# Hold for 2.2 seconds
 	_main_tween.tween_interval(2.2)
 	
-	# Fade out the entire scene over 0.8s
-	_main_tween.tween_property(self, "modulate:a", 0.0, 0.8)
+	# Remove fade out, go directly to menu using transition
 	
 	await _main_tween.finished
 	_go_to_menu()
@@ -265,8 +264,7 @@ func _go_to_menu() -> void:
 		return
 	_done = true
 	
-	# The scene has already faded to transparent.
-	# We transition to the main menu.
+	# Transition to the main menu directly without fading to transparent.
 	if has_node("/root/Transicion"):
 		var trans = get_node("/root/Transicion")
 		trans.transicionar("res://scenes/menu/menu_principal.tscn")

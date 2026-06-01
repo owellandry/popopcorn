@@ -4,15 +4,15 @@
 [ext_resource type="Script" path="res://scripts/pantalla_interactiva.gd" id="script_interactiva"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pantalla"]
-size = Vector3(0.44622803, 2.5438232, 3)
+size = Vector3(0.6, 1.2, 0.8)
 
 [node name="PantallaMostrador" type="Node3D"]
 script = ExtResource("script_interactiva")
 
 [node name="Modelo" parent="." instance=ExtResource("model_pantalla")]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="ColliderPantalla" type="StaticBody3D" parent="."]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ColliderPantalla"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.078704834, 1.2719116, 0)
 shape = SubResource("BoxShape3D_pantalla")

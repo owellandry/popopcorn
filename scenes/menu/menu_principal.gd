@@ -3,8 +3,8 @@ extends Node3D
 @onready var btn_jugar: Button = $CanvasLayer/UI/Botones/BtnJugar
 @onready var btn_opciones: Button = $CanvasLayer/UI/Botones/BtnOpciones
 @onready var btn_puntajes: Button = $CanvasLayer/UI/Botones/BtnMultijugador
-@onready var objetos: Node3D = $Objetos
-@onready var objetos2: Node3D = $Objetos2
+@onready var objetos: Node3D = get_node_or_null("Objetos")
+@onready var objetos2: Node3D = get_node_or_null("Objetos2")
 
 const MOUSE_INFLUENCE := 0.03  # qué tanto se mueven (radianes)
 const SMOOTH_SPEED := 3.0  # velocidad de suavizado
