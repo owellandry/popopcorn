@@ -1,20 +1,46 @@
 [gd_scene format=3 uid="uid://decorext001"]
 
+[ext_resource type="PackedScene" uid="uid://eu58uk42irfc" path="res://scenes/decoraciones/building_buildify_nyc.tscn" id="building_nyc"]
+[ext_resource type="PackedScene" uid="uid://0reai83w4jka" path="res://scenes/decoraciones/building_pack.tscn" id="building_pack"]
 [ext_resource type="PackedScene" path="res://scenes/decoraciones/exterior/arbusto.tscn" id="ext_arbusto"]
 [ext_resource type="PackedScene" path="res://scenes/decoraciones/exterior/old_paper__cardboard_boxes.tscn" id="ext_boxes"]
 [ext_resource type="PackedScene" path="res://scenes/decoraciones/exterior/cardboard_box.tscn" id="ext_cardboard"]
 [ext_resource type="PackedScene" path="res://scenes/decoraciones/exterior/old_soviet_chair.tscn" id="ext_chair"]
 [ext_resource type="PackedScene" uid="uid://t5ktrxqcdkrl" path="res://scenes/decoraciones/exterior/ventildador_de_teto_ceiling_fan.tscn" id="ext_fan"]
 [ext_resource type="PackedScene" path="res://scenes/decoraciones/exterior/maceta_lp.tscn" id="ext_maceta2"]
-[ext_resource type="PackedScene" path="res://scenes/decoraciones/exterior/moldy_old_mattres.tscn" id="ext_mattress"]
+[ext_resource type="PackedScene" uid="uid://ycrcuitx6xhx" path="res://scenes/decoraciones/exterior/moldy_old_mattres.tscn" id="ext_mattress"]
 [ext_resource type="PackedScene" path="res://scenes/decoraciones/exterior/mesa.tscn" id="ext_mesa"]
 [ext_resource type="PackedScene" path="res://scenes/decoraciones/exterior/desktop_computer.tscn" id="ext_pc"]
 [ext_resource type="PackedScene" path="res://scenes/decoraciones/exterior/old_gas_stove.tscn" id="ext_stove"]
 [ext_resource type="PackedScene" path="res://scenes/decoraciones/exterior/old_tv_model_download.tscn" id="ext_tv"]
 [ext_resource type="PackedScene" uid="uid://djsx3nfvtgaii" path="res://scenes/decoraciones/lampara_exterior.tscn" id="lampara_exterior"]
+[ext_resource type="PackedScene" uid="uid://bcuvh1siesbdo" path="res://scenes/decoraciones/modular_motel.tscn" id="modular_motel"]
+[ext_resource type="PackedScene" uid="uid://c2c2oub5fjxl5" path="res://scenes/decoraciones/procedural_city_2.tscn" id="procedural_city_2"]
+[ext_resource type="PackedScene" uid="uid://c2c2oub5fkxl5" path="res://scenes/decoraciones/procedural_city_3.tscn" id="procedural_city_3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_piso"]
+albedo_color = Color(0.2, 0.25, 0.3, 1)
+roughness = 0.9
+
+[sub_resource type="BoxMesh" id="BoxMesh_piso"]
+material = SubResource("StandardMaterial3D_piso")
+size = Vector3(500, 1, 500)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_piso"]
+size = Vector3(500, 1, 500)
 
 [node name="DecoracionExterior" type="Node3D" unique_id=2000000001]
 transform = Transform3D(1.1924881e-08, 0, -1, 0, 1, 0, 1, 0, 1.1924881e-08, 0, 0, 0)
+
+[node name="Piso" type="StaticBody3D" parent="." unique_id=-1994967295]
+transform = Transform3D(1.6746609, 0, 0, 0, 1, 0, 0, 0, 1.253125, 21.40915, -0.5196593, -25.301712)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Piso" unique_id=-1994967294]
+mesh = SubResource("BoxMesh_piso")
+surface_material_override/0 = SubResource("StandardMaterial3D_piso")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Piso" unique_id=-1994967293]
+shape = SubResource("BoxShape3D_piso")
 
 [node name="Lampara2" parent="." unique_id=2000000003 instance=ExtResource("lampara_exterior")]
 transform = Transform3D(-1, -8.742278e-08, 0, -3.821371e-15, 4.371139e-08, 1, -8.742278e-08, 1, -4.371139e-08, 0.2, 4.769, -20.855)
@@ -78,3 +104,60 @@ transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, -4.4358554, 0.12716258,
 
 [node name="Arbusto3" parent="ModelosExterior" unique_id=1542498223 instance=ExtResource("ext_arbusto")]
 transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 4.6785083, 0.12716258, -10.78194)
+
+[node name="Edificios" type="Node3D" parent="." unique_id=2100000001]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -50)
+
+[node name="BuildingNYC" parent="Edificios" unique_id=2100000002 instance=ExtResource("building_nyc")]
+transform = Transform3D(-4.8082526e-08, 0, -1.1, 0, 1.1, 0, 1.1, 0, -4.8082526e-08, 61.515854, -0.12715328, 79.91597)
+
+[node name="BuildingPack" parent="Edificios" unique_id=2100000003 instance=ExtResource("building_pack")]
+transform = Transform3D(-0.3, 0, -2.6226834e-08, 0, 0.3, 0, 2.6226834e-08, 0, -0.3, 3.098818, 0, 70.87247)
+
+[node name="ModularMotel" parent="Edificios" unique_id=2100000004 instance=ExtResource("modular_motel")]
+transform = Transform3D(-1.6, 0, -2.4159328e-07, 0, 1.6, 0, 2.4159328e-07, 0, -1.6, -13.690903, 0, 47.241753)
+
+[node name="BuildingNYC2" parent="Edificios" unique_id=1093598641 instance=ExtResource("building_nyc")]
+transform = Transform3D(-1.1, 0, 9.616505e-08, 0, 1.1, 0, -9.616505e-08, 0, -1.1, -79.64183, -0.12715328, 59.94027)
+
+[node name="ProceduralCity2" parent="Edificios" unique_id=-2094967295 instance=ExtResource("procedural_city_2")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -123.88074, 0, 119.87904)
+
+[node name="ProceduralCity3" parent="Edificios" unique_id=-2094967294 instance=ExtResource("procedural_city_3")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 134.75938, 0, 182.28766)
+
+[node name="ProceduralCity4" parent="Edificios" unique_id=1602683020 instance=ExtResource("procedural_city_3")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -182.2403, 0, -29.458794)
+
+[node name="ProceduralCity5" parent="Edificios" unique_id=685308119 instance=ExtResource("procedural_city_2")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -25.70094, 0, 126.69632)
+
+[node name="ProceduralCity6" parent="Edificios" unique_id=874134136 instance=ExtResource("procedural_city_3")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -120.7161, 0, 268.1421)
+
+[node name="ProceduralCity7" parent="Edificios" unique_id=1904144996 instance=ExtResource("procedural_city_2")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -279.9511, 0, 209.9002)
+
+[node name="ProceduralCity8" parent="Edificios" unique_id=1753907740 instance=ExtResource("procedural_city_2")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -341.92963, 0, 119.879036)
+
+[node name="ProceduralCity9" parent="Edificios" unique_id=996553386 instance=ExtResource("procedural_city_3")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -286.20862, 0, 20.901516)
+
+[node name="ProceduralCity10" parent="Edificios" unique_id=2049301314 instance=ExtResource("procedural_city_2")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 340.96692, 0, 34.734486)
+
+[node name="ProceduralCity11" parent="Edificios" unique_id=470492068 instance=ExtResource("procedural_city_3")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 280.2887, 0, -114.60336)
+
+[node name="ProceduralCity12" parent="Edificios" unique_id=1339191559 instance=ExtResource("procedural_city_3")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 392.0511, 0, 182.99753)
+
+[node name="ProceduralCity13" parent="Edificios" unique_id=1485982968 instance=ExtResource("procedural_city_2")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 232.81607, 0, 124.755646)
+
+[node name="ProceduralCity14" parent="Edificios" unique_id=1749193903 instance=ExtResource("procedural_city_2")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 122.14514, 0, -215.2301)
+
+[node name="ProceduralCity15" parent="Edificios" unique_id=1012165251 instance=ExtResource("procedural_city_3")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 170.63937, 0, -30.156952)

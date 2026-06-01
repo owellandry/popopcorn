@@ -3,13 +3,13 @@
 [ext_resource type="PackedScene" uid="uid://cn7j5vk6f433v" path="res://models/wet_floor_sign.glb" id="model_wet_floor"]
 
 [sub_resource type="BoxShape3D" id="shape_sign"]
-size = Vector3(0.43105468, 0.90285647, 0.51018065)
+size = Vector3(0.30307618, 0.628064, 0.36069947)
 
 [node name="WetFloorSign" type="StaticBody3D" unique_id=885285744]
 
 [node name="Modelo" parent="." unique_id=242729054 instance=ExtResource("model_wet_floor")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 0, 0, 0)
 
 [node name="Col" type="CollisionShape3D" parent="." unique_id=1636719003]
-transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, 0.0047852397, 3.1566992, 0.011706561)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.00073236227, 0.6364965, 0.0022888482)
 shape = SubResource("shape_sign")

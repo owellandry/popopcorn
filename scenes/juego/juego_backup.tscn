@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bcuartoemp01" path="res://scenes/cuarto_empleados/cuarto_empleados.tscn" id="4_empleados"]
 [ext_resource type="PackedScene" uid="uid://bcuartolim01" path="res://scenes/cuarto_limpieza/cuarto_limpieza.tscn" id="5_limpieza"]
 [ext_resource type="PackedScene" uid="uid://bpasillosal1" path="res://scenes/pasillo_salas/pasillo_salas.tscn" id="6_pasillo"]
-[ext_resource type="Shader" uid="uid://kgjsu8n7pyom" path="res://shaders/sky/sky_day_night.gdshader" id="7_sky_shader"]
+[ext_resource type="Shader" uid="uid://dsbqlh8d7gmjy" path="res://shaders/sky/main.gdshader" id="7_sky_shader"]
 [ext_resource type="Script" uid="uid://gimnkg3f2c2p" path="res://scripts/ciclo_dia_noche.gd" id="8_ciclo"]
 [ext_resource type="PackedScene" uid="uid://bexterior001" path="res://scenes/exterior/exterior_cine.tscn" id="9_exterior"]
 [ext_resource type="PackedScene" uid="uid://bparking0001" path="res://scenes/exterior/parking.tscn" id="10_parking"]
@@ -26,7 +26,7 @@ shader_parameter/sunset_amount_exponent = 0.7
 shader_parameter/night_amount_exponent = 4.0
 shader_parameter/cloud_color = Color(0.8, 0.8, 0.8, 1)
 shader_parameter/cloud_tiling = Vector2(1, 1)
-shader_parameter/wind_speed = Vector2(0.5, 0.5)
+shader_parameter/wind_speed = Vector2(0.02, 0.02)
 shader_parameter/cloud_density = 0.7
 shader_parameter/cloud_depth = 2.0
 shader_parameter/cloud_shape_exponent = 2.0

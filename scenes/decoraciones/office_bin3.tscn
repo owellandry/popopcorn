@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://officebin003"]
+
+[ext_resource type="PackedScene" uid="uid://bhdahygd0cbxp" path="res://assets/imported/office_bin.glb" id="1_glb"]
+
+[node name="OfficeBin3" type="Node3D" unique_id=1549930747]
+
+[node name="Model" parent="." unique_id=1326336714 instance=ExtResource("1_glb")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)

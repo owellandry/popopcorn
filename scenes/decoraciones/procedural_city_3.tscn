@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://c2c2oub5fkxl5"]
+
+[ext_resource type="PackedScene" uid="uid://proceduralcity3glb" path="res://assets/imported/procedural_city_3.glb" id="1_glb"]
+
+[node name="ProceduralCity3" type="Node3D"]
+
+[node name="Model" parent="." instance=ExtResource("1_glb")]

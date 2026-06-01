@@ -169,7 +169,7 @@ theme_override_constants/separation = 50
 alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="BtnPuntajes" type="Button" parent="CanvasLayer/UI/Botones" unique_id=301144058]
+[node name="BtnMultijugador" type="Button" parent="CanvasLayer/UI/Botones" unique_id=301144058]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.8, 0, 1)
 theme_override_colors/font_hover_color = Color(1, 0.9, 0.3, 1)
@@ -181,7 +181,7 @@ theme_override_styles/normal = SubResource("style_btn_empty")
 theme_override_styles/pressed = SubResource("style_btn_empty")
 theme_override_styles/hover = SubResource("style_btn_empty_hover")
 theme_override_styles/focus = SubResource("style_btn_empty")
-text = "PUNTAJES"
+text = "Multijugador"
 
 [node name="BtnJugar" type="Button" parent="CanvasLayer/UI/Botones" unique_id=639361169]
 layout_mode = 2

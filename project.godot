@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 Transicion="*res://scenes/ui/transicion.tscn"
 SistemaNombreCine="*res://scripts/sistema_nombre_cine.gd"
 GestorInicio="*res://scripts/gestor_inicio.gd"
+GestorMenus="*res://scripts/gestor_menus.gd"
 
 [display]
 
@@ -46,12 +47,34 @@ toggle_flashlight={
 3d/physics_engine="Jolt Physics"
 
 [rendering]
-
 rendering_device/driver.windows="d3d12"
-lights_and_shadows/directional_shadow/size=2048
-lights_and_shadows/directional_shadow/soft_shadow_filter_quality=0
-lights_and_shadows/positional_shadow/soft_shadow_filter_quality=0
-anti_aliasing/quality/msaa_3d=1
+
+[Lights and Shadows - ULTRA QUALITY]
+; Directional Light (Sun) Shadows - INCREASED RESOLUTION
+lights_and_shadows/directional_shadow/size=8192
+lights_and_shadows/directional_shadow/soft_shadow_filter_quality=3
+lights_and_shadows/directional_shadow/16_bits=true
+
+; Positional Lights (Point/Spot) Shadows - INCREASED QUALITY
+lights_and_shadows/positional_shadow/atlas_size=8192
+lights_and_shadows/positional_shadow/soft_shadow_filter_quality=3
+lights_and_shadows/positional_shadow/16_bits=true
+
+; Shadow Blending - SMOOTHER TRANSITIONS
+lights_and_shadows/shadow_blur=1.5
+
+; Anti-Aliasing - SMOOTHER EDGES
+anti_aliasing/quality/msaa_3d=3
+anti_aliasing/quality/use_taa=true
+anti_aliasing/quality/use_debanding=true
+
+; Environment
 environment/defaults/default_clear_color=Color(0.05, 0.03, 0.03, 1)
 occlusion_culling/use_occlusion_culling=true
-lights_and_shadows/positional_shadow/atlas_size=2048
+
+; Texture Quality - SHARPER TEXTURES
+textures/decals/filter=5
+textures/light_projectors/filter=5
+
+; Max Lights Visible - MORE DYNAMIC LIGHTS
+lights_and_shadows/max_lights_per_object=32

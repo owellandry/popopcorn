@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://26ed1luiwx25"]
+
+[ext_resource type="PackedScene" uid="uid://poznanclinicglb" path="res://assets/imported/poznan_district_clinic_lite_poland.glb" id="1_glb"]
+
+[node name="PoznanDistrictClinic" type="Node3D"]
+
+[node name="Model" parent="." instance=ExtResource("1_glb")]

@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://0reai83w4jka"]
+
+[ext_resource type="PackedScene" uid="uid://dbqusjawf6xqj" path="res://assets/imported/building_pack.glb" id="1_glb"]
+
+[node name="BuildingPack" type="Node3D" unique_id=995399277]
+
+[node name="Model" parent="." unique_id=1266561930 instance=ExtResource("1_glb")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)

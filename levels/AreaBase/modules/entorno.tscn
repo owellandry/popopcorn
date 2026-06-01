@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dquyqsslnvw14"]
 
 [ext_resource type="Script" uid="uid://gimnkg3f2c2p" path="res://scripts/ciclo_dia_noche.gd" id="ciclo_script"]
-[ext_resource type="Shader" uid="uid://kgjsu8n7pyom" path="res://shaders/sky/sky_day_night.gdshader" id="sky_shader"]
+[ext_resource type="Shader" uid="uid://dsbqlh8d7gmjy" path="res://shaders/sky/main.gdshader" id="sky_shader"]
 
 [sub_resource type="ShaderMaterial" id="sky_shader_mat"]
 shader = ExtResource("sky_shader")
@@ -18,7 +18,7 @@ shader_parameter/sunset_amount_exponent = 0.7
 shader_parameter/night_amount_exponent = 4.0
 shader_parameter/cloud_color = Color(0.8, 0.8, 0.8, 1)
 shader_parameter/cloud_tiling = Vector2(1, 1)
-shader_parameter/wind_speed = Vector2(0.5, 0.5)
+shader_parameter/wind_speed = Vector2(0.02, 0.02)
 shader_parameter/cloud_density = 0.7
 shader_parameter/cloud_depth = 2.0
 shader_parameter/cloud_shape_exponent = 2.0

@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dje7r2fkfxkk7"]
+
+[ext_resource type="PackedScene" uid="uid://officebinglb" path="res://assets/imported/office_bin.glb" id="1_glb"]
+
+[node name="OfficeBin1" type="Node3D"]
+
+[node name="Model" parent="." instance=ExtResource("1_glb")]

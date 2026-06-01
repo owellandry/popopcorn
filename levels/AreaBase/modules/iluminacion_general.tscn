@@ -8,19 +8,16 @@
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 7.606516, 0, 25.968258)
 
 [node name="Lampara1" parent="IluminacionEntradaPrincipal" unique_id=-294967293 instance=ExtResource("lampara_vip")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 0, 0.094)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.0496674, 0, 0.09399986)
 
 [node name="Lampara2" parent="IluminacionEntradaPrincipal" unique_id=-294967292 instance=ExtResource("lampara_vip")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.833, 0, 0.094)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.38266706, 0, 0.09399986)
 
 [node name="Lampara3" parent="IluminacionEntradaPrincipal" unique_id=-294967291 instance=ExtResource("lampara_vip")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.833, 0, 0.094)
-
-[node name="Lampara4" parent="IluminacionEntradaPrincipal" unique_id=-294967290 instance=ExtResource("lampara_vip")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 0.094)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2833323, 0, 0.09399986)
 
 [node name="IluminacionCuartoEntregas" type="Node3D" parent="." unique_id=-294967287]
-transform = Transform3D(3.607576, 0, 0, 0, 1, 0, 0, 0, 2.1898887, 7.606516, 0, -25.185362)
+transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 3, 7.606516, 0, -25.185362)
 visible = false
 
 [node name="Lampara1" parent="IluminacionCuartoEntregas" unique_id=-294967286 instance=ExtResource("lampara_vip")]

@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://pantalla_mostrador"]
+
+[ext_resource type="PackedScene" uid="uid://con2maa1nnh4y" path="res://models/pantalla.glb" id="model_pantalla"]
+[ext_resource type="Script" path="res://scripts/pantalla_interactiva.gd" id="script_interactiva"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pantalla"]
+size = Vector3(0.44622803, 2.5438232, 3)
+
+[node name="PantallaMostrador" type="Node3D"]
+script = ExtResource("script_interactiva")
+
+[node name="Modelo" parent="." instance=ExtResource("model_pantalla")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.078704834, 1.2719116, 0)
+shape = SubResource("BoxShape3D_pantalla")

@@ -16,6 +16,7 @@ class_name Puerta
 @export var angulo_apertura: float = 90.0
 @export var texto_cerrada: String = "Personal autorizado"
 @export var texto_interaccion: String = "Presiona E para abrir"
+@export var distancia_interaccion: float = 2.5
 
 @onready var puerta_pivot: Node3D = $PuertaPivot
 @onready var mesh_puerta: MeshInstance3D = $PuertaPivot/MeshPuerta
@@ -29,12 +30,14 @@ var _animando := false
 var _angulo_actual := 0.0
 var _angulo_objetivo := 0.0
 var _jugador_cerca := false
+var _hud: Node
 
 func _ready() -> void:
 	if area_interaccion:
 		area_interaccion.body_entered.connect(_on_jugador_entro)
 		area_interaccion.body_exited.connect(_on_jugador_salio)
 	$CanvasLayer.visible = false
+	_esperar_hud()
 
 func _set_textura_puerta(tex: Texture2D) -> void:
 	textura_puerta = tex
@@ -67,17 +70,28 @@ func _set_normal_marco(tex: Texture2D) -> void:
 			mat.normal_texture = tex
 
 func _process(delta: float) -> void:
+	_actualizar_rango()
+	_actualizar_visibilidad_prompt()
 	if _animando:
 		_angulo_actual = move_toward(_angulo_actual, _angulo_objetivo, velocidad_apertura * delta * 60.0)
 		puerta_pivot.rotation_degrees.y = _angulo_actual
 		if abs(_angulo_actual - _angulo_objetivo) < 0.1:
 			_animando = false
 
+func _actualizar_rango() -> void:
+	var jugador := get_tree().get_first_node_in_group("jugador") as Node3D
+	if jugador == null:
+		_jugador_cerca = false
+		return
+	_jugador_cerca = jugador.global_position.distance_to(global_position) <= distancia_interaccion
+
 func _input(event: InputEvent) -> void:
 	if not _jugador_cerca:
 		return
 	if event.is_action_pressed("interactuar"):
-		_toggle_puerta()
+		if _hud and _hud.has_method("puede_interactuar"):
+			if _hud.puede_interactuar(self, _jugador_cerca):
+				_toggle_puerta()
 
 func _toggle_puerta() -> void:
 	if _animando:
@@ -87,16 +101,40 @@ func _toggle_puerta() -> void:
 	_animando = true
 	_actualizar_label()
 
+func _actualizar_visibilidad_prompt() -> void:
+	if not _jugador_cerca:
+		$CanvasLayer.visible = false
+		return
+	
+	if _hud and _hud.has_method("puede_interactuar"):
+		$CanvasLayer.visible = _hud.puede_interactuar(self, _jugador_cerca)
+	else:
+		$CanvasLayer.visible = false
+
 func _on_jugador_entro(body: Node3D) -> void:
 	if body.is_in_group("jugador"):
 		_jugador_cerca = true
-		$CanvasLayer.visible = true
 		_actualizar_label()
 
 func _on_jugador_salio(body: Node3D) -> void:
 	if body.is_in_group("jugador"):
 		_jugador_cerca = false
 		$CanvasLayer.visible = false
+
+func _esperar_hud() -> void:
+	await get_tree().process_frame
+	# Buscar el HUD en el árbol de la escena principal
+	_hud = get_node_or_null("/root/Juego/HUD")
+	if _hud == null:
+		_hud = get_node_or_null("/root/JuegoV2/HUD")
+	if _hud == null:
+		# Si no lo encuentra en esas rutas, buscarlo en todo el árbol
+		var root = get_tree().root
+		for i in range(root.get_child_count()):
+			var child = root.get_child(i)
+			if child.name == "HUD":
+				_hud = child
+				break
 
 func _actualizar_label() -> void:
 	if label_ui:
