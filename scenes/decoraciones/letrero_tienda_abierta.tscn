@@ -30,6 +30,7 @@ material = SubResource("mat_letras")
 text = "ABIERTO"
 font_size = 127
 depth = 0.04
+horizontal_alignment = 1
 
 [sub_resource type="BoxShape3D" id="shape_letrero"]
 size = Vector3(2.5, 0.8, 0.15)
