@@ -1,8 +1,7 @@
 extends Node3D
 class_name LetreroTienda
 
-@export var texto_abierto: String = "ABIERTO"
-@export var texto_cerrado: String = "CERRADO"
+@export var texto: String = "ABIERTO"
 
 const COLOR_NEON_ON := Color(0, 1, 0.45, 1)
 const COLOR_NEON_OFF := Color(0.1, 0.1, 0.1, 1)
@@ -15,8 +14,6 @@ var material_off: StandardMaterial3D
 
 var tienda_abierta: bool = false
 var _id_animacion: int = 0
-var _escala_base: Vector3 = Vector3.ONE
-var _ancho_mundo_objetivo: float = 0.0
 
 func _ready() -> void:
 	mesh_texto = get_node_or_null("Texto")
@@ -29,11 +26,7 @@ func _ready() -> void:
 	if mesh_letras and mesh_letras.mesh is TextMesh:
 		var tm := mesh_letras.mesh as TextMesh
 		tm.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-		_escala_base = mesh_letras.scale
-		var ancho_abierto := _medir_ancho_mesh(texto_abierto)
-		var ancho_cerrado := _medir_ancho_mesh(texto_cerrado)
-		var ancho_max := maxf(ancho_abierto, ancho_cerrado)
-		_ancho_mundo_objetivo = ancho_max * _escala_base.x
+		tm.text = texto
 
 	_crear_materiales_neon()
 	_actualizar()
@@ -56,40 +49,7 @@ func set_tienda_abierta(abierto: bool) -> void:
 	tienda_abierta = abierto
 	_id_animacion += 1
 	var id := _id_animacion
-	_actualizar_texto()
 	_animar_parpadeo(abierto, id)
-
-func _medir_ancho_mesh(texto: String) -> float:
-	if mesh_letras == null or mesh_letras.mesh == null:
-		return 1.0
-	var ref := mesh_letras.mesh as TextMesh
-	var tm := TextMesh.new()
-	tm.font = ref.font
-	tm.font_size = ref.font_size
-	tm.depth = ref.depth
-	tm.horizontal_alignment = ref.horizontal_alignment
-	tm.text = texto
-	var temp := MeshInstance3D.new()
-	temp.mesh = tm
-	return temp.get_aabb().size.x
-
-func _ajustar_escala_texto(texto: String) -> void:
-	if mesh_letras == null or _ancho_mundo_objetivo <= 0.0:
-		return
-	var ancho := _medir_ancho_mesh(texto)
-	if ancho <= 0.001:
-		return
-	mesh_letras.scale = Vector3(
-		_ancho_mundo_objetivo / ancho,
-		_escala_base.y,
-		_escala_base.z
-	)
-
-func _actualizar_texto() -> void:
-	var texto := texto_abierto if tienda_abierta else texto_cerrado
-	if mesh_letras and mesh_letras.mesh is TextMesh:
-		(mesh_letras.mesh as TextMesh).text = texto
-		_ajustar_escala_texto(texto)
 
 func _animar_parpadeo(encender: bool, id: int) -> void:
 	var pasos: Array[Vector2]
@@ -140,7 +100,6 @@ func _aplicar_brillo(intensidad: float) -> void:
 		luz.omni_range = lerpf(2.0, 10.0, t)
 
 func _actualizar() -> void:
-	_actualizar_texto()
 	_aplicar_material(mesh_letras, tienda_abierta)
 	_aplicar_material(mesh_texto, tienda_abierta)
 

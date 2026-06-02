@@ -49,12 +49,6 @@ sky = SubResource("sky_main_ab")
 ambient_light_source = 2
 ambient_light_color = Color(0.02, 0.02, 0.02, 1)
 ambient_light_energy = 0.05
-glow_enabled = true
-glow_intensity = 0.8
-glow_strength = 1.0
-glow_bloom = 0.35
-glow_blend_mode = 0
-glow_hdr_threshold = 0.8
 
 [node name="JuegoV2" type="Node3D" unique_id=392865289]
 
