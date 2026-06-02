@@ -296,9 +296,9 @@ func _iniciar_dormir() -> void:
 	_label_interaccion.visible = true
 
 	if GestorGameplay:
-		GestorGameplay.actualizar_tiempo(HORA_8AM)
+		GestorGameplay.iniciar_pausa_manana()
 
-	print("☀️ Secuencia de dormir completada! Son las 8:00 AM")
+	print("☀️ Secuencia de dormir completada! Son las 8:00 AM (tiempo en pausa hasta abrir tienda)")
 
 func _fade_a_negro() -> void:
 	print("  _fade_a_negro: Iniciando...")

@@ -8,24 +8,32 @@ const HORA_INICIO_DIA: int = 8
 const HORA_FIN_CLIENTES: int = 21
 const PROGRESO_8AM: float = 0.3333
 const PROGRESO_9PM: float = 0.875
+const DURACION_DIA_SEGUNDOS: float = 1440.0
+const SEGUNDOS_POR_HORA_JUEGO: float = 60.0
 
 var tienda_abierta: bool = false
 var progreso_tiempo: float = PROGRESO_8AM
+var tiempo_pausado: bool = false
 var _pueden_clientes_cache: bool = false
+var _ultimo_minuto_juego: int = -1
 
 func _ready() -> void:
-	var sol := get_tree().get_first_node_in_group("sol_ciclo")
-	if sol:
-		sol.progreso_normalizado = PROGRESO_8AM
-		if sol.has_method("actualizar_ciclo"):
-			sol.actualizar_ciclo()
-		progreso_tiempo = sol.progreso_normalizado
-	_emitir_hora()
+	call_deferred("_iniciar_jornada")
+
+func _iniciar_jornada() -> void:
+	for _i in range(30):
+		if get_tree().get_first_node_in_group("sol_ciclo"):
+			iniciar_pausa_manana()
+			return
+		await get_tree().process_frame
 
 func actualizar_tiempo(progreso: float) -> void:
 	progreso_tiempo = progreso
-	_emitir_hora()
-	_emitir_condiciones_clientes()
+	var minuto_total := int(fposmod(progreso, 1.0) * 1440.0)
+	if minuto_total != _ultimo_minuto_juego:
+		_ultimo_minuto_juego = minuto_total
+		_emitir_hora()
+		_emitir_condiciones_clientes()
 
 func _emitir_hora() -> void:
 	var hm := progreso_a_hora_minuto(progreso_tiempo)
@@ -54,6 +62,7 @@ func set_tienda_abierta(abierta: bool) -> void:
 	tienda_abierta = abierta
 	tienda_estado_cambiado.emit(abierta)
 	_emitir_condiciones_clientes()
+	_intentar_reanudar_tiempo()
 
 func todas_puertas_entrada_abiertas() -> bool:
 	var puertas := get_tree().get_nodes_in_group("puerta_entrada_tienda")
@@ -69,6 +78,31 @@ func todas_puertas_entrada_cerradas() -> bool:
 
 func notificar_puerta_entrada_cambiada() -> void:
 	_emitir_condiciones_clientes()
+	_intentar_reanudar_tiempo()
+
+func iniciar_pausa_manana() -> void:
+	tiempo_pausado = true
+	progreso_tiempo = PROGRESO_8AM
+	_ultimo_minuto_juego = -1
+	var sol := get_tree().get_first_node_in_group("sol_ciclo")
+	if sol:
+		sol.progreso_normalizado = PROGRESO_8AM
+		sol.ciclo_automatico = false
+		if sol.has_method("actualizar_ciclo"):
+			sol.actualizar_ciclo()
+	_emitir_hora()
+	_emitir_condiciones_clientes()
+
+func _intentar_reanudar_tiempo() -> void:
+	if not tiempo_pausado:
+		return
+	if not tienda_abierta or not todas_puertas_entrada_abiertas():
+		return
+	tiempo_pausado = false
+	var sol := get_tree().get_first_node_in_group("sol_ciclo")
+	if sol:
+		sol.ciclo_automatico = true
+	_emitir_condiciones_clientes()
 
 func _emitir_condiciones_clientes() -> void:
 	var pueden := pueden_llegar_clientes()
@@ -78,6 +112,8 @@ func _emitir_condiciones_clientes() -> void:
 	condiciones_clientes_cambiadas.emit(pueden)
 
 func pueden_llegar_clientes() -> bool:
+	if tiempo_pausado:
+		return false
 	return tienda_abierta and todas_puertas_entrada_abiertas() and not es_despues_de_las_9pm()
 
 func puede_abrir_tienda() -> bool:

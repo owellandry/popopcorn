@@ -1,11 +1,12 @@
 extends DirectionalLight3D
 
 @export var ciclo_automatico: bool = true
-@export var duracion_ciclo_normal: float = 60.0
+## 24 minutos reales = 24 horas de juego (1 minuto real por hora)
+@export var duracion_ciclo_normal: float = 1440.0
 @export var multiplicador_noche: float = 1.0
 @export var multiplicador_dia: float = 1.0
 
-var progreso_normalizado: float = 0.5
+var progreso_normalizado: float = 0.3333
 var velocidad_ciclo: float = 1.0
 var es_noche: bool = false
 
@@ -14,6 +15,8 @@ var world_env_cache: WorldEnvironment = null
 
 func _ready() -> void:
 	add_to_group("sol_ciclo")
+	progreso_normalizado = 0.3333
+	ciclo_automatico = false
 	if _es_sol_principal():
 		_cargar_sky_material()
 	actualizar_ciclo()
@@ -25,7 +28,7 @@ func _process(delta: float) -> void:
 	if not _es_sol_principal():
 		_sincronizar_desde_principal()
 		return
-	if ciclo_automatico:
+	if ciclo_automatico and (not GestorGameplay or not GestorGameplay.tiempo_pausado):
 		var mult_tiempo = multiplicador_noche if es_noche else multiplicador_dia
 		progreso_normalizado += (delta / duracion_ciclo_normal) * velocidad_ciclo * mult_tiempo
 		if progreso_normalizado > 1.0:

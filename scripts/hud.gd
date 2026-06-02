@@ -21,16 +21,20 @@ func _ready() -> void:
 	_crosshair.add_theme_font_size_override("font_size", 24)
 	_crosshair.add_theme_color_override("font_color", _default_color)
 	if _reloj and GestorGameplay:
-		_reloj.text = GestorGameplay.obtener_texto_hora()
+		_actualizar_reloj()
 		GestorGameplay.hora_actualizada.connect(_on_hora_actualizada)
 
 func _on_hora_actualizada(_hora: int, _minuto: int, _progreso: float) -> void:
-	if _reloj and GestorGameplay:
-		_reloj.text = GestorGameplay.obtener_texto_hora()
-		if GestorGameplay.es_despues_de_las_9pm():
-			_reloj.add_theme_color_override("font_color", Color(1, 0.75, 0.45, 1))
-		else:
-			_reloj.add_theme_color_override("font_color", Color(1, 1, 1, 1))
+	_actualizar_reloj()
+
+func _actualizar_reloj() -> void:
+	if not _reloj or not GestorGameplay:
+		return
+	_reloj.text = GestorGameplay.obtener_texto_hora()
+	if GestorGameplay.es_despues_de_las_9pm():
+		_reloj.add_theme_color_override("font_color", Color(1, 0.75, 0.45, 1))
+	else:
+		_reloj.add_theme_color_override("font_color", Color(1, 1, 1, 1))
 
 func _process(_delta: float) -> void:
 	_actualizar_crosshair()
