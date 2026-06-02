@@ -86,10 +86,8 @@ float get_cloud_height(sampler2D tex, vec2 uv) {
 void sky() {
 	float t = plane_intersection(vec3(0.0, 1.0, 0.0), vec3(0.0, -1.0, 0.0), vec3(0.0), EYEDIR);
 	
+	// day_night_mix lo controla ciclo_dia_noche.gd (LIGHT0 solo dibuja el disco solar)
 	float blend = day_night_mix;
-	if(use_directional_light){
-		blend = LIGHT0_DIRECTION.y;
-	}
 
 	vec3 sky = vec3(0.0);
 	vec3 horizon_color = vec3(0.0);

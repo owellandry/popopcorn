@@ -172,12 +172,13 @@ func _iniciar_dormir() -> void:
 	
 	# Paso 2: Configurar hora a las 9 PM (0.875) y preparar ciclo hasta 8 AM (0.333)
 	print("Paso 2: Configurando hora a las 9 PM...")
-	var sol = get_node_or_null("/root/Juego/Sol")
-	if not sol:
+	var sol = get_tree().get_first_node_in_group("sol_ciclo")
+	if sol == null:
+		sol = get_node_or_null("/root/Juego/Sol")
+	if sol == null:
 		sol = get_node_or_null("/root/JuegoV2/Sol")
-	
+
 	if sol:
-		# Establecer hora a las 9 PM (0.875)
 		sol.progreso_normalizado = HORA_9PM
 		sol.actualizar_ciclo()
 		print("  Hora establecida a las 9 PM (progreso: %f)" % HORA_9PM)
@@ -203,8 +204,10 @@ func _iniciar_dormir() -> void:
 	
 	print("Paso 3 completado!")
 	
-	# Paso 4: Fade in a la cinemática exterior
-	print("Paso 4: Fade in a cinemática exterior...")
+	# Paso 4: Fade in con cielo nocturno (9 PM ya aplicado en paso 2)
+	print("Paso 4: Fade in a cinemática exterior (cielo oscuro)...")
+	if sol:
+		sol.actualizar_ciclo()
 	await _fade_a_claro()
 	print("Paso 4 completado!")
 	
