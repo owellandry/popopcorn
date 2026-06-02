@@ -9,10 +9,12 @@
 [ext_resource type="PackedScene" uid="uid://dquyqsslnvw14" path="res://levels/AreaBase/modules/entorno.tscn" id="entorno"]
 [ext_resource type="PackedScene" uid="uid://bhud001" path="res://scenes/ui/hud.tscn" id="hud"]
 [ext_resource type="PackedScene" uid="uid://ilu001" path="res://levels/AreaBase/modules/iluminacion_general.tscn" id="iluminacion_general"]
+[ext_resource type="PackedScene" uid="uid://dol8pqmgg04o7" path="res://scenes/decoraciones/interruptor_tienda.tscn" id="interruptor_tienda"]
+[ext_resource type="PackedScene" uid="uid://bdcw8h0xjgcua" path="res://scenes/decoraciones/letrero_tienda_abierta.tscn" id="letrero_tienda"]
 [ext_resource type="PackedScene" uid="uid://xvcyudurm0x0" path="res://levels/AreaBase/modules/paredes_conjunto.tscn" id="paredes"]
 [ext_resource type="PackedScene" uid="uid://bpersonaje01" path="res://scenes/personaje/personaje.tscn" id="personaje"]
-[ext_resource type="PackedScene" uid="uid://ddm8pg74c28se" path="res://levels/AreaBase/modules/techo.tscn" id="techo"]
 [ext_resource type="PackedScene" uid="uid://sistjugab001" path="res://scenes/jugabilidad/sistema_jugabilidad.tscn" id="sistema_jugabilidad"]
+[ext_resource type="PackedScene" uid="uid://ddm8pg74c28se" path="res://levels/AreaBase/modules/techo.tscn" id="techo"]
 
 [sub_resource type="ShaderMaterial" id="sky_shader_mat_ab"]
 shader = ExtResource("7_sky_shader")
@@ -47,6 +49,12 @@ sky = SubResource("sky_main_ab")
 ambient_light_source = 2
 ambient_light_color = Color(0.02, 0.02, 0.02, 1)
 ambient_light_energy = 0.05
+glow_enabled = true
+glow_intensity = 0.8
+glow_strength = 1.0
+glow_bloom = 0.35
+glow_blend_mode = 0
+glow_hdr_threshold = 0.8
 
 [node name="JuegoV2" type="Node3D" unique_id=392865289]
 
@@ -92,3 +100,10 @@ script = ExtResource("8_ciclo")
 transform = Transform3D(0.8433914, -0.096070364, 0.52864105, 0, 0.98388505, 0.17880222, -0.53729963, -0.15080026, 0.82980025, 10.631601, 2.4955924, 55.00411)
 fov = 60.0
 near = 0.1
+
+[node name="InterruptorTienda" parent="." unique_id=998877665 instance=ExtResource("interruptor_tienda")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 7.7853117, 1.6847141, 21.953213)
+letrero_asociado = NodePath("../LetreroTiendaAbierta")
+
+[node name="LetreroTiendaAbierta" parent="." unique_id=998877666 instance=ExtResource("letrero_tienda")]
+transform = Transform3D(4, 0, 0, 0, 2, 0, 0, 0, 1, 6.5, 5.7847123, 29.996628)

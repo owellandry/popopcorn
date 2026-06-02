@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://dol8pqmgg04o7"]
+
+[ext_resource type="Script" uid="uid://ctudder4cgvqf" path="res://scripts/interruptor_tienda.gd" id="1_script"]
+
+[sub_resource type="BoxMesh" id="mesh_placa"]
+size = Vector3(0.15, 0.25, 0.01)
+
+[sub_resource type="StandardMaterial3D" id="mat_placa"]
+albedo_color = Color(0.9, 0.9, 0.9, 1)
+roughness = 0.5
+
+[sub_resource type="BoxMesh" id="mesh_palanca"]
+size = Vector3(0.06, 0.1, 0.02)
+
+[sub_resource type="StandardMaterial3D" id="mat_palanca"]
+albedo_color = Color(0.85, 0.85, 0.85, 1)
+roughness = 0.6
+
+[sub_resource type="StandardMaterial3D" id="mat_indicador"]
+albedo_color = Color(0.1, 0.1, 0.1, 1)
+emission_enabled = true
+emission = Color(0.05, 0.05, 0.05, 1)
+emission_energy_multiplier = 0.5
+
+[sub_resource type="BoxMesh" id="mesh_texto"]
+material = SubResource("mat_indicador")
+size = Vector3(0.08, 0.02, 0.01)
+
+[sub_resource type="BoxShape3D" id="shape_caja"]
+size = Vector3(0.15, 0.25, 0.03)
+
+[node name="InterruptorTienda" type="StaticBody3D" unique_id=1728885282 groups=["interactuable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
+script = ExtResource("1_script")
+
+[node name="Placa" type="MeshInstance3D" parent="." unique_id=1698447355]
+mesh = SubResource("mesh_placa")
+surface_material_override/0 = SubResource("mat_placa")
+
+[node name="PivotePalanca" type="Node3D" parent="." unique_id=1867699133]
+transform = Transform3D(1, 0, 0, 0, 0.965926, -0.258819, 0, 0.258819, 0.965926, 0, 0, -0.008561621)
+
+[node name="Palanca" type="MeshInstance3D" parent="PivotePalanca" unique_id=1640259816]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.01)
+mesh = SubResource("mesh_palanca")
+surface_material_override/0 = SubResource("mat_palanca")
+
+[node name="Texto" type="MeshInstance3D" parent="." unique_id=1651268107]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08, 0.005)
+mesh = SubResource("mesh_texto")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1854241029]
+shape = SubResource("shape_caja")

@@ -8,22 +8,41 @@ var estado: String = "espera"
 var asiento: Node3D = null
 
 func _ready():
-	var mesh = MeshInstance3D.new()
-	var shape = BoxShape3D.new()
-	shape.size = Vector3(0.5, 1.8, 0.3)
+	var capsule_shape = CapsuleShape3D.new()
+	capsule_shape.radius = 0.25
+	capsule_shape.height = 1.2
 	
 	var colision = CollisionShape3D.new()
-	colision.shape = shape
+	colision.shape = capsule_shape
+	colision.transform.origin.y = 0.9
 	
-	var material = StandardMaterial3D.new()
-	material.albedo_color = color
+	var material_cuerpo = StandardMaterial3D.new()
+	material_cuerpo.albedo_color = color
+	material_cuerpo.roughness = 0.7
 	
-	var mesh_geom = BoxMesh.new()
-	mesh_geom.size = Vector3(0.5, 1.8, 0.3)
-	mesh_geom.material = material
+	var cuerpo = CapsuleMesh.new()
+	cuerpo.radius = 0.25
+	cuerpo.height = 1.2
+	cuerpo.material = material_cuerpo
 	
-	mesh.mesh = mesh_geom
-	add_child(mesh)
+	var mesh_cuerpo = MeshInstance3D.new()
+	mesh_cuerpo.mesh = cuerpo
+	mesh_cuerpo.transform.origin.y = 0.9
+	add_child(mesh_cuerpo)
+	
+	var cabeza = SphereMesh.new()
+	cabeza.radius = 0.15
+	cabeza.height = 0.2
+	
+	var material_cabeza = StandardMaterial3D.new()
+	material_cabeza.albedo_color = Color(0.9, 0.75, 0.65)
+	cabeza.material = material_cabeza
+	
+	var mesh_cabeza = MeshInstance3D.new()
+	mesh_cabeza.mesh = cabeza
+	mesh_cabeza.transform.origin.y = 1.7
+	add_child(mesh_cabeza)
+	
 	add_child(colision)
 
 func hablar():

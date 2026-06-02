@@ -17,7 +17,6 @@ func _ready() -> void:
 	btn_opciones.pressed.connect(_on_opciones)
 	btn_puntajes.pressed.connect(_on_puntajes)
 	
-	# Cache original viewport size and connect to resize signal
 	_viewport_size = get_viewport().get_visible_rect().size
 	get_viewport().size_changed.connect(_on_viewport_size_changed)
 
@@ -57,4 +56,31 @@ func _on_opciones() -> void:
 	pass
 
 func _on_puntajes() -> void:
-	pass
+	if $CanvasLayer/UI.has_node("MensajeBeta"):
+		return
+	
+	var msg = Label.new()
+	msg.name = "MensajeBeta"
+	msg.text = "Esta opción estará disponible para la versión oficial"
+	msg.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	msg.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	
+	var font = load("res://fonts/TitanOne-Regular.ttf")
+	if font:
+		msg.add_theme_font_override("font", font)
+	msg.add_theme_font_size_override("font_size", 28)
+	msg.add_theme_color_override("font_color", Color(1, 0.9, 0.3))
+	msg.add_theme_color_override("font_outline_color", Color(0.9, 0.55, 0))
+	msg.add_theme_constant_override("outline_size", 6)
+	
+	$CanvasLayer/UI.add_child(msg)
+	
+	msg.set_anchors_preset(Control.PRESET_CENTER)
+	msg.position.y -= 150
+	
+	msg.modulate.a = 0
+	var tween = create_tween()
+	tween.tween_property(msg, "modulate:a", 1.0, 0.3)
+	tween.tween_interval(2.5)
+	tween.tween_property(msg, "modulate:a", 0.0, 0.5)
+	tween.tween_callback(msg.queue_free)
