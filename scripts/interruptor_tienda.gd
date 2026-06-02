@@ -101,8 +101,12 @@ func _crear_panel_fade() -> void:
 	get_tree().root.add_child.call_deferred(_fade_canvas_layer)
 
 func toggle() -> void:
-	# Si ya estamos en medio de una transición, no hacer nada
 	if _panel_fade and _panel_fade.color.a > 0.0:
+		return
+
+	if not esta_abierto and GestorGameplay and not GestorGameplay.puede_abrir_tienda():
+		if _label_interaccion:
+			_label_interaccion.text = GestorGameplay.mensaje_no_puede_abrir_tienda()
 		return
 		
 	# Deshabilitar controles del jugador
@@ -139,6 +143,8 @@ func toggle() -> void:
 	# Paso 4: Realizar el cambio de estado (encender/apagar)
 	esta_abierto = not esta_abierto
 	_actualizar_estado()
+	if GestorGameplay:
+		GestorGameplay.set_tienda_abierta(esta_abierto)
 	if letrero_asociado and letrero_asociado.has_method("set_tienda_abierta"):
 		letrero_asociado.set_tienda_abierta(esta_abierto)
 		

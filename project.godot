@@ -21,6 +21,7 @@ Transicion="*res://scenes/ui/transicion.tscn"
 SistemaNombreCine="*res://scripts/sistema_nombre_cine.gd"
 GestorInicio="*res://scripts/gestor_inicio.gd"
 GestorMenus="*res://scripts/gestor_menus.gd"
+GestorGameplay="*res://scripts/gestor_gameplay.gd"
 
 [display]
 

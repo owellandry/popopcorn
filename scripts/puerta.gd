@@ -11,6 +11,7 @@ class_name Puerta
 @export var textura_normal_marco: Texture2D : set = _set_normal_marco
 
 @export_group("Configuración")
+@export var es_puerta_entrada_tienda: bool = false
 @export var requiere_autorizacion: bool = true
 @export var velocidad_apertura: float = 2.0
 @export var angulo_apertura: float = 90.0
@@ -33,6 +34,8 @@ var _jugador_cerca := false
 var _hud: Node
 
 func _ready() -> void:
+	if es_puerta_entrada_tienda:
+		add_to_group("puerta_entrada_tienda")
 	if area_interaccion:
 		area_interaccion.body_entered.connect(_on_jugador_entro)
 		area_interaccion.body_exited.connect(_on_jugador_salio)
@@ -100,6 +103,22 @@ func _toggle_puerta() -> void:
 	_angulo_objetivo = angulo_apertura if _abierta else 0.0
 	_animando = true
 	_actualizar_label()
+	_notificar_gestor()
+
+func esta_abierta() -> bool:
+	return _abierta
+
+func cerrar_puerta() -> void:
+	if _abierta and not _animando:
+		_toggle_puerta()
+
+func abrir_puerta() -> void:
+	if not _abierta and not _animando:
+		_toggle_puerta()
+
+func _notificar_gestor() -> void:
+	if es_puerta_entrada_tienda and GestorGameplay:
+		GestorGameplay.notificar_puerta_entrada_cambiada()
 
 func _actualizar_visibilidad_prompt() -> void:
 	if not _jugador_cerca:

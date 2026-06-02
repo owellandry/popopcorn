@@ -9,6 +9,7 @@ static var instance
 @export var interact_group: String = "interactuable"
 
 var _crosshair: Control
+var _reloj: Label
 var _default_color: Color = Color(1, 1, 1, 1)
 var _highlight_color: Color = Color(1, 1, 0.3, 1)
 var _current_interactive: Node = null
@@ -16,8 +17,20 @@ var _current_interactive: Node = null
 func _ready() -> void:
 	instance = self
 	_crosshair = $Crosshair/Plus
+	_reloj = get_node_or_null("Reloj") as Label
 	_crosshair.add_theme_font_size_override("font_size", 24)
 	_crosshair.add_theme_color_override("font_color", _default_color)
+	if _reloj and GestorGameplay:
+		_reloj.text = GestorGameplay.obtener_texto_hora()
+		GestorGameplay.hora_actualizada.connect(_on_hora_actualizada)
+
+func _on_hora_actualizada(_hora: int, _minuto: int, _progreso: float) -> void:
+	if _reloj and GestorGameplay:
+		_reloj.text = GestorGameplay.obtener_texto_hora()
+		if GestorGameplay.es_despues_de_las_9pm():
+			_reloj.add_theme_color_override("font_color", Color(1, 0.75, 0.45, 1))
+		else:
+			_reloj.add_theme_color_override("font_color", Color(1, 1, 1, 1))
 
 func _process(_delta: float) -> void:
 	_actualizar_crosshair()

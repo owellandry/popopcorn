@@ -15,6 +15,7 @@ const HORA_8AM: float = 0.3333  # 08:00 = 0.25 + (2/24) ≈ 0.333
 
 var _jugador_cerca := false
 var _durmiendo := false
+var _aviso_dormir: Label
 
 # Referencias a nodos
 var _area_interaccion: Area3D
@@ -27,6 +28,7 @@ var _hud: Node
 func _ready() -> void:
 	_crear_area_interaccion()
 	_crear_ui_interaccion()
+	_crear_aviso_dormir()
 	_crear_panel_fade()
 	_esperar_hud()
 
@@ -107,7 +109,13 @@ func _actualizar_visibilidad_prompt() -> void:
 	if not _jugador_cerca or _durmiendo:
 		_ui_canvas_layer.visible = false
 		return
-	
+
+	if GestorGameplay and GestorGameplay.es_despues_de_las_9pm() and _label_interaccion:
+		if GestorGameplay.puede_dormir():
+			_label_interaccion.text = "[E] Dormir"
+		else:
+			_label_interaccion.text = GestorGameplay.mensaje_no_puede_dormir()
+
 	if _hud and _hud.has_method("puede_interactuar"):
 		_ui_canvas_layer.visible = _hud.puede_interactuar(self, _jugador_cerca)
 	else:
@@ -146,10 +154,40 @@ func _esperar_hud() -> void:
 				_hud = child
 				break
 
+func _crear_aviso_dormir() -> void:
+	_aviso_dormir = Label.new()
+	_aviso_dormir.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	_aviso_dormir.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	_aviso_dormir.add_theme_font_size_override("font_size", 20)
+	_aviso_dormir.add_theme_color_override("font_color", Color(1, 0.85, 0.5, 1))
+	_aviso_dormir.add_theme_color_override("font_outline_color", Color(0, 0, 0, 1))
+	_aviso_dormir.add_theme_constant_override("outline_size", 6)
+	_aviso_dormir.anchor_left = 0.5
+	_aviso_dormir.anchor_right = 0.5
+	_aviso_dormir.anchor_top = 0.5
+	_aviso_dormir.anchor_bottom = 0.5
+	_aviso_dormir.offset_left = -280
+	_aviso_dormir.offset_right = 280
+	_aviso_dormir.offset_top = -60
+	_aviso_dormir.offset_bottom = 60
+	_aviso_dormir.visible = false
+	_ui_canvas_layer.add_child(_aviso_dormir)
+
+func _mostrar_aviso_dormir(texto: String) -> void:
+	if _aviso_dormir:
+		_aviso_dormir.text = texto
+		_aviso_dormir.visible = true
+		await get_tree().create_timer(2.5).timeout
+		_aviso_dormir.visible = false
+
 func _iniciar_dormir() -> void:
 	if _durmiendo:
 		return
-	
+
+	if GestorGameplay and not GestorGameplay.puede_dormir():
+		await _mostrar_aviso_dormir(GestorGameplay.mensaje_no_puede_dormir())
+		return
+
 	_durmiendo = true
 	_label_interaccion.visible = false
 	
@@ -256,7 +294,10 @@ func _iniciar_dormir() -> void:
 	
 	_durmiendo = false
 	_label_interaccion.visible = true
-	
+
+	if GestorGameplay:
+		GestorGameplay.actualizar_tiempo(HORA_8AM)
+
 	print("☀️ Secuencia de dormir completada! Son las 8:00 AM")
 
 func _fade_a_negro() -> void:

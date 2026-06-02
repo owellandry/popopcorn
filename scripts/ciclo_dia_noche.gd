@@ -1,9 +1,9 @@
 extends DirectionalLight3D
 
 @export var ciclo_automatico: bool = true
-@export var duracion_ciclo_normal: float = 120.0
-@export var multiplicador_noche: float = 6.0
-@export var multiplicador_dia: float = 0.5
+@export var duracion_ciclo_normal: float = 60.0
+@export var multiplicador_noche: float = 1.0
+@export var multiplicador_dia: float = 1.0
 
 var progreso_normalizado: float = 0.5
 var velocidad_ciclo: float = 1.0
@@ -94,6 +94,8 @@ func avanzar_ciclo(desde_normalizado: float, hasta_normalizado: float, duracion:
 
 	await tween.finished
 	ciclo_automatico = estaba_automatico
+	if GestorGameplay:
+		GestorGameplay.actualizar_tiempo(progreso_normalizado)
 
 func actualizar_ciclo() -> void:
 	rotation_degrees.x = lerpf(90.0, -270.0, progreso_normalizado)
@@ -115,6 +117,8 @@ func actualizar_ciclo() -> void:
 		sky_material_cache.set_shader_parameter("day_night_mix", _mezcla_dia_noche(progreso_normalizado))
 
 	_aplicar_a_todas_luces()
+	if _es_sol_principal() and GestorGameplay:
+		GestorGameplay.actualizar_tiempo(progreso_normalizado)
 
 func get_progreso_normalizado() -> float:
 	return progreso_normalizado
