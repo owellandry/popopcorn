@@ -1,0 +1,106 @@
+[gd_scene format=3 uid="uid://ddm8pg74c28se"]
+
+[ext_resource type="Texture2D" uid="uid://bx2dtotm5wrbd" path="res://assets/textures/techo/Tiles107_2K-JPG_Color.jpg" id="tex_techo_color"]
+[ext_resource type="Texture2D" uid="uid://clvalqr5coam6" path="res://assets/textures/techo/Tiles107_2K-JPG_NormalGL.jpg" id="tex_techo_normal"]
+[ext_resource type="Texture2D" uid="uid://boe85g6rhyvbc" path="res://assets/textures/techo/Tiles107_2K-JPG_Roughness.jpg" id="tex_techo_rough"]
+[ext_resource type="Texture2D" uid="uid://cy853rx0vvwuw" path="res://assets/textures/techo_vip/Fabric039_1K-JPG_Color.jpg" id="tex_techo_vip_color"]
+[ext_resource type="Texture2D" uid="uid://10dxlcxnlgau" path="res://assets/textures/techo_vip/Fabric039_1K-JPG_NormalGL.jpg" id="tex_techo_vip_normal"]
+[ext_resource type="Texture2D" uid="uid://6ojgra1xao8i" path="res://assets/textures/techo_vip/Fabric039_1K-JPG_Roughness.jpg" id="tex_techo_vip_rough"]
+
+[sub_resource type="StandardMaterial3D" id="Mat_Techo"]
+albedo_texture = ExtResource("tex_techo_color")
+roughness_texture = ExtResource("tex_techo_rough")
+normal_enabled = true
+normal_texture = ExtResource("tex_techo_normal")
+uv1_scale = Vector3(0.15, 0.15, 0.15)
+uv1_triplanar = true
+uv1_triplanar_sharpness = 0.8
+uv1_world_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_TechoEntrada"]
+material = SubResource("Mat_Techo")
+size = Vector3(12, 0.2, 8)
+
+[sub_resource type="BoxMesh" id="BoxMesh_TechoLobby"]
+material = SubResource("Mat_Techo")
+size = Vector3(28, 0.2, 22)
+
+[sub_resource type="BoxMesh" id="BoxMesh_TechoAlaSalas"]
+material = SubResource("Mat_Techo")
+size = Vector3(24, 0.2, 30)
+
+[sub_resource type="BoxMesh" id="BoxMesh_TechoSala1"]
+material = SubResource("Mat_Techo")
+size = Vector3(10, 0.2, 10)
+
+[sub_resource type="BoxMesh" id="BoxMesh_TechoSala2"]
+material = SubResource("Mat_Techo")
+size = Vector3(10, 0.2, 10)
+
+[sub_resource type="BoxMesh" id="BoxMesh_TechoSala3"]
+material = SubResource("Mat_Techo")
+size = Vector3(10, 0.2, 10)
+
+[sub_resource type="BoxMesh" id="BoxMesh_TechoSala4"]
+material = SubResource("Mat_Techo")
+size = Vector3(10, 0.2, 14)
+
+[sub_resource type="StandardMaterial3D" id="Mat_TechoVIP"]
+albedo_texture = ExtResource("tex_techo_vip_color")
+roughness_texture = ExtResource("tex_techo_vip_rough")
+normal_enabled = true
+normal_texture = ExtResource("tex_techo_vip_normal")
+uv1_scale = Vector3(0.15, 0.15, 0.15)
+uv1_triplanar = true
+uv1_triplanar_sharpness = 0.8
+uv1_world_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_TechoVIP"]
+material = SubResource("Mat_TechoVIP")
+size = Vector3(16, 0.2, 12)
+
+[sub_resource type="BoxMesh" id="BoxMesh_TechoServicio"]
+material = SubResource("Mat_Techo")
+size = Vector3(10, 0.2, 22)
+
+[node name="Techo" type="Node3D" unique_id=196310263]
+
+[node name="TechoEntradaPrincipal" type="MeshInstance3D" parent="." unique_id=1699199507]
+transform = Transform3D(3.607576, 0, 0, 0, 1, 0, 0, 0, 1, 7.606516, 5, 25.968258)
+mesh = SubResource("BoxMesh_TechoEntrada")
+
+[node name="TechoCuartoEntregas" type="MeshInstance3D" parent="." unique_id=1429412542]
+transform = Transform3D(3.7886112, 0, 0, 0, 1, 0, 0, 0, 2.1898887, 7.606516, 5, -25.185362)
+mesh = SubResource("BoxMesh_TechoEntrada")
+
+[node name="TechoLobbyCentral" type="MeshInstance3D" parent="." unique_id=1008874846]
+transform = Transform3D(1.268, 0, 0, 0, 1, 0, 0, 0, 1.7570294, 3.7, 5, 2.7843578)
+mesh = SubResource("BoxMesh_TechoLobby")
+
+[node name="TechoAlaSalas" type="MeshInstance3D" parent="." unique_id=1212714920]
+transform = Transform3D(1.5884349, 0, 0, 0, 1, 0, 0, 0, 1.3763126, -32.92388, 5, -13.264345)
+mesh = SubResource("BoxMesh_TechoAlaSalas")
+
+[node name="TechoSala1_Premium" type="MeshInstance3D" parent="." unique_id=1852092343]
+transform = Transform3D(1.1731262, 0, 0, 0, 1, 0, 0, 0, 1.1331619, -42.08388, 5, -0.2863445)
+mesh = SubResource("BoxMesh_TechoSala1")
+
+[node name="TechoSala2" type="MeshInstance3D" parent="." unique_id=1592215598]
+transform = Transform3D(1.3714426, 0, 0, 0, 1, 0, 0, 0, 1.1325862, -41.63148, 5, -13.047521)
+mesh = SubResource("BoxMesh_TechoSala2")
+
+[node name="TechoSala3" type="MeshInstance3D" parent="." unique_id=283796863]
+transform = Transform3D(2.2919383, 0, 0, 0, 1, 0, 0, 0, 1.3448355, -39.46388, 5, -25.851627)
+mesh = SubResource("BoxMesh_TechoSala3")
+
+[node name="TechoSala4" type="MeshInstance3D" parent="." unique_id=1279120010]
+transform = Transform3D(1.2538086, 0, 0, 0, 1, 0, 0, 0, 2.2820518, -21.15388, 5, -16.83697)
+mesh = SubResource("BoxMesh_TechoSala4")
+
+[node name="TechoZonaVIP" type="MeshInstance3D" parent="." unique_id=693210501]
+transform = Transform3D(2.2621562, 0, 0, 0, 1, 0, 0, 0, 1.8442018, -32.0462, 4.995824, 18.14021)
+mesh = SubResource("BoxMesh_TechoVIP")
+
+[node name="TechoAreaServicio" type="MeshInstance3D" parent="." unique_id=1506292959]
+transform = Transform3D(0.91646564, 0, 0, 0, 1, 0, 0, 0, 1.787964, 25.674294, 5, 3.286415)
+mesh = SubResource("BoxMesh_TechoServicio")

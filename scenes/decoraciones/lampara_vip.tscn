@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dltmnbg7augw2"]
 
-[ext_resource type="PackedScene" uid="uid://cikqfudubn43d" path="res://models/lampara.glb" id="1"]
+[ext_resource type="PackedScene" uid="uid://cikqfudubn43d" path="res://assets/models/furniture/mesas/lampara.glb" id="1"]
 
 [node name="LamparaVIP" type="Node3D" unique_id=642314875]
 

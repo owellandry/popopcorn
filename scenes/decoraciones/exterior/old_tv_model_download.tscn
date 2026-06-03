@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3]
 
-[ext_resource type="PackedScene" path="res://models/decoraciones/exterior/old_tv_model_download.glb" id="1_model"]
+[ext_resource type="PackedScene" path="res://assets/models/exterior/small_props/old_tv_model_download.glb" id="1_model"]
 
 [sub_resource type="BoxShape3D" id="shape_tv"]
 size = Vector3(0.6, 0.5, 0.5)

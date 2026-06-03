@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bpapelera01"]
 
-[ext_resource type="PackedScene" uid="uid://b4tgwdwpof1yd" path="res://models/waste_bin.glb" id="1_modelo"]
+[ext_resource type="PackedScene" uid="uid://b4tgwdwpof1yd" path="res://assets/models/decor/waste_bin.glb" id="1_modelo"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8pbfi"]
 size = Vector3(0.616272, 0.8340454, 0.46948242)

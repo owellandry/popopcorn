@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3]
 
-[ext_resource type="PackedScene" path="res://models/decoraciones/exterior/maceta_de_arrayan.glb" id="1_model"]
+[ext_resource type="PackedScene" path="res://assets/models/exterior/small_props/maceta_de_arrayan.glb" id="1_model"]
 
 
 [node name="MacetaDeArrayan" type="Node3D"]

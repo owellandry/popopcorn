@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3]
 
-[ext_resource type="PackedScene" path="res://models/decoraciones/exterior/mesa.glb" id="1_model"]
+[ext_resource type="PackedScene" path="res://assets/models/exterior/small_props/mesa.glb" id="1_model"]
 
 [sub_resource type="BoxShape3D" id="shape_mesa"]
 size = Vector3(1.2, 0.1, 0.8)

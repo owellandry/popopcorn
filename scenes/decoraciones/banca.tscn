@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bbanca00001"]
 
-[ext_resource type="PackedScene" uid="uid://cncct7ayfmq2l" path="res://models/modern_sofa.glb" id="model_sofa"]
+[ext_resource type="PackedScene" uid="uid://cncct7ayfmq2l" path="res://assets/models/furniture/sillas/modern_sofa.glb" id="model_sofa"]
+[ext_resource type="Script" uid="uid://buykliyli0iil" path="res://scripts/components/mueble_sentarse.gd" id="script_mueble"]
 
 [sub_resource type="BoxShape3D" id="shape_banca"]
 size = Vector3(2.65576, 0.68146, 1.05305)
@@ -12,6 +13,9 @@ size = Vector3(2.3143, 0.80524, 0.42491)
 size = Vector3(0.22793, 0.56104, 1.07285)
 
 [node name="Banca" type="StaticBody3D" unique_id=1454778292]
+script = ExtResource("script_mueble")
+tipo_mueble = "sofa"
+max_personas = 2
 
 [node name="Modelo" parent="." unique_id=1263106979 instance=ExtResource("model_sofa")]
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0, 0)
@@ -31,3 +35,11 @@ shape = SubResource("BoxShape3D_v51hy")
 [node name="Col4" type="CollisionShape3D" parent="." unique_id=440207132]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.219, 0.8, 0.045)
 shape = SubResource("BoxShape3D_v51hy")
+
+[node name="Asientos" type="Node3D" parent="." unique_id=871033183]
+
+[node name="Asiento1" type="Marker3D" parent="Asientos" unique_id=1932052019]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5678861, 0.5463306, 0.1135637)
+
+[node name="Asiento2" type="Marker3D" parent="Asientos" unique_id=2104097477]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5428068, 0.54264843, 0.05)

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dpcrn_cubeta_vacia"]
 
-[ext_resource type="PackedScene" path="res://models/popcorn_bucket.glb" id="bucket"]
+[ext_resource type="PackedScene" path="res://assets/models/machines/popcorn/popcorn_bucket.glb" id="bucket"]
 
 [node name="CubetaVacia" type="Node3D"]
 

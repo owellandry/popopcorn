@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3]
 
-[ext_resource type="PackedScene" path="res://models/decoraciones/exterior/maceta_lp.glb" id="1_model"]
+[ext_resource type="PackedScene" path="res://assets/models/exterior/small_props/maceta_lp.glb" id="1_model"]
 
 
 [node name="MacetaLp" type="Node3D"]

@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://sala2001"]
 
-[ext_resource type="PackedScene" uid="uid://dwnudpcf0gyog" path="res://models/bocina.glb" id="model_bocina"]
+[ext_resource type="PackedScene" uid="uid://dwnudpcf0gyog" path="res://assets/models/electronics/bocina.glb" id="model_bocina"]
 [ext_resource type="PackedScene" uid="uid://boff4xjyrs3fe" path="res://scenes/decoraciones/silla_cine.tscn" id="model_silla"]
-[ext_resource type="Texture2D" uid="uid://cjlcosca68wlt" path="res://textures/alfombra/Fabric077_1K-PNG_Color.png" id="tex_carpet_color"]
-[ext_resource type="Texture2D" uid="uid://cf88v4x1p3b45" path="res://textures/alfombra/Fabric077_1K-PNG_NormalGL.png" id="tex_carpet_normal"]
-[ext_resource type="Texture2D" uid="uid://bcs8tbj3bfu6m" path="res://textures/alfombra/Fabric077_1K-PNG_Roughness.png" id="tex_carpet_roughness"]
-[ext_resource type="Texture2D" uid="uid://cvc11l6mstsie" path="res://textures/tela_pared_sala/Poliigon_BoucleFabricBubbly_7827_AmbientOcclusion.jpg" id="tex_wall_ao"]
-[ext_resource type="Texture2D" uid="uid://bap2t0f8vfhll" path="res://textures/tela_pared_sala/Poliigon_BoucleFabricBubbly_7827_BaseColor.jpg" id="tex_wall_color"]
-[ext_resource type="Texture2D" uid="uid://cbfc81r3accnn" path="res://textures/tela_pared_sala/Poliigon_BoucleFabricBubbly_7827_Normal.png" id="tex_wall_normal"]
-[ext_resource type="Texture2D" uid="uid://did30qf03lhrf" path="res://textures/tela_pared_sala/Poliigon_BoucleFabricBubbly_7827_Roughness.jpg" id="tex_wall_roughness"]
+[ext_resource type="Texture2D" uid="uid://cjlcosca68wlt" path="res://assets/textures/alfombra/Fabric077_1K-PNG_Color.png" id="tex_carpet_color"]
+[ext_resource type="Texture2D" uid="uid://cf88v4x1p3b45" path="res://assets/textures/alfombra/Fabric077_1K-PNG_NormalGL.png" id="tex_carpet_normal"]
+[ext_resource type="Texture2D" uid="uid://bcs8tbj3bfu6m" path="res://assets/textures/alfombra/Fabric077_1K-PNG_Roughness.png" id="tex_carpet_roughness"]
+[ext_resource type="Texture2D" uid="uid://cvc11l6mstsie" path="res://assets/textures/tela_pared_sala/Poliigon_BoucleFabricBubbly_7827_AmbientOcclusion.jpg" id="tex_wall_ao"]
+[ext_resource type="Texture2D" uid="uid://bap2t0f8vfhll" path="res://assets/textures/tela_pared_sala/Poliigon_BoucleFabricBubbly_7827_BaseColor.jpg" id="tex_wall_color"]
+[ext_resource type="Texture2D" uid="uid://cbfc81r3accnn" path="res://assets/textures/tela_pared_sala/Poliigon_BoucleFabricBubbly_7827_Normal.png" id="tex_wall_normal"]
+[ext_resource type="Texture2D" uid="uid://did30qf03lhrf" path="res://assets/textures/tela_pared_sala/Poliigon_BoucleFabricBubbly_7827_Roughness.jpg" id="tex_wall_roughness"]
 
 [sub_resource type="StandardMaterial3D" id="mat_floor"]
 albedo_color = Color(0.12, 0.08, 0.08, 1)

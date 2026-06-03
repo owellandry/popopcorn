@@ -48,6 +48,10 @@ func _unhandled_input(event: InputEvent) -> void:
 		_toggle_flashlight()
 		get_viewport().set_input_as_handled()
 
+	if event.is_action_pressed("golpear") and GestorInventario:
+		GestorInventario.intentar_golpear(camera)
+		get_viewport().set_input_as_handled()
+
 	# ESC para liberar ratón
 	if event.is_action_pressed("ui_cancel"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)

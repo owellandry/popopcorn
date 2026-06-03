@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://bexterior001"]
 
-[ext_resource type="Texture2D" uid="uid://daev1wcxmgf6x" path="res://textures/piso_lobby/Marble021_1K-PNG_Color.png" id="tex_marble_color"]
-[ext_resource type="Texture2D" uid="uid://cq0qe0bhf2w0j" path="res://textures/piso_lobby/Marble021_1K-PNG_NormalGL.png" id="tex_marble_normal"]
-[ext_resource type="Texture2D" uid="uid://bjgtmcinia3d2" path="res://textures/piso_lobby/Marble021_1K-PNG_Roughness.png" id="tex_marble_rough"]
+[ext_resource type="Texture2D" uid="uid://daev1wcxmgf6x" path="res://assets/textures/piso_lobby/Marble021_1K-PNG_Color.png" id="tex_marble_color"]
+[ext_resource type="Texture2D" uid="uid://cq0qe0bhf2w0j" path="res://assets/textures/piso_lobby/Marble021_1K-PNG_NormalGL.png" id="tex_marble_normal"]
+[ext_resource type="Texture2D" uid="uid://bjgtmcinia3d2" path="res://assets/textures/piso_lobby/Marble021_1K-PNG_Roughness.png" id="tex_marble_rough"]
 
 [sub_resource type="BoxMesh" id="mesh_marco_arriba"]
 size = Vector3(9.4, 0.3, 0.3)
@@ -67,7 +67,10 @@ transform = Transform3D(0.95903206, 0, 0, 0, 1.0482559, 0, 0, 0, 1, -0.001626491
 mesh = SubResource("mesh_vidrio_grande")
 surface_material_override/0 = SubResource("mat_vidrio_grande")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="VentanonVidrio/Vidrio1" unique_id=1682487251]
+[node name="ColVidrio" type="StaticBody3D" parent="VentanonVidrio" unique_id=1682487250]
+transform = Transform3D(0.95903206, 0, 0, 0, 1.0482559, 0, 0, 0, 1, -0.0016264915, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="VentanonVidrio/ColVidrio" unique_id=1682487251]
 shape = SubResource("BoxShape3D_vidrio1")
 
 [node name="VentanonVidrio2" type="Node3D" parent="." unique_id=1353332310]
@@ -98,5 +101,8 @@ transform = Transform3D(0.95903206, 0, 0, 0, 1.0482559, 0, 0, 0, 1, -0.001626491
 mesh = SubResource("mesh_vidrio_grande")
 surface_material_override/0 = SubResource("mat_vidrio_grande")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="VentanonVidrio2/Vidrio1" unique_id=1661221000]
+[node name="ColVidrio" type="StaticBody3D" parent="VentanonVidrio2" unique_id=1661220999]
+transform = Transform3D(0.95903206, 0, 0, 0, 1.0482559, 0, 0, 0, 1, -0.0016264915, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="VentanonVidrio2/ColVidrio" unique_id=1661221000]
 shape = SubResource("BoxShape3D_vidrio1")

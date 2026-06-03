@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://t5ktrxqcdkrl"]
 
-[ext_resource type="PackedScene" uid="uid://7qeg451a4t0o" path="res://models/decoraciones/exterior/ventildador_de_teto_ceiling_fan.glb" id="1_model"]
+[ext_resource type="PackedScene" uid="uid://7qeg451a4t0o" path="res://assets/models/exterior/small_props/ventildador_de_teto_ceiling_fan.glb" id="1_model"]
 
 [node name="VentildadorDeTetoCeilingFan" type="Node3D" unique_id=1413920471]
 

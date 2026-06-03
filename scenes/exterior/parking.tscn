@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://bparking0001"]
 
-[ext_resource type="Texture2D" uid="uid://6es0jirmhf43" path="res://textures/piso_exterior/Concrete032_1K-PNG_Color.png" id="tex_concrete_color"]
-[ext_resource type="Texture2D" uid="uid://cj0ip2m30nery" path="res://textures/piso_exterior/Concrete032_1K-PNG_NormalGL.png" id="tex_concrete_normal"]
-[ext_resource type="Texture2D" uid="uid://djb56jklxcwoc" path="res://textures/piso_exterior/Concrete032_1K-PNG_Roughness.png" id="tex_concrete_roughness"]
+[ext_resource type="Texture2D" uid="uid://6es0jirmhf43" path="res://assets/textures/piso_exterior/Concrete032_1K-PNG_Color.png" id="tex_concrete_color"]
+[ext_resource type="Texture2D" uid="uid://cj0ip2m30nery" path="res://assets/textures/piso_exterior/Concrete032_1K-PNG_NormalGL.png" id="tex_concrete_normal"]
+[ext_resource type="Texture2D" uid="uid://djb56jklxcwoc" path="res://assets/textures/piso_exterior/Concrete032_1K-PNG_Roughness.png" id="tex_concrete_roughness"]
 
 [sub_resource type="BoxMesh" id="mesh_piso_parking"]
 size = Vector3(40, 0.1, 30)

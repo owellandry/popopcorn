@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3]
 
-[ext_resource type="PackedScene" path="res://models/decoraciones/exterior/wellworth_classic_toilet_with_seat_down.glb" id="1_model"]
+[ext_resource type="PackedScene" path="res://assets/models/exterior/small_props/wellworth_classic_toilet_with_seat_down.glb" id="1_model"]
 
 
 [node name="WellworthClassicToiletWithSeatDown" type="Node3D"]

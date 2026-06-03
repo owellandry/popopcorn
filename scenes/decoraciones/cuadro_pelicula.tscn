@@ -1,10 +1,10 @@
 [gd_scene load_steps=14 format=3 uid="uid://dy1sjtjqt6kc2"]
 
 [ext_resource type="Script" path="res://scenes/decoraciones/cuadro_vip.gd" id="1_script"]
-[ext_resource type="Texture2D" path="res://textures/carteles/movie1.jpg" id="2_default"]
-[ext_resource type="Texture2D" uid="uid://y11isdyo647r" path="res://textures/mostrador/Wood027_1K-PNG_Color.png" id="tex_wood_color"]
-[ext_resource type="Texture2D" uid="uid://cgtdfogv0a5ys" path="res://textures/mostrador/Wood027_1K-PNG_NormalGL.png" id="tex_wood_normal"]
-[ext_resource type="Texture2D" uid="uid://dnmv2s7uisuig" path="res://textures/mostrador/Wood027_1K-PNG_Roughness.png" id="tex_wood_roughness"]
+[ext_resource type="Texture2D" path="res://assets/textures/carteles/movie1.jpg" id="2_default"]
+[ext_resource type="Texture2D" uid="uid://y11isdyo647r" path="res://assets/textures/mostrador/Wood027_1K-PNG_Color.png" id="tex_wood_color"]
+[ext_resource type="Texture2D" uid="uid://cgtdfogv0a5ys" path="res://assets/textures/mostrador/Wood027_1K-PNG_NormalGL.png" id="tex_wood_normal"]
+[ext_resource type="Texture2D" uid="uid://dnmv2s7uisuig" path="res://assets/textures/mostrador/Wood027_1K-PNG_Roughness.png" id="tex_wood_roughness"]
 
 [sub_resource type="StandardMaterial3D" id="mat_base"]
 albedo_color = Color(0.05, 0.03, 0.02, 1)

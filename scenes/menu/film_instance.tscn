@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dv46twtchqi1e"]
 
-[ext_resource type="PackedScene" uid="uid://kfwsx6mnqdxt" path="res://models/film.glb" id="film_model"]
+[ext_resource type="PackedScene" uid="uid://kfwsx6mnqdxt" path="res://assets/models/decor/film.glb" id="film_model"]
 
 [node name="FilmInstance" type="Node3D" unique_id=864399223]
 

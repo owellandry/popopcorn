@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://lfm8tikvkyov"]
 
 [ext_resource type="PackedScene" uid="uid://c42rr1uaprigd" path="res://scenes/decoraciones/silla_bar.tscn" id="silla_bar"]
-[ext_resource type="Texture2D" uid="uid://b78nwtxvaawld" path="res://models/mesa_vip/tabla_mesa/Onyx011_4K-JPG_Color.jpg" id="tex_barra_color"]
-[ext_resource type="Texture2D" uid="uid://dhheojvc0vms8" path="res://models/mesa_vip/tabla_mesa/Onyx011_4K-JPG_NormalGL.jpg" id="tex_barra_normal"]
-[ext_resource type="Texture2D" uid="uid://cmrqjsw7l8vrk" path="res://models/mesa_vip/tabla_mesa/Onyx011_4K-JPG_Roughness.jpg" id="tex_barra_rough"]
+[ext_resource type="Texture2D" uid="uid://b78nwtxvaawld" path="res://assets/models/mesa_vip/tabla_mesa/Onyx011_4K-JPG_Color.jpg" id="tex_barra_color"]
+[ext_resource type="Texture2D" uid="uid://dhheojvc0vms8" path="res://assets/models/mesa_vip/tabla_mesa/Onyx011_4K-JPG_NormalGL.jpg" id="tex_barra_normal"]
+[ext_resource type="Texture2D" uid="uid://cmrqjsw7l8vrk" path="res://assets/models/mesa_vip/tabla_mesa/Onyx011_4K-JPG_Roughness.jpg" id="tex_barra_rough"]
 
 [sub_resource type="StandardMaterial3D" id="mat_barra"]
 albedo_texture = ExtResource("tex_barra_color")

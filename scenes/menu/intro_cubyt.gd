@@ -37,7 +37,7 @@ func _ready() -> void:
 	vbox.add_child(brick_row)
 	
 	# Load font
-	var font = load("res://fonts/TitanOne-Regular.ttf")
+	var font = load("res://assets/fonts/TitanOne-Regular.ttf")
 	
 	# Build bricks
 	for data in BRICK_DATA:

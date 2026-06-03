@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://bmesasilla01"]
 
-[ext_resource type="PackedScene" uid="uid://bxocjj3bino5t" path="res://models/cilla_negra.glb" id="model_silla"]
-[ext_resource type="Texture2D" uid="uid://y11isdyo647r" path="res://textures/mostrador/Wood027_1K-PNG_Color.png" id="tex_wood_color"]
-[ext_resource type="Texture2D" uid="uid://cgtdfogv0a5ys" path="res://textures/mostrador/Wood027_1K-PNG_NormalGL.png" id="tex_wood_normal"]
-[ext_resource type="Texture2D" uid="uid://dnmv2s7uisuig" path="res://textures/mostrador/Wood027_1K-PNG_Roughness.png" id="tex_wood_roughness"]
+[ext_resource type="PackedScene" uid="uid://bxocjj3bino5t" path="res://assets/models/furniture/sillas/cilla_negra.glb" id="model_silla"]
+[ext_resource type="Script" uid="uid://buykliyli0iil" path="res://scripts/components/mueble_sentarse.gd" id="script_mueble"]
+[ext_resource type="Texture2D" uid="uid://y11isdyo647r" path="res://assets/textures/mostrador/Wood027_1K-PNG_Color.png" id="tex_wood_color"]
+[ext_resource type="Texture2D" uid="uid://cgtdfogv0a5ys" path="res://assets/textures/mostrador/Wood027_1K-PNG_NormalGL.png" id="tex_wood_normal"]
+[ext_resource type="Texture2D" uid="uid://dnmv2s7uisuig" path="res://assets/textures/mostrador/Wood027_1K-PNG_Roughness.png" id="tex_wood_roughness"]
 
 [sub_resource type="StandardMaterial3D" id="mat_table"]
 albedo_color = Color(0.35, 0.2, 0.1, 1)
@@ -32,6 +33,13 @@ size = Vector3(1.2, 0.06, 1.2)
 size = Vector3(0.45, 0.7541016, 0.71972656)
 
 [node name="MesaConSillas" type="Node3D" unique_id=1282593610]
+script = ExtResource("script_mueble")
+tipo_mueble = "mesa"
+max_personas = 4
+avance_asiento = 0.05
+
+[node name="Asientos" type="Node3D" parent="." unique_id=1029837824]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.47632867, 0.72994506)
 
 [node name="Mesa" type="StaticBody3D" parent="." unique_id=258928469]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)

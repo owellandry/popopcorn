@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://c4xducy2o8uxv"]
+
+[ext_resource type="Texture2D" uid="uid://ur2mfj5d2kot" path="res://assets/textures/zocalo_sala_tiles/tiles_0061_color_1k.jpg" id="tex_zocalo_color"]
+[ext_resource type="Texture2D" uid="uid://bbx2nr7roqpyn" path="res://assets/textures/zocalo_sala_tiles/tiles_0061_normal_opengl_1k.png" id="tex_zocalo_normal"]
+[ext_resource type="Texture2D" uid="uid://dedwcxjrqqe81" path="res://assets/textures/zocalo_sala_tiles/tiles_0061_roughness_1k.jpg" id="tex_zocalo_roughness"]
+[ext_resource type="Texture2D" uid="uid://cvc11l6mstsie" path="res://assets/textures/tela_pared_sala/Poliigon_BoucleFabricBubbly_7827_AmbientOcclusion.jpg" id="tex_wall_ao"]
+[ext_resource type="Texture2D" uid="uid://bap2t0f8vfhll" path="res://assets/textures/tela_pared_sala/Poliigon_BoucleFabricBubbly_7827_BaseColor.jpg" id="tex_wall_color"]
+[ext_resource type="Texture2D" uid="uid://cbfc81r3accnn" path="res://assets/textures/tela_pared_sala/Poliigon_BoucleFabricBubbly_7827_Normal.png" id="tex_wall_normal"]
+[ext_resource type="Texture2D" uid="uid://did30qf03lhrf" path="res://assets/textures/tela_pared_sala/Poliigon_BoucleFabricBubbly_7827_Roughness.jpg" id="tex_wall_roughness"]
+
+[sub_resource type="BoxShape3D" id="Col_ParedBaja"]
+size = Vector3(20, 1.4, 0.15678711)
+
+[sub_resource type="BoxShape3D" id="Col_ParedAlta"]
+size = Vector3(20, 3.4, 0.15300293)
+
+[sub_resource type="BoxMesh" id="Wall_Lower"]
+size = Vector3(20, 1.4, 0.15)
+
+[sub_resource type="StandardMaterial3D" id="Mat_ParedBaja"]
+albedo_texture = ExtResource("tex_zocalo_color")
+roughness_texture = ExtResource("tex_zocalo_roughness")
+normal_enabled = true
+normal_texture = ExtResource("tex_zocalo_normal")
+uv1_scale = Vector3(0.24, 0.24, 0.24)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="BoxMesh" id="Wall_Upper"]
+size = Vector3(20, 3.4, 0.15)
+
+[sub_resource type="StandardMaterial3D" id="Mat_ParedAlta"]
+albedo_color = Color(0.9764706, 0.24313726, 0.36862746, 1)
+albedo_texture = ExtResource("tex_wall_color")
+roughness_texture = ExtResource("tex_wall_roughness")
+normal_enabled = true
+normal_texture = ExtResource("tex_wall_normal")
+ao_enabled = true
+ao_texture = ExtResource("tex_wall_ao")
+uv1_scale = Vector3(2, 2, 2)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[node name="ParedModular" type="Node3D" unique_id=78082052]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1755796648]
+
+[node name="CollisionBaja" type="CollisionShape3D" parent="StaticBody3D" unique_id=1175775589]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, -0.00021972507)
+shape = SubResource("Col_ParedBaja")
+
+[node name="CollisionAlta" type="CollisionShape3D" parent="StaticBody3D" unique_id=1567302881]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.1, -0.0011352524)
+shape = SubResource("Col_ParedAlta")
+
+[node name="ParedBaja" type="MeshInstance3D" parent="." unique_id=832901911]
+transform = Transform3D(1.001, 0, 0, 0, 1, 0, 0, 0, 1.029, 0, 0.7, 0)
+mesh = SubResource("Wall_Lower")
+surface_material_override/0 = SubResource("Mat_ParedBaja")
+
+[node name="ParedAlta" type="MeshInstance3D" parent="." unique_id=1966596195]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.1, 0)
+mesh = SubResource("Wall_Upper")
+surface_material_override/0 = SubResource("Mat_ParedAlta")

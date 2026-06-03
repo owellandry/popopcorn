@@ -1,0 +1,266 @@
+[gd_scene format=3 uid="uid://ebx1ichga51m"]
+
+[ext_resource type="PackedScene" uid="uid://balfombra01" path="res://scenes/decoraciones/alfombra.tscn" id="alfombra"]
+[ext_resource type="PackedScene" uid="uid://bbanca00001" path="res://scenes/decoraciones/banca.tscn" id="banca"]
+[ext_resource type="PackedScene" uid="uid://lfm8tikvkyov" path="res://scenes/decoraciones/barra_bar.tscn" id="barra_bar"]
+[ext_resource type="PackedScene" uid="uid://dy1sjtjqt6kc2" path="res://scenes/decoraciones/cuadro_pelicula.tscn" id="cuadro"]
+[ext_resource type="PackedScene" uid="uid://bks7ybc6wmmmr" path="res://scenes/decoraciones/lampara_pared.tscn" id="lampara"]
+[ext_resource type="PackedScene" uid="uid://dltmnbg7augw2" path="res://scenes/decoraciones/lampara_vip.tscn" id="lampara_vip"]
+[ext_resource type="PackedScene" uid="uid://bmesasilla01" path="res://scenes/decoraciones/mesa_con_sillas.tscn" id="mesa"]
+[ext_resource type="PackedScene" uid="uid://daub4hq78bja0" path="res://scenes/decoraciones/mesa_sola.tscn" id="mesa_sola"]
+[ext_resource type="PackedScene" uid="uid://bx77os5aab6j2" path="res://scenes/decoraciones/mesa_vip.tscn" id="mesa_vip"]
+[ext_resource type="Texture2D" uid="uid://cfwmxc6kg6o8a" path="res://assets/textures/carteles/movie1.jpg" id="movie1"]
+[ext_resource type="Texture2D" uid="uid://egtuw1td2t5x" path="res://assets/textures/carteles/movie2.jpg" id="movie2"]
+[ext_resource type="Texture2D" uid="uid://dup0he21e4ko8" path="res://assets/textures/carteles/movie3.jpg" id="movie3"]
+[ext_resource type="Texture2D" uid="uid://dlr5ganjmxofw" path="res://assets/textures/carteles/movie4.jpg" id="movie4"]
+[ext_resource type="Texture2D" uid="uid://xr8awbq02n5k" path="res://assets/textures/carteles/movie5.jpg" id="movie5"]
+[ext_resource type="Texture2D" uid="uid://csln5edn7nihl" path="res://assets/textures/carteles/movie6.jpg" id="movie6"]
+[ext_resource type="Texture2D" uid="uid://edgsna7b8sgh" path="res://assets/textures/carteles/movie7.jpg" id="movie7"]
+[ext_resource type="Texture2D" uid="uid://dgpgiexhb5kab" path="res://assets/textures/carteles/movie8.jpg" id="movie8"]
+[ext_resource type="Texture2D" uid="uid://cs1np330xocvj" path="res://assets/textures/carteles/movie9.jpg" id="movie9"]
+[ext_resource type="Texture2D" uid="uid://b4l25mjeceg6k" path="res://assets/textures/carteles/movie10.jpg" id="movie10"]
+[ext_resource type="PackedScene" uid="uid://bplanta00001" path="res://scenes/decoraciones/planta.tscn" id="planta"]
+[ext_resource type="PackedScene" uid="uid://tvvip001" path="res://scenes/decoraciones/tv_vip.tscn" id="tv_vip"]
+
+[node name="DecoracionVIP" type="Node3D" unique_id=1277961913]
+
+[node name="ZonaCentral" type="Node3D" parent="." unique_id=636548256]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.521177, 0, 0)
+
+[node name="MesaCentral1" parent="ZonaCentral" unique_id=1346029679 instance=ExtResource("mesa")]
+transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, -18.275377, 0, -2.7423546)
+
+[node name="MesaCentral2" parent="ZonaCentral" unique_id=1854272765 instance=ExtResource("mesa")]
+transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, -0.2, 0, -2.74)
+
+[node name="MesaCentral3" parent="ZonaCentral" unique_id=128445704 instance=ExtResource("mesa")]
+transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, -18.275, 0, 1.8)
+
+[node name="MesaCentral4" parent="ZonaCentral" unique_id=1176556532 instance=ExtResource("mesa")]
+transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, -0.2, 0, 1.8)
+
+[node name="ZonaSofas" type="Node3D" parent="." unique_id=1023402844]
+
+[node name="Alfombra1" parent="ZonaSofas" unique_id=939382139 instance=ExtResource("alfombra")]
+transform = Transform3D(3.15, 0, 0, 0, 1, 0, 0, 0, 4.15, 0.061950684, 0.02, 0)
+
+[node name="SofaNorte" parent="ZonaSofas" unique_id=1868451868 instance=ExtResource("banca")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.5)
+
+[node name="SofaSur" parent="ZonaSofas" unique_id=2105882384 instance=ExtResource("banca")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 3.5)
+
+[node name="SofaOeste" parent="ZonaSofas" unique_id=896473273 instance=ExtResource("banca")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.5, 0, 0)
+
+[node name="SofaEste" parent="ZonaSofas" unique_id=995059303 instance=ExtResource("banca")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.5, 0, 0)
+
+[node name="SofaNorte2" parent="ZonaSofas" unique_id=1454778292 instance=ExtResource("banca")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.371835, 0, -10.084405)
+
+[node name="SofaNorte3" parent="ZonaSofas" unique_id=104968681 instance=ExtResource("banca")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.048104, 0, -10.084405)
+
+[node name="SofaNorte4" parent="ZonaSofas" unique_id=1451573563 instance=ExtResource("banca")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -16.68435, 0, -6.6623793)
+
+[node name="SofaNorte5" parent="ZonaSofas" unique_id=1917400410 instance=ExtResource("banca")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -16.68435, 0, 2.458867)
+
+[node name="ZonaPlantas" type="Node3D" parent="." unique_id=1638830387]
+
+[node name="PlantaEsquinaNE" parent="ZonaPlantas" unique_id=1702246640 instance=ExtResource("planta")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 6.5, 0, -5)
+
+[node name="PlantaEsquinaNO" parent="ZonaPlantas" unique_id=612863641 instance=ExtResource("planta")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -6.5, 0, -5)
+
+[node name="PlantaEsquinaSE" parent="ZonaPlantas" unique_id=807637080 instance=ExtResource("planta")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 6.5, 0, 5)
+
+[node name="PlantaEsquinaSO" parent="ZonaPlantas" unique_id=1641567178 instance=ExtResource("planta")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -6.5, 0, 5)
+
+[node name="PlantaDecorativa1" parent="ZonaPlantas" unique_id=326083173 instance=ExtResource("planta")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -3.3, 0, 3.15)
+
+[node name="PlantaDecorativa2" parent="ZonaPlantas" unique_id=556373938 instance=ExtResource("planta")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 3.3, 0, 3.15)
+
+[node name="PlantaDecorativa3" parent="ZonaPlantas" unique_id=1234594932 instance=ExtResource("planta")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 3.3, 0, -3.15)
+
+[node name="PlantaDecorativa4" parent="ZonaPlantas" unique_id=1194673986 instance=ExtResource("planta")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -3.3, 0, -3.15)
+
+[node name="ZonaIluminacion" type="Node3D" parent="." unique_id=2021303165]
+visible = false
+
+[node name="LamparaNorte" parent="ZonaIluminacion" unique_id=908281788 instance=ExtResource("lampara")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -5.8)
+
+[node name="LamparaSur" parent="ZonaIluminacion" unique_id=802766000 instance=ExtResource("lampara")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 2.5, 5.8)
+
+[node name="LamparaOeste" parent="ZonaIluminacion" unique_id=1621666770 instance=ExtResource("lampara")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -7.5, 2.5, 0)
+
+[node name="LamparaEste" parent="ZonaIluminacion" unique_id=40209266 instance=ExtResource("lampara")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 7.5, 2.5, 0)
+
+[node name="LuzAmbienteVIP" type="OmniLight3D" parent="ZonaIluminacion" unique_id=645115261]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+light_color = Color(1, 0.95, 0.85, 1)
+light_energy = 1.5
+shadow_enabled = true
+omni_range = 12.0
+omni_attenuation = 0.5
+
+[node name="LuzAcento1" type="SpotLight3D" parent="ZonaIluminacion" unique_id=559799246]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -3, 3.5, -3)
+light_color = Color(0.95, 0.85, 1, 1)
+light_energy = 2.0
+spot_range = 8.0
+spot_angle = 35.0
+
+[node name="LuzAcento2" type="SpotLight3D" parent="ZonaIluminacion" unique_id=791613097]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 3, 3.5, -3)
+light_color = Color(0.95, 0.85, 1, 1)
+light_energy = 2.0
+spot_range = 8.0
+spot_angle = 35.0
+
+[node name="LuzAcento3" type="SpotLight3D" parent="ZonaIluminacion" unique_id=1302686802]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -3, 3.5, 3)
+light_color = Color(0.95, 0.85, 1, 1)
+light_energy = 2.0
+spot_range = 8.0
+spot_angle = 35.0
+
+[node name="LuzAcento4" type="SpotLight3D" parent="ZonaIluminacion" unique_id=1607708080]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 3, 3.5, 3)
+light_color = Color(0.95, 0.85, 1, 1)
+light_energy = 2.0
+spot_range = 8.0
+spot_angle = 35.0
+
+[node name="ZonaMesasSolas" type="Node3D" parent="." unique_id=1500000001]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9439087, 0)
+
+[node name="MesaSola3" parent="ZonaMesasSolas" unique_id=1500000004 instance=ExtResource("mesa_sola")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -16.140873, 0, -9.552533)
+
+[node name="MesaSola4" parent="ZonaMesasSolas" unique_id=1500000005 instance=ExtResource("mesa_sola")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -16.37104, 0, -3.4487884)
+
+[node name="MesaSola5" parent="ZonaMesasSolas" unique_id=1500000006 instance=ExtResource("mesa_sola")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -16.37104, 0, -1.1522636)
+
+[node name="ZonaMesasVIP" type="Node3D" parent="." unique_id=1600000001]
+
+[node name="MesaVIP2" parent="ZonaMesasVIP" unique_id=1600000003 instance=ExtResource("mesa_vip")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.722862, 0, -7)
+
+[node name="MesaVIP3" parent="ZonaMesasVIP" unique_id=1600000004 instance=ExtResource("mesa_vip")]
+
+[node name="MesaVIP4" parent="ZonaMesasVIP" unique_id=1600000005 instance=ExtResource("mesa_vip")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.290407, 0, 2.3162699)
+
+[node name="ZonaLamparasVIP" type="Node3D" parent="." unique_id=1700000001]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.430862, 3.49341, 16.845396)
+
+[node name="LamparaVIP1" parent="ZonaLamparasVIP" unique_id=1700000002 instance=ExtResource("lampara_vip")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 16.000816, 1.1674328, -26.18289)
+
+[node name="LamparaVIP2" parent="ZonaLamparasVIP" unique_id=1700000003 instance=ExtResource("lampara_vip")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 25.000816, 1.1674328, -26.18289)
+
+[node name="LamparaVIP3" parent="ZonaLamparasVIP" unique_id=1700000004 instance=ExtResource("lampara_vip")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 34.000816, 1.1674328, -26.18289)
+
+[node name="LamparaVIP4" parent="ZonaLamparasVIP" unique_id=1700000005 instance=ExtResource("lampara_vip")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 43.000816, 1.1674328, -26.18289)
+
+[node name="LamparaVIP5" parent="ZonaLamparasVIP" unique_id=1700000006 instance=ExtResource("lampara_vip")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 16.000816, 1.1674328, -18.18289)
+
+[node name="LamparaVIP6" parent="ZonaLamparasVIP" unique_id=1700000007 instance=ExtResource("lampara_vip")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 25.000816, 1.1674328, -18.18289)
+
+[node name="LamparaVIP7" parent="ZonaLamparasVIP" unique_id=1700000008 instance=ExtResource("lampara_vip")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 34.000816, 1.1674328, -18.18289)
+
+[node name="LamparaVIP8" parent="ZonaLamparasVIP" unique_id=1700000009 instance=ExtResource("lampara_vip")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 43.000816, 1.1674328, -18.18289)
+
+[node name="LamparaVIP9" parent="ZonaLamparasVIP" unique_id=1700000010 instance=ExtResource("lampara_vip")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 16.000816, 1.1674328, -10.18289)
+
+[node name="LamparaVIP10" parent="ZonaLamparasVIP" unique_id=1700000011 instance=ExtResource("lampara_vip")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 25.000816, 1.1674328, -10.18289)
+
+[node name="LamparaVIP11" parent="ZonaLamparasVIP" unique_id=1700000012 instance=ExtResource("lampara_vip")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 34.000816, 1.1674328, -10.18289)
+
+[node name="LamparaVIP12" parent="ZonaLamparasVIP" unique_id=1700000013 instance=ExtResource("lampara_vip")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 43.000816, 1.1674328, -10.18289)
+
+[node name="ZonaBarras" type="Node3D" parent="." unique_id=1800000001]
+
+[node name="Barra1" parent="ZonaBarras" unique_id=1800000002 instance=ExtResource("barra_bar")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.9680567, 0, 8.447994)
+
+[node name="Barra2" parent="ZonaBarras" unique_id=1800000003 instance=ExtResource("barra_bar")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 14.009317, 0, 2.1619506)
+
+[node name="TvVIP" parent="ZonaBarras" unique_id=1800000004 instance=ExtResource("tv_vip")]
+transform = Transform3D(-2.1855695e-09, 0, 0.05, 0, 0.05, 0, -0.05, 0, -2.1855695e-09, 17.125, 1.522, 6.3808)
+
+[node name="TvVIP2" parent="ZonaBarras" unique_id=1703132619 instance=ExtResource("tv_vip")]
+transform = Transform3D(-2.1855695e-09, 0, 0.05, 0, 0.05, 0, -0.05, 0, -2.1855695e-09, 17.125, 1.522, 0.8807998)
+
+[node name="TvVIP3" parent="ZonaBarras" unique_id=1988016481 instance=ExtResource("tv_vip")]
+transform = Transform3D(-2.1855695e-09, 0, 0.05, 0, 0.05, 0, -0.05, 0, -2.1855695e-09, 17.125, 1.522, -4.6192)
+
+[node name="ZonaCuadros" type="Node3D" parent="." unique_id=1900000001]
+
+[node name="CuadroNorte1" parent="ZonaCuadros" unique_id=1900000002 instance=ExtResource("cuadro")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.039375, 2.388545, -10.997228)
+poster_texture = ExtResource("movie1")
+
+[node name="CuadroNorte2" parent="ZonaCuadros" unique_id=1900000003 instance=ExtResource("cuadro")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.039375, 2.388545, -10.997228)
+poster_texture = ExtResource("movie2")
+
+[node name="CuadroNorte3" parent="ZonaCuadros" unique_id=1900000004 instance=ExtResource("cuadro")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.0393753, 2.388545, -10.997228)
+poster_texture = ExtResource("movie3")
+
+[node name="CuadroNorte4" parent="ZonaCuadros" unique_id=1900000005 instance=ExtResource("cuadro")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0393753, 2.388545, -10.997228)
+poster_texture = ExtResource("movie4")
+
+[node name="CuadroOeste1" parent="ZonaCuadros" unique_id=1900000006 instance=ExtResource("cuadro")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -17.635204, 2.389, -5)
+poster_texture = ExtResource("movie5")
+
+[node name="CuadroOeste2" parent="ZonaCuadros" unique_id=1900000007 instance=ExtResource("cuadro")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -17.635204, 2.389, 2.7765537e-08)
+poster_texture = ExtResource("movie6")
+
+[node name="CuadroOeste3" parent="ZonaCuadros" unique_id=1900000008 instance=ExtResource("cuadro")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -17.635204, 2.389, 5)
+poster_texture = ExtResource("movie7")
+
+[node name="CuadroEste1" parent="ZonaCuadros" unique_id=1900000009 instance=ExtResource("cuadro")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 2.389, -10.997048)
+poster_texture = ExtResource("movie8")
+
+[node name="CuadroEste2" parent="ZonaCuadros" unique_id=1900000010 instance=ExtResource("cuadro")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 2.389, -10.997048)
+poster_texture = ExtResource("movie9")
+
+[node name="CuadroEste3" parent="ZonaCuadros" unique_id=1900000011 instance=ExtResource("cuadro")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 2.389, -10.997048)
+poster_texture = ExtResource("movie10")

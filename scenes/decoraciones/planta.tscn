@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bplanta00001"]
 
-[ext_resource type="PackedScene" uid="uid://cf6pqedxljqbg" path="res://models/planta.glb" id="model_planta"]
+[ext_resource type="PackedScene" uid="uid://cf6pqedxljqbg" path="res://assets/models/decor/planta.glb" id="model_planta"]
 
 [sub_resource type="BoxShape3D" id="shape_planta"]
 size = Vector3(0.18, 0.13, 0.18)

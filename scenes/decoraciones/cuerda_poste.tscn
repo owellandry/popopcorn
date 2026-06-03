@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://doev481m8fagm"]
 
-[ext_resource type="Texture2D" uid="uid://bkboasdvrvsh0" path="res://textures/cuerda/Carpet015_1K-JPG_Color.jpg" id="tex_cuerda_color"]
-[ext_resource type="Texture2D" uid="uid://diblpmxja7qqx" path="res://textures/cuerda/Carpet015_1K-JPG_NormalGL.jpg" id="tex_cuerda_normal"]
-[ext_resource type="Texture2D" uid="uid://jf8ddedi7urb" path="res://textures/cuerda/Carpet015_1K-JPG_Roughness.jpg" id="tex_cuerda_roughness"]
+[ext_resource type="Texture2D" uid="uid://bkboasdvrvsh0" path="res://assets/textures/cuerda/Carpet015_1K-JPG_Color.jpg" id="tex_cuerda_color"]
+[ext_resource type="Texture2D" uid="uid://diblpmxja7qqx" path="res://assets/textures/cuerda/Carpet015_1K-JPG_NormalGL.jpg" id="tex_cuerda_normal"]
+[ext_resource type="Texture2D" uid="uid://jf8ddedi7urb" path="res://assets/textures/cuerda/Carpet015_1K-JPG_Roughness.jpg" id="tex_cuerda_roughness"]
 
 [sub_resource type="StandardMaterial3D" id="mat_cuerda"]
 albedo_color = Color(0.84876955, 0.29959196, 0.29001042, 1)

@@ -47,7 +47,7 @@ func _process(delta: float) -> void:
 
 func _on_jugar() -> void:
 	# === TEMPORAL - Apuntando a AreaBase (la nueva área base) ===
-	Transicion.transicionar("res://levels/AreaBase/AreaBase.tscn")
+	Transicion.transicionar("res://scenes/levels/AreaBase/AreaBase.tscn")
 	
 	# Para volver a la versión anterior (juego original), descomenta abajo:
 	# Transicion.transicionar("res://scenes/juego/juego.tscn")
@@ -65,7 +65,7 @@ func _on_puntajes() -> void:
 	msg.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	msg.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	
-	var font = load("res://fonts/TitanOne-Regular.ttf")
+	var font = load("res://assets/fonts/TitanOne-Regular.ttf")
 	if font:
 		msg.add_theme_font_override("font", font)
 	msg.add_theme_font_size_override("font_size", 28)

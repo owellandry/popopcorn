@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://daub4hq78bja0"]
 
-[ext_resource type="Texture2D" uid="uid://y11isdyo647r" path="res://textures/mostrador/Wood027_1K-PNG_Color.png" id="tex_wood_color"]
-[ext_resource type="Texture2D" uid="uid://cgtdfogv0a5ys" path="res://textures/mostrador/Wood027_1K-PNG_NormalGL.png" id="tex_wood_normal"]
-[ext_resource type="Texture2D" uid="uid://dnmv2s7uisuig" path="res://textures/mostrador/Wood027_1K-PNG_Roughness.png" id="tex_wood_roughness"]
+[ext_resource type="Texture2D" uid="uid://y11isdyo647r" path="res://assets/textures/mostrador/Wood027_1K-PNG_Color.png" id="tex_wood_color"]
+[ext_resource type="Texture2D" uid="uid://cgtdfogv0a5ys" path="res://assets/textures/mostrador/Wood027_1K-PNG_NormalGL.png" id="tex_wood_normal"]
+[ext_resource type="Texture2D" uid="uid://dnmv2s7uisuig" path="res://assets/textures/mostrador/Wood027_1K-PNG_Roughness.png" id="tex_wood_roughness"]
 
 [sub_resource type="StandardMaterial3D" id="mat_table"]
 albedo_color = Color(0.35, 0.2, 0.1, 1)

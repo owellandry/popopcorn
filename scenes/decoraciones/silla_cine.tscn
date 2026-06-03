@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://boff4xjyrs3fe"]
 
-[ext_resource type="PackedScene" uid="uid://4dt4nd7j4hrn" path="res://models/silla_cine.glb" id="1_modelo"]
+[ext_resource type="PackedScene" uid="uid://4dt4nd7j4hrn" path="res://assets/models/furniture/sillas/silla_cine.glb" id="1_modelo"]
 
 [sub_resource type="BoxShape3D" id="col_shape"]
 size = Vector3(0.5, 0.9, 0.5)

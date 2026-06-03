@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://f22epbg3d3x2"]
 
-[ext_resource type="PackedScene" uid="uid://cpf25bfgggwkp" path="res://models/popcorn_bucket.glb" id="bucket"]
+[ext_resource type="PackedScene" uid="uid://cpf25bfgggwkp" path="res://assets/models/machines/popcorn/popcorn_bucket.glb" id="bucket"]
 [ext_resource type="PackedScene" path="res://scenes/decoraciones/popcorn/relleno_derramado.tscn" id="relleno"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_limite"]

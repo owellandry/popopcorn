@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3]
 
-[ext_resource type="PackedScene" path="res://models/decoraciones/exterior/desktop_computer.glb" id="1_model"]
+[ext_resource type="PackedScene" path="res://assets/models/exterior/small_props/desktop_computer.glb" id="1_model"]
 
 [sub_resource type="BoxShape3D" id="shape_pc"]
 size = Vector3(0.4, 0.45, 0.5)

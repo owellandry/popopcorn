@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c42rr1uaprigd"]
 
-[ext_resource type="PackedScene" uid="uid://mp6bksoxdfda" path="res://models/sillabar/sillabar.glb" id="modelo_silla"]
+[ext_resource type="PackedScene" uid="uid://mp6bksoxdfda" path="res://assets/models/furniture/bar/sillabar/sillabar.glb" id="modelo_silla"]
 [ext_resource type="Script" uid="uid://v7grbncah1v0" path="res://scenes/decoraciones/silla_bar.gd" id="script_silla"]
 
 [sub_resource type="BoxShape3D" id="shape_silla"]

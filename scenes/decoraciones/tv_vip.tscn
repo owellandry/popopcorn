@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://tvvip001"]
 
-[ext_resource type="PackedScene" uid="uid://da07pdphet7ka" path="res://models/smart_tv_minimal_model_-_low_poly.glb" id="model_tv"]
+[ext_resource type="PackedScene" uid="uid://da07pdphet7ka" path="res://assets/models/electronics/smart_tv_minimal_model_-_low_poly.glb" id="model_tv"]
 
 [sub_resource type="BoxShape3D" id="Col_TV"]
 size = Vector3(0.3, 2.5, 4)

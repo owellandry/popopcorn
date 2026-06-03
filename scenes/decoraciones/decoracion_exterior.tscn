@@ -36,6 +36,7 @@ transform = Transform3D(1.1924881e-08, 0, -1, 0, 1, 0, 1, 0, 1.1924881e-08, 0, 0
 transform = Transform3D(1.6746609, 0, 0, 0, 1, 0, 0, 0, 1.253125, 21.40915, -0.5196593, -25.301712)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Piso" unique_id=-1994967294]
+transform = Transform3D(1, 0, 3.5527137e-15, 0, 1, 0, 0, 0, 1, -7.2478228, 0, 0)
 mesh = SubResource("BoxMesh_piso")
 surface_material_override/0 = SubResource("StandardMaterial3D_piso")
 
@@ -70,34 +71,34 @@ transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, -13.437466, 0.12716258,
 transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, -19.741217, 0.106487036, -13.275478)
 
 [node name="Mesa" parent="ModelosExterior" unique_id=1161937871 instance=ExtResource("ext_mesa")]
-transform = Transform3D(-0.5635261, 0, 0.82609826, 0, 1, 0, -0.82609826, 0, -0.5635261, 28.093798, 0.066206574, -70.161385)
+transform = Transform3D(-0.5635261, 0, 0.82609826, 0, 1, 0, -0.82609826, 0, -0.5635261, 15.956168, 0.066206574, -70.161385)
 
 [node name="Silla" parent="ModelosExterior" unique_id=1338086035 instance=ExtResource("ext_chair")]
-transform = Transform3D(0.84095854, 0, 1.2420905, 0, 1.5, 0, -1.2420905, 0, 0.84095854, 26.827044, 0.062312186, -71.03846)
+transform = Transform3D(0.84095854, 0, 1.2420905, 0, 1.5, 0, -1.2420905, 0, 0.84095854, 14.689408, 0.062312186, -71.03846)
 
 [node name="TV" parent="ModelosExterior" unique_id=1836417837 instance=ExtResource("ext_tv")]
-transform = Transform3D(0.76604444, 0, -0.6427876, 0, 1, 0, 0.6427876, 0, 0.76604444, 28.036453, 0.8217416, -69.98713)
+transform = Transform3D(0.76604444, 0, -0.6427876, 0, 1, 0, 0.6427876, 0, 0.76604444, 15.898826, 0.8217416, -69.98713)
 
 [node name="PC" parent="ModelosExterior" unique_id=1279046913 instance=ExtResource("ext_pc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.762152, 2.0413828, -70.21075)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.624527, 2.0413828, -70.21075)
 
 [node name="Stove" parent="ModelosExterior" unique_id=322707752 instance=ExtResource("ext_stove")]
-transform = Transform3D(-1.2, 0, -1.04907336e-07, 0, 1.2, 0, 1.04907336e-07, 0, -1.2, 27.895554, 0, -72.40898)
+transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, 15.757924, 0, -72.40898)
 
 [node name="Mattress" parent="ModelosExterior" unique_id=764104445 instance=ExtResource("ext_mattress")]
-transform = Transform3D(1.5684339, 0, -0.31625172, 0, 1.6, 0, 0.31625172, 0, 1.5684339, 29.107649, 0.37120503, -71.79169)
+transform = Transform3D(1.5684339, 0, -0.31625172, 0, 1.6, 0, 0.31625172, 0, 1.5684339, 16.970024, 0.37120503, -71.79169)
 
 [node name="CardboardBox" parent="ModelosExterior" unique_id=658003642 instance=ExtResource("ext_cardboard")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.179844, 0, -62.74003)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.04221, 0, -62.74003)
 
 [node name="Boxes" parent="ModelosExterior" unique_id=1074449550 instance=ExtResource("ext_boxes")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 35.489704, 0, -70.928276)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 23.096783, 0.12446122, -70.928276)
 
 [node name="Fan" parent="ModelosExterior" unique_id=2143311367 instance=ExtResource("ext_fan")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.527977, 4.7780695, -68.63716)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.390343, 4.7780695, -68.63716)
 
 [node name="Boxes2" parent="ModelosExterior" unique_id=477764011 instance=ExtResource("ext_boxes")]
-transform = Transform3D(-1.4535236, 0, -0.3704986, 0, 1.5, 0, 0.3704986, 0, -1.4535236, 34.8973, 0, -67.12702)
+transform = Transform3D(-1.5000001, 0, -1.3113417e-07, 0, 1.5, 0, 1.3113417e-07, 0, -1.5000001, 22.046715, 0.12446122, -67.12702)
 
 [node name="Arbusto2" parent="ModelosExterior" unique_id=2047274070 instance=ExtResource("ext_arbusto")]
 transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, -4.4358554, 0.12716258, -10.78194)

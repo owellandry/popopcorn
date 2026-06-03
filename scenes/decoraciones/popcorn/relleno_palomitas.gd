@@ -6,7 +6,7 @@ extends Node3D
 @export var altura_base: float = 0.18
 @export var altura_variacion: float = 0.06
 
-var popcorn_scene: PackedScene = preload("res://models/popcorn.glb")
+var popcorn_scene: PackedScene = preload("res://assets/models/machines/popcorn/popcorn.glb")
 
 func _ready() -> void:
 	# Only generate in editor. Runtime generation of many individual MeshInstances kills performance.

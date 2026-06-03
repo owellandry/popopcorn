@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dpcrn_relleno_derramado"]
 
-[ext_resource type="PackedScene" uid="uid://ccamabfu7h702" path="res://models/popcorn.glb" id="popcorn"]
+[ext_resource type="PackedScene" uid="uid://ccamabfu7h702" path="res://assets/models/machines/popcorn/popcorn.glb" id="popcorn"]
 
 [node name="RellenoDerramado" type="Node3D"]
 [node name="Palomita1" parent="." instance=ExtResource("popcorn")]

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bpalomit0001"]
 
-[ext_resource type="PackedScene" uid="uid://bpopcornmach1" path="res://models/popcornmachine.glb" id="model_popcorn"]
+[ext_resource type="PackedScene" uid="uid://bpopcornmach1" path="res://assets/models/machines/popcorn/popcornmachine.glb" id="model_popcorn"]
 [ext_resource type="Script" uid="uid://bikauukqkgoqs" path="res://scenes/decoraciones/colorear_palomitas.gd" id="script_colorear"]
 
 [sub_resource type="BoxShape3D" id="shape_maquina"]

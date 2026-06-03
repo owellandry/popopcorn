@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://djsx3nfvtgaii"]
 
-[ext_resource type="Texture2D" uid="uid://dumxjk0g0ggiu" path="res://models/mesa_vip/patas_mesa/Metal034_2K-JPG_Color.jpg" id="tex_metal_color"]
-[ext_resource type="Texture2D" uid="uid://cafiooufvetek" path="res://models/mesa_vip/patas_mesa/Metal034_2K-JPG_NormalGL.jpg" id="tex_metal_normal"]
-[ext_resource type="Texture2D" uid="uid://dhh641ml0855k" path="res://models/mesa_vip/patas_mesa/Metal034_2K-JPG_Roughness.jpg" id="tex_metal_rough"]
+[ext_resource type="Texture2D" uid="uid://dumxjk0g0ggiu" path="res://assets/models/mesa_vip/patas_mesa/Metal034_2K-JPG_Color.jpg" id="tex_metal_color"]
+[ext_resource type="Texture2D" uid="uid://cafiooufvetek" path="res://assets/models/mesa_vip/patas_mesa/Metal034_2K-JPG_NormalGL.jpg" id="tex_metal_normal"]
+[ext_resource type="Texture2D" uid="uid://dhh641ml0855k" path="res://assets/models/mesa_vip/patas_mesa/Metal034_2K-JPG_Roughness.jpg" id="tex_metal_rough"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_Base"]
 size = Vector3(0.8, 0.2, 0.8)

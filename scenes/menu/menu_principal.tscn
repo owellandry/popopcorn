@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cmknuc1sokou8"]
 
 [ext_resource type="Script" uid="uid://bsij1h8qc0xj0" path="res://scenes/menu/menu_principal.gd" id="1_script"]
-[ext_resource type="FontFile" uid="uid://bab2aklqec7ul" path="res://fonts/TitanOne-Regular.ttf" id="font_titan"]
+[ext_resource type="FontFile" uid="uid://bab2aklqec7ul" path="res://assets/fonts/TitanOne-Regular.ttf" id="font_titan"]
 [ext_resource type="PackedScene" uid="uid://c3y507dfyo70v" path="res://scenes/menu/objetos_menu.tscn" id="objetos_scene"]
 
 [sub_resource type="Environment" id="env_menu"]

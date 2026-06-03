@@ -1,9 +1,9 @@
 @tool
 extends StaticBody3D
 
-const COLOR_PATH := "res://textures/plastico_silla_bar/Plastic010_1K-JPG_Color.jpg"
-const NORMAL_PATH := "res://textures/plastico_silla_bar/Plastic010_1K-JPG_NormalGL.jpg"
-const ROUGH_PATH := "res://textures/plastico_silla_bar/Plastic010_1K-JPG_Roughness.jpg"
+const COLOR_PATH := "res://assets/textures/plastico_silla_bar/Plastic010_1K-JPG_Color.jpg"
+const NORMAL_PATH := "res://assets/textures/plastico_silla_bar/Plastic010_1K-JPG_NormalGL.jpg"
+const ROUGH_PATH := "res://assets/textures/plastico_silla_bar/Plastic010_1K-JPG_Roughness.jpg"
 
 # Preload textures to avoid loading from disk at runtime
 var normal_tex: Texture2D = preload(NORMAL_PATH)

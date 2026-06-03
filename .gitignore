@@ -7,4 +7,5 @@ image.png
 image.png.import
 AreaBase.tscn.bak
 AreaBase_BACKUP_ORIGINAL.tscn
-*.md*
+# Allow markdown files for documentation
+# art_source/ is ignored by .gdignore, not .gitignore (can be committed if desired)

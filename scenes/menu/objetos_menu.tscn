@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://c3y507dfyo70v"]
 
-[ext_resource type="Script" path="res://scripts/multimesh_merger.gd" id="1_merger"]
-[ext_resource type="PackedScene" uid="uid://cpf25bfgggwkp" path="res://models/popcorn_bucket.glb" id="bucket"]
+[ext_resource type="Script" path="res://scripts/components/multimesh_merger.gd" id="1_merger"]
+[ext_resource type="PackedScene" uid="uid://cpf25bfgggwkp" path="res://assets/models/machines/popcorn/popcorn_bucket.glb" id="bucket"]
 [ext_resource type="PackedScene" uid="uid://dv46twtchqi1e" path="res://scenes/menu/film_instance.tscn" id="film_instance"]
 [ext_resource type="PackedScene" path="res://scenes/menu/glasses_instance.tscn" id="glasses"]
 [ext_resource type="PackedScene" uid="uid://8wgnokm1evn" path="res://scenes/menu/popcorn_instance.tscn" id="popcorn_instance"]

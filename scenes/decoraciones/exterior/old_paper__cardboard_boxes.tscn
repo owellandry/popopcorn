@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3]
 
-[ext_resource type="PackedScene" path="res://models/decoraciones/exterior/old_paper__cardboard_boxes.glb" id="1_model"]
+[ext_resource type="PackedScene" path="res://assets/models/exterior/small_props/old_paper__cardboard_boxes.glb" id="1_model"]
 
 
 [node name="OldPaperCardboardBoxes" type="Node3D"]

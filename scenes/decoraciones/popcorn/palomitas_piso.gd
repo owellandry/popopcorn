@@ -5,7 +5,7 @@ extends Node3D
 @export var radio_dispersion: float = 0.4
 @export var altura_piso: float = 0.02
 
-var popcorn_scene: PackedScene = preload("res://models/popcorn.glb")
+var popcorn_scene: PackedScene = preload("res://assets/models/machines/popcorn/popcorn.glb")
 
 func _ready() -> void:
 	# Only generate in editor for preview. At runtime this is extremely expensive (hundreds of nodes).

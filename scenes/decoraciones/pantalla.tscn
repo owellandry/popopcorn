@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cymcm24yldlq4"]
 
-[ext_resource type="PackedScene" uid="uid://con2maa1nnh4y" path="res://models/pantalla.glb" id="model_pantalla"]
+[ext_resource type="PackedScene" uid="uid://con2maa1nnh4y" path="res://assets/models/electronics/pantalla.glb" id="model_pantalla"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pantalla"]
 size = Vector3(0.44622803, 2.5438232, 3)

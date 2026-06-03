@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cg7lsu0ruvpjw"]
 
-[ext_resource type="PackedScene" uid="uid://cn7j5vk6f433v" path="res://models/wet_floor_sign.glb" id="model_wet_floor"]
+[ext_resource type="PackedScene" uid="uid://cn7j5vk6f433v" path="res://assets/models/decor/wet_floor_sign.glb" id="model_wet_floor"]
 
 [sub_resource type="BoxShape3D" id="shape_sign"]
 size = Vector3(0.30307618, 0.628064, 0.36069947)

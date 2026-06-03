@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://bpuertalimp1"]
 
-[ext_resource type="Script" uid="uid://bk3pgg4g81b0b" path="res://scripts/puerta.gd" id="script_puerta"]
-[ext_resource type="Texture2D" uid="uid://y11isdyo647r" path="res://textures/mostrador/Wood027_1K-PNG_Color.png" id="tex_wood_color"]
-[ext_resource type="Texture2D" uid="uid://cgtdfogv0a5ys" path="res://textures/mostrador/Wood027_1K-PNG_NormalGL.png" id="tex_wood_normal"]
-[ext_resource type="Texture2D" uid="uid://dnmv2s7uisuig" path="res://textures/mostrador/Wood027_1K-PNG_Roughness.png" id="tex_wood_roughness"]
+[ext_resource type="Script" uid="uid://bk3pgg4g81b0b" path="res://scripts/components/puerta.gd" id="script_puerta"]
+[ext_resource type="Texture2D" uid="uid://y11isdyo647r" path="res://assets/textures/mostrador/Wood027_1K-PNG_Color.png" id="tex_wood_color"]
+[ext_resource type="Texture2D" uid="uid://cgtdfogv0a5ys" path="res://assets/textures/mostrador/Wood027_1K-PNG_NormalGL.png" id="tex_wood_normal"]
+[ext_resource type="Texture2D" uid="uid://dnmv2s7uisuig" path="res://assets/textures/mostrador/Wood027_1K-PNG_Roughness.png" id="tex_wood_roughness"]
 
 [sub_resource type="BoxMesh" id="mesh_marco_top"]
 size = Vector3(2.7, 0.1, 0.18)

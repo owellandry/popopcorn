@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bilumsal0001"]
 
-[ext_resource type="PackedScene" path="res://models/lampara.glb" id="model_lampara"]
+[ext_resource type="PackedScene" path="res://assets/models/furniture/mesas/lampara.glb" id="model_lampara"]
 
 [node name="IluminacionSala" type="Node3D"]
 

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dol8pqmgg04o7"]
 
-[ext_resource type="Script" uid="uid://ctudder4cgvqf" path="res://scripts/interruptor_tienda.gd" id="1_script"]
+[ext_resource type="Script" uid="uid://ctudder4cgvqf" path="res://scripts/components/interruptor_tienda.gd" id="1_script"]
 
 [sub_resource type="BoxMesh" id="mesh_placa"]
 size = Vector3(0.15, 0.25, 0.01)

@@ -1,15 +1,18 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene format=3 uid="uid://cp1cacu57mbj8"]
 
-[ext_resource type="PackedScene" path="res://models/decoraciones/exterior/old_soviet_chair.glb" id="1_model"]
+[ext_resource type="PackedScene" uid="uid://bwwfitu5gk4t2" path="res://assets/models/exterior/small_props/old_soviet_chair.glb" id="1_model"]
 
 [sub_resource type="BoxShape3D" id="shape_chair"]
-size = Vector3(0.5, 0.8, 0.5)
+size = Vector3(0.45141602, 0.48691407, 0.5)
 
-[node name="OldSovietChair" type="StaticBody3D"]
+[node name="OldSovietChair" type="StaticBody3D" unique_id=979871860]
 
-[node name="Modelo" parent="." instance=ExtResource("1_model")]
+[node name="Modelo" parent="." unique_id=1639285844 instance=ExtResource("1_model")]
 
-[node name="Col" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+[node name="Col" type="CollisionShape3D" parent="." unique_id=1015424245]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0015869141, 0.24345703, 0)
 shape = SubResource("shape_chair")
 
+[node name="Col2" type="CollisionShape3D" parent="." unique_id=373751705]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.19681305, -0.0015869141, 0.64494175, -0.21636075)
+shape = SubResource("shape_chair")

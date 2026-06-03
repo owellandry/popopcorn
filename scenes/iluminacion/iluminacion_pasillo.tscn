@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bilumpas0001"]
 
-[ext_resource type="PackedScene" path="res://models/lampara.glb" id="model_lampara"]
+[ext_resource type="PackedScene" path="res://assets/models/furniture/mesas/lampara.glb" id="model_lampara"]
 
 [node name="IluminacionPasillo" type="Node3D" unique_id=225623818]
 

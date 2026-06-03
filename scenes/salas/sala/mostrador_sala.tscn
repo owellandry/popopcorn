@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://d046jd2dhsu8t"]
+
+[ext_resource type="Texture2D" uid="uid://y11isdyo647r" path="res://assets/textures/mostrador/Wood027_1K-PNG_Color.png" id="tex_counter_color"]
+[ext_resource type="Texture2D" uid="uid://cgtdfogv0a5ys" path="res://assets/textures/mostrador/Wood027_1K-PNG_NormalGL.png" id="tex_counter_normal"]
+[ext_resource type="Texture2D" uid="uid://dnmv2s7uisuig" path="res://assets/textures/mostrador/Wood027_1K-PNG_Roughness.png" id="tex_counter_roughness"]
+[ext_resource type="Texture2D" uid="uid://daev1wcxmgf6x" path="res://assets/textures/piso_lobby/Marble021_1K-PNG_Color.png" id="tex_marble_color"]
+[ext_resource type="Texture2D" uid="uid://cq0qe0bhf2w0j" path="res://assets/textures/piso_lobby/Marble021_1K-PNG_NormalGL.png" id="tex_marble_normal"]
+[ext_resource type="Texture2D" uid="uid://bjgtmcinia3d2" path="res://assets/textures/piso_lobby/Marble021_1K-PNG_Roughness.png" id="tex_marble_roughness"]
+
+[sub_resource type="StandardMaterial3D" id="mat_counter"]
+albedo_texture = ExtResource("tex_counter_color")
+roughness_texture = ExtResource("tex_counter_roughness")
+normal_enabled = true
+normal_texture = ExtResource("tex_counter_normal")
+uv1_scale = Vector3(2, 1, 2)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="BoxMesh" id="mesh_counter"]
+material = SubResource("mat_counter")
+size = Vector3(10, 1, 1.8)
+
+[sub_resource type="StandardMaterial3D" id="mat_counter_top"]
+albedo_color = Color(0.1, 0.1, 0.1, 1)
+albedo_texture = ExtResource("tex_marble_color")
+metallic = 0.2
+roughness = 0.15
+roughness_texture = ExtResource("tex_marble_roughness")
+normal_enabled = true
+normal_texture = ExtResource("tex_marble_normal")
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="BoxMesh" id="mesh_counter_top"]
+material = SubResource("mat_counter_top")
+size = Vector3(10, 0.08, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vx5nu"]
+size = Vector3(10.001556, 0.6822815, 1.8214722)
+
+[sub_resource type="BoxShape3D" id="shape_counter"]
+size = Vector3(10, 1.0838623, 1.9314454)
+
+[node name="MostradorSala" type="StaticBody3D" unique_id=1702777341]
+
+[node name="Mesh" type="MeshInstance3D" parent="." unique_id=1146417251]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.45516238, 0, 0, -0.5621376)
+mesh = SubResource("mesh_counter")
+
+[node name="Tapa" type="MeshInstance3D" parent="." unique_id=1598482490]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.5064908, 0, 0.53999996, -0.6239815)
+mesh = SubResource("mesh_counter_top")
+
+[node name="FrenteElevado" type="MeshInstance3D" parent="." unique_id=43151708]
+transform = Transform3D(0.9828456, 0, 0, 0, 0.2217114, 0, 0, 0, 0.038725495, 0, 0.6156336, -0.9499998)
+mesh = SubResource("mesh_counter")
+
+[node name="col" type="CollisionShape3D" parent="FrenteElevado" unique_id=224511881]
+transform = Transform3D(1, 0, 0, 0, 1.0000004, 0, 0, 0, 1, -0.0015393817, 0.15867591, 0.0131549835)
+shape = SubResource("BoxShape3D_vx5nu")
+
+[node name="Col" type="CollisionShape3D" parent="." unique_id=1345705803]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.52937675, 0, 0.041931152, -0.6245971)
+shape = SubResource("shape_counter")

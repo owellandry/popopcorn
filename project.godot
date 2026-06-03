@@ -8,6 +8,24 @@
 
 config_version=5
 
+[Lights and Shadows - ULTRA QUALITY]
+
+lights_and_shadows/directional_shadow/size=4096
+lights_and_shadows/directional_shadow/soft_shadow_filter_quality=1
+lights_and_shadows/directional_shadow/16_bits=false
+lights_and_shadows/positional_shadow/atlas_size=4096
+lights_and_shadows/positional_shadow/soft_shadow_filter_quality=1
+lights_and_shadows/positional_shadow/16_bits=false
+lights_and_shadows/shadow_blur=1.0
+anti_aliasing/quality/msaa_3d=0
+anti_aliasing/quality/use_taa=true
+anti_aliasing/quality/use_debanding=true
+environment/defaults/default_clear_color=Color(0.05, 0.03, 0.03, 1)
+occlusion_culling/use_occlusion_culling=true
+textures/decals/filter=2
+textures/light_projectors/filter=2
+lights_and_shadows/max_lights_per_object=8
+
 [application]
 
 config/name="popopcorn"
@@ -18,10 +36,12 @@ config/icon="res://icon.svg"
 [autoload]
 
 Transicion="*res://scenes/ui/transicion.tscn"
-SistemaNombreCine="*res://scripts/sistema_nombre_cine.gd"
-GestorInicio="*res://scripts/gestor_inicio.gd"
-GestorMenus="*res://scripts/gestor_menus.gd"
-GestorGameplay="*res://scripts/gestor_gameplay.gd"
+SistemaNombreCine="*res://scripts/autoloads/sistema_nombre_cine.gd"
+GestorInicio="*res://scripts/autoloads/gestor_inicio.gd"
+GestorMenus="*res://scripts/autoloads/gestor_menus.gd"
+GestorGameplay="*res://scripts/autoloads/gestor_gameplay.gd"
+GestorVisitantes="*res://scripts/autoloads/gestor_visitantes.gd"
+GestorInventario="*res://scripts/autoloads/gestor_inventario.gd"
 
 [display]
 
@@ -42,40 +62,17 @@ toggle_flashlight={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":70,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
 ]
 }
+golpear={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":82,"key_label":0,"unicode":114,"location":0,"echo":false,"script":null)
+, Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
+]
+}
 
 [physics]
 
 3d/physics_engine="Jolt Physics"
 
 [rendering]
+
 rendering_device/driver.windows="d3d12"
-
-[Lights and Shadows - ULTRA QUALITY]
-; Directional Light (Sun) Shadows - INCREASED RESOLUTION
-lights_and_shadows/directional_shadow/size=8192
-lights_and_shadows/directional_shadow/soft_shadow_filter_quality=3
-lights_and_shadows/directional_shadow/16_bits=true
-
-; Positional Lights (Point/Spot) Shadows - INCREASED QUALITY
-lights_and_shadows/positional_shadow/atlas_size=8192
-lights_and_shadows/positional_shadow/soft_shadow_filter_quality=3
-lights_and_shadows/positional_shadow/16_bits=true
-
-; Shadow Blending - SMOOTHER TRANSITIONS
-lights_and_shadows/shadow_blur=1.5
-
-; Anti-Aliasing - SMOOTHER EDGES
-anti_aliasing/quality/msaa_3d=3
-anti_aliasing/quality/use_taa=true
-anti_aliasing/quality/use_debanding=true
-
-; Environment
-environment/defaults/default_clear_color=Color(0.05, 0.03, 0.03, 1)
-occlusion_culling/use_occlusion_culling=true
-
-; Texture Quality - SHARPER TEXTURES
-textures/decals/filter=5
-textures/light_projectors/filter=5
-
-; Max Lights Visible - MORE DYNAMIC LIGHTS
-lights_and_shadows/max_lights_per_object=32
