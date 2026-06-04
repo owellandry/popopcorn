@@ -134,6 +134,7 @@ func _construir_malla() -> void:
 		return
 	_npc_mesh = escena.instantiate()
 	add_child(_npc_mesh)
+	_npc_mesh.rotation.y = PI
 
 func configurar(tipo_arc: Arquetipo, color_arc: Color, pelicula: String, sala: int, pareja: Visitante = null) -> void:
 	arquetipo = tipo_arc

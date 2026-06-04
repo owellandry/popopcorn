@@ -8,7 +8,7 @@
 animation_player = NodePath("AnimationPlayer")
 script = ExtResource("1_script")
 scale = Vector3(0.0133, 0.0133, 0.0133)
-position = Vector3(0, 1.90, 0)
+position = Vector3(0, 0, 0)
 
 [node name="MeshRoot" type="Node3D" parent="."]
 

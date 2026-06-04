@@ -15,7 +15,6 @@
 [ext_resource type="PackedScene" uid="uid://bpersonaje01" path="res://scenes/personaje/personaje.tscn" id="personaje"]
 [ext_resource type="PackedScene" uid="uid://sistjugab001" path="res://scenes/jugabilidad/sistema_jugabilidad.tscn" id="sistema_jugabilidad"]
 [ext_resource type="PackedScene" uid="uid://ddm8pg74c28se" path="res://scenes/levels/AreaBase/modules/techo.tscn" id="techo"]
-[ext_resource type="PackedScene" path="res://scenes/npc/npc.tscn" id="npc"]
 
 [sub_resource type="ShaderMaterial" id="sky_shader_mat_ab"]
 shader = ExtResource("7_sky_shader")
@@ -80,8 +79,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.7347693, 0)
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 6.0321083, 0, 44.33018)
 
 [node name="SistemaJugabilidad" parent="." unique_id=123456789 instance=ExtResource("sistema_jugabilidad")]
-
-[node name="NPC" parent="." instance=ExtResource("npc")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=111222333]
 environment = SubResource("Environment_main_ab")
