@@ -1,11 +1,9 @@
 [gd_scene format=3]
 
 [ext_resource type="Script" path="res://scripts/components/npc_mate.gd" id="1_script"]
-[ext_resource type="AnimationLibrary" path="res://assets/animations/npc_animaciones.tres" id="2_anim"]
 [ext_resource type="PackedScene" path="res://assets/models/npc/miguel_tpose.glb" id="1_glb"]
 
 [node name="Miguel" type="Node3D"]
-animation_player = NodePath("AnimationPlayer")
 script = ExtResource("1_script")
 scale = Vector3(0.0133, 0.0133, 0.0133)
 position = Vector3(0, 0, 0)
@@ -15,6 +13,3 @@ position = Vector3(0, 0, 0)
 [node name="Model" parent="MeshRoot" instance=ExtResource("1_glb")]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"" : ExtResource("2_anim")
-}

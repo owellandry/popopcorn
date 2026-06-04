@@ -1,0 +1,16 @@
+[gd_resource type="AnimationLibrary" format=3]
+
+[ext_resource type="Animation" path="res://assets/animations/nuevas/Walking.anim" id="1"]
+[ext_resource type="Animation" path="res://assets/animations/nuevas/Standing.anim" id="2"]
+[ext_resource type="Animation" path="res://assets/animations/nuevas/Stand_To_Sit.anim" id="3"]
+[ext_resource type="Animation" path="res://assets/animations/nuevas/Sitting_Idle.anim" id="4"]
+[ext_resource type="Animation" path="res://assets/animations/nuevas/Sit_To_Stand.anim" id="5"]
+
+[resource]
+_data = {
+&"Walking": ExtResource("1"),
+&"Standing": ExtResource("2"),
+&"Stand_To_Sit": ExtResource("3"),
+&"Sitting_Idle": ExtResource("4"),
+&"Sit_To_Stand": ExtResource("5"),
+}

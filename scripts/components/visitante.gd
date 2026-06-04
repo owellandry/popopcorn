@@ -252,12 +252,16 @@ func _aplicar_pose_sentado() -> bool:
 	_en_movimiento = false
 	velocity = Vector3.ZERO
 	collision_layer = 0
+	if _npc_mesh and _npc_mesh.has_method("play_stand_to_sit"):
+		_npc_mesh.play_stand_to_sit()
 	return true
 
 func _restaurar_colision() -> void:
 	collision_layer = LAYER_VISITANTE
 
 func _liberar_mueble() -> void:
+	if _npc_mesh and _npc_mesh.has_method("play_sit_to_stand"):
+		_npc_mesh.play_sit_to_stand()
 	if mueble_objetivo and is_instance_valid(mueble_objetivo):
 		mueble_objetivo.liberar_visitante(self)
 	mueble_objetivo = null
