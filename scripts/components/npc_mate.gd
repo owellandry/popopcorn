@@ -18,15 +18,7 @@ func _setup():
 		if _skeleton:
 			_renombrar_huesos_a_mixamorig9()
 			_anim_player.root_node = _skeleton.get_path()
-		var start_anim = _anim_player.get_animation("walk_start")
-		if start_anim:
-			start_anim.loop_mode = Animation.LOOP_NONE
-		var walk_anim = _anim_player.get_animation("walk")
-		if walk_anim:
-			walk_anim.loop_mode = Animation.LOOP_LINEAR
-		var stop_anim = _anim_player.get_animation("walk_stop")
-		if stop_anim:
-			stop_anim.loop_mode = Animation.LOOP_NONE
+		_corregir_animaciones()
 	_aplicar_mate()
 	if Engine.is_editor_hint():
 		return
@@ -89,6 +81,37 @@ func _renombrar_skin_binds():
 				modified = true
 		if modified:
 			mi.skin = skin
+
+func _corregir_animaciones():
+	var lib_original = _anim_player.get_animation_library(&"")
+	if not lib_original:
+		return
+	var lib_nueva = AnimationLibrary.new()
+	for anim_name in ["walk_start", "walk", "walk_stop"]:
+		if not lib_original.has_animation(anim_name):
+			continue
+		var anim: Animation = lib_original.get_animation(anim_name).duplicate()
+		_corregir_rotacion_caderas(anim)
+		match anim_name:
+			"walk":
+				anim.loop_mode = Animation.LOOP_LINEAR
+			_:
+				anim.loop_mode = Animation.LOOP_NONE
+		lib_nueva.add_animation(anim_name, anim)
+	_anim_player.remove_animation_library(&"")
+	_anim_player.add_animation_library(&"", lib_nueva)
+
+func _corregir_rotacion_caderas(anim: Animation):
+	for i in range(anim.get_track_count()):
+		var path = anim.track_get_path(i)
+		if str(path).ends_with("mixamorig9_Hips") and anim.track_get_key_count(i) > 0:
+			var val = anim.track_get_key_value(i, 0)
+			if typeof(val) == TYPE_QUATERNION and not (val as Quaternion).is_equal_approx(Quaternion.IDENTITY):
+				var q_first: Quaternion = val
+				for k in range(anim.track_get_key_count(i)):
+					var q: Quaternion = anim.track_get_key_value(i, k)
+					anim.track_set_key_value(i, k, q_first.inverse() * q)
+			break
 
 func set_wandering(walking: bool):
 	if walking == _is_walking:
