@@ -93,7 +93,7 @@ func _corregir_animaciones():
 			continue
 		var anim := anim_original.duplicate(true) as Animation
 		_renombrar_tracks_animacion(anim)
-		_corregir_rotacion_caderas(anim)
+		_corregir_rotacion_caderas(anim, anim_name)
 		if anim_name in ["Walking", "Standing", "Sitting_Idle"]:
 			anim.loop_mode = Animation.LOOP_LINEAR
 		else:
@@ -116,7 +116,8 @@ func _renombrar_tracks_animacion(anim: Animation):
 			path_str = path_str.substr(0, idx) + "mixamorig9" + path_str.substr(prefix_end)
 		anim.track_set_path(i, path_str)
 
-func _corregir_rotacion_caderas(anim: Animation):
+func _corregir_rotacion_caderas(anim: Animation, anim_name: String = ""):
+	var walk_in_place := anim_name == "Walking"
 	for i in range(anim.get_track_count()):
 		var path_str := str(anim.track_get_path(i))
 		if not path_str.ends_with("mixamorig9_Hips"):
@@ -125,9 +126,13 @@ func _corregir_rotacion_caderas(anim: Animation):
 			continue
 		match anim.track_get_type(i):
 			Animation.TYPE_POSITION_3D:
-				for k in range(anim.track_get_key_count(i)):
-					var pos: Vector3 = anim.track_get_key_value(i, k)
-					anim.track_set_key_value(i, k, pos * 100.0)
+				if walk_in_place:
+					for k in range(anim.track_get_key_count(i)):
+						anim.track_set_key_value(i, k, Vector3.ZERO)
+				else:
+					for k in range(anim.track_get_key_count(i)):
+						var pos: Vector3 = anim.track_get_key_value(i, k)
+						anim.track_set_key_value(i, k, pos * 100.0)
 			Animation.TYPE_ROTATION_3D:
 				var q_first := anim.track_get_key_value(i, 0) as Quaternion
 				var q_inv := q_first.inverse()
