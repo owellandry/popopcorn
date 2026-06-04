@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://c4whfikhof2hq"]
+
+[ext_resource type="PackedScene" uid="uid://c58odguxl8koo" path="res://assets/models/npc/antonio.tscn" id="1_antonio"]
+[ext_resource type="PackedScene" path="res://assets/models/npc/ismael.tscn" id="2_ismael"]
+[ext_resource type="PackedScene" path="res://assets/models/npc/juan.tscn" id="3_juan"]
+[ext_resource type="PackedScene" path="res://assets/models/npc/juana.tscn" id="4_juana"]
+[ext_resource type="PackedScene" path="res://assets/models/npc/karla.tscn" id="5_karla"]
+[ext_resource type="PackedScene" path="res://assets/models/npc/karo.tscn" id="6_karo"]
+[ext_resource type="PackedScene" path="res://assets/models/npc/maria.tscn" id="7_maria"]
+[ext_resource type="PackedScene" path="res://assets/models/npc/mario.tscn" id="8_mario"]
+[ext_resource type="PackedScene" path="res://assets/models/npc/marta.tscn" id="9_marta"]
+[ext_resource type="PackedScene" path="res://assets/models/npc/martin.tscn" id="10_martin"]
+[ext_resource type="PackedScene" path="res://assets/models/npc/miguel.tscn" id="11_miguel"]
+[ext_resource type="PackedScene" path="res://assets/models/npc/pedro.tscn" id="12_pedro"]
+[ext_resource type="PackedScene" path="res://assets/models/npc/samuel.tscn" id="13_samuel"]
+[ext_resource type="PackedScene" path="res://assets/models/npc/sara.tscn" id="14_sara"]
+
+[node name="NPC" type="Node3D" unique_id=1850199553]
+
+[node name="Antonio" parent="." unique_id=1218576475 instance=ExtResource("1_antonio")]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, -6.5, 0.1, 0)
+
+[node name="Ismael" parent="." unique_id=452029346 instance=ExtResource("2_ismael")]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, -5.5, 0.1, 0)
+
+[node name="Juan" parent="." unique_id=655014865 instance=ExtResource("3_juan")]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, -4.5, 0.1, 0)
+
+[node name="Juana" parent="." unique_id=63089818 instance=ExtResource("4_juana")]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, -3.5, 0.1, 0)
+
+[node name="Karla" parent="." unique_id=912345984 instance=ExtResource("5_karla")]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, -2.5, 0.1, 0)
+
+[node name="Karo" parent="." unique_id=433555466 instance=ExtResource("6_karo")]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, -1.5, 0.1, 0)
+
+[node name="Maria" parent="." unique_id=1225444031 instance=ExtResource("7_maria")]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, -0.5, 0.1, 0)
+
+[node name="Mario" parent="." unique_id=717228940 instance=ExtResource("8_mario")]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0.5, 0.1, 0)
+
+[node name="Marta" parent="." unique_id=913319522 instance=ExtResource("9_marta")]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 1.5, 0.1, 0)
+
+[node name="Martin" parent="." unique_id=752202967 instance=ExtResource("10_martin")]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 2.5, 0.1, 0)
+
+[node name="Miguel" parent="." unique_id=141145887 instance=ExtResource("11_miguel")]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 3.5, 0.1, 0)
+
+[node name="Pedro" parent="." unique_id=135910449 instance=ExtResource("12_pedro")]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 4.5, 0.1, 0)
+
+[node name="Samuel" parent="." unique_id=203740673 instance=ExtResource("13_samuel")]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 5.5, 0.1, 0)
+
+[node name="Sara" parent="." unique_id=1281584052 instance=ExtResource("14_sara")]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 6.5, 0.1, 0)

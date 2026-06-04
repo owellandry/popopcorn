@@ -123,6 +123,7 @@ func abrir_puerta() -> void:
 
 func _notificar_gestor() -> void:
 	if es_puerta_entrada_tienda and GestorGameplay:
+		print("[PuertaDoble:%s] notificando gestor, abierta=%s" % [name, _abierta])
 		GestorGameplay.notificar_puerta_entrada_cambiada()
 
 func _actualizar_visibilidad_prompt() -> void:

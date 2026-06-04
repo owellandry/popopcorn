@@ -1,18 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://pantalla_mostrador"]
+[gd_scene format=3 uid="uid://brm3lr60huack"]
 
 [ext_resource type="PackedScene" uid="uid://con2maa1nnh4y" path="res://assets/models/electronics/pantalla.glb" id="model_pantalla"]
-[ext_resource type="Script" path="res://scripts/components/pantalla_interactiva.gd" id="script_interactiva"]
+[ext_resource type="Script" uid="uid://cpgwr5wp6au1e" path="res://scripts/components/pantalla_interactiva.gd" id="script_interactiva"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pantalla"]
-size = Vector3(0.6, 1.2, 0.8)
+size = Vector3(0.47631836, 2.4184327, 3.0693116)
 
-[node name="PantallaMostrador" type="Node3D" groups=["interactuable"]]
+[node name="PantallaMostrador" type="Node3D" unique_id=492764870 groups=["interactuable"]]
 script = ExtResource("script_interactiva")
 
-[node name="Modelo" parent="." instance=ExtResource("model_pantalla")]
+[node name="Modelo" parent="." unique_id=3398151 instance=ExtResource("model_pantalla")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.142111, 0)
 
-[node name="ColliderPantalla" type="StaticBody3D" parent="." groups=["interactuable"]]
+[node name="ColliderPantalla" type="StaticBody3D" parent="." unique_id=1769504730 groups=["interactuable"]]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ColliderPantalla"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.078704834, 1.2719116, 0)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ColliderPantalla" unique_id=171189342]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07849121, 1.2092164, 0.010729969)
 shape = SubResource("BoxShape3D_pantalla")

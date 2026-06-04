@@ -30,6 +30,23 @@ const LAYER_MUNDO := 1
 const LAYER_VISITANTE := 4
 const UtilAsientoScript := preload("res://scripts/components/util_asiento.gd")
 
+const RUTAS_NPC: Array[String] = [
+	"res://assets/models/npc/antonio.tscn",
+	"res://assets/models/npc/ismael.tscn",
+	"res://assets/models/npc/juan.tscn",
+	"res://assets/models/npc/juana.tscn",
+	"res://assets/models/npc/karla.tscn",
+	"res://assets/models/npc/karo.tscn",
+	"res://assets/models/npc/maria.tscn",
+	"res://assets/models/npc/mario.tscn",
+	"res://assets/models/npc/marta.tscn",
+	"res://assets/models/npc/martin.tscn",
+	"res://assets/models/npc/miguel.tscn",
+	"res://assets/models/npc/pedro.tscn",
+	"res://assets/models/npc/samuel.tscn",
+	"res://assets/models/npc/sara.tscn",
+]
+
 @export var color: Color = Color(0.8, 0.2, 0.2, 1)
 @export var nombre_pelicula: String = "La Aventura Espacial"
 @export var sala_asignada: int = 1
@@ -51,6 +68,7 @@ var _golpes_recibidos := 0
 var _al_terminar_movimiento: Callable = Callable()
 var _hizo_accion_entrada := false
 var _gravedad: float = ProjectSettings.get_setting("physics/3d/default_gravity")
+var _npc_mesh: Node3D
 
 signal cliente_habla(cliente: Node3D, pelicula: String)
 
@@ -66,11 +84,13 @@ func _physics_process(delta: float) -> void:
 		velocity.y -= _gravedad * delta
 	else:
 		velocity.y = 0.0
-	if not _en_movimiento or _esta_quieto_por_estado():
-		if _esta_quieto_por_estado():
+	var quieto := _esta_quieto_por_estado()
+	if not _en_movimiento or quieto:
+		if quieto:
 			velocity.x = 0.0
 			velocity.z = 0.0
 		move_and_slide()
+		_actualizar_animacion(false)
 		return
 	var dir := _destino_actual - global_position
 	dir.y = 0.0
@@ -79,10 +99,12 @@ func _physics_process(delta: float) -> void:
 		velocity.x = 0.0
 		velocity.z = 0.0
 		move_and_slide()
+		_actualizar_animacion(false)
 		_llegar_a_destino()
 		return
 	velocity.x = dir.x / dist * _velocidad_actual
 	velocity.z = dir.z / dist * _velocidad_actual
+	_actualizar_animacion(true)
 	if dist > 0.05:
 		look_at(global_position + dir.normalized(), Vector3.UP)
 	move_and_slide()
@@ -100,27 +122,18 @@ func _visible_para_jugador() -> bool:
 		return true
 	return camara.is_position_in_frustum(global_position)
 
+func _actualizar_animacion(moviendo: bool) -> void:
+	if not _npc_mesh or not _npc_mesh.has_method("set_wandering"):
+		return
+	_npc_mesh.set_wandering(moviendo)
+
 func _construir_malla() -> void:
-	var mat_cuerpo := StandardMaterial3D.new()
-	mat_cuerpo.albedo_color = color
-	mat_cuerpo.roughness = 0.7
-	var cuerpo := CapsuleMesh.new()
-	cuerpo.radius = 0.25
-	cuerpo.height = 1.2
-	cuerpo.material = mat_cuerpo
-	var mesh_cuerpo := MeshInstance3D.new()
-	mesh_cuerpo.mesh = cuerpo
-	mesh_cuerpo.position.y = 0.9
-	add_child(mesh_cuerpo)
-	var cabeza := SphereMesh.new()
-	cabeza.radius = 0.15
-	var mat_cabeza := StandardMaterial3D.new()
-	mat_cabeza.albedo_color = Color(0.9, 0.75, 0.65)
-	cabeza.material = mat_cabeza
-	var mesh_cabeza := MeshInstance3D.new()
-	mesh_cabeza.mesh = cabeza
-	mesh_cabeza.position.y = 1.7
-	add_child(mesh_cabeza)
+	var ruta := RUTAS_NPC[randi() % RUTAS_NPC.size()]
+	var escena := load(ruta) as PackedScene
+	if escena == null:
+		return
+	_npc_mesh = escena.instantiate()
+	add_child(_npc_mesh)
 
 func configurar(tipo_arc: Arquetipo, color_arc: Color, pelicula: String, sala: int, pareja: Visitante = null) -> void:
 	arquetipo = tipo_arc
@@ -128,12 +141,6 @@ func configurar(tipo_arc: Arquetipo, color_arc: Color, pelicula: String, sala: i
 	nombre_pelicula = pelicula
 	sala_asignada = sala
 	partner = pareja
-	for c in get_children():
-		if c is MeshInstance3D and c.mesh is CapsuleMesh:
-			var cm := c.mesh as CapsuleMesh
-			if cm.material == null:
-				cm.material = StandardMaterial3D.new()
-			(cm.material as StandardMaterial3D).albedo_color = color
 
 func iniciar_recorrido(ruta_global: Array[Vector3]) -> void:
 	if ruta_global.is_empty():

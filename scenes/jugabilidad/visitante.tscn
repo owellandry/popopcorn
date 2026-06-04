@@ -1,17 +1,16 @@
 [gd_scene format=3 uid="uid://cvisitante01"]
 
-[ext_resource type="Script" path="res://scripts/components/visitante.gd" id="1_visitante"]
+[ext_resource type="Script" uid="uid://e0it72apjj5y" path="res://scripts/components/visitante.gd" id="1_visitante"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_visitante"]
 radius = 0.25
 height = 1.2
 
-[node name="Visitante" type="CharacterBody3D"]
+[node name="Visitante" type="CharacterBody3D" unique_id=768594935]
 collision_layer = 4
 collision_mask = 5
-floor_stop_on_slope = true
 script = ExtResource("1_visitante")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1045523912]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.158728, 0)
 shape = SubResource("CapsuleShape3D_visitante")

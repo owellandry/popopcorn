@@ -101,6 +101,7 @@ func _crear_panel_fade() -> void:
 	get_tree().root.add_child.call_deferred(_fade_canvas_layer)
 
 func toggle() -> void:
+	print("[Interruptor] toggle() llamado, esta_abierto=%s" % [esta_abierto])
 	if _panel_fade and _panel_fade.color.a > 0.0:
 		return
 
@@ -142,6 +143,7 @@ func toggle() -> void:
 	
 	# Paso 4: Realizar el cambio de estado (encender/apagar)
 	esta_abierto = not esta_abierto
+	print("[Interruptor] estado cambiado a %s, llamando set_tienda_abierta" % [esta_abierto])
 	_actualizar_estado()
 	if GestorGameplay:
 		GestorGameplay.set_tienda_abierta(esta_abierto)

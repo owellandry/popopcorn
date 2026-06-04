@@ -21,7 +21,7 @@ func _ready() -> void:
 	call_deferred("_iniciar_jornada")
 
 func _iniciar_jornada() -> void:
-	for _i in range(30):
+	while true:
 		if get_tree().get_first_node_in_group("sol_ciclo"):
 			iniciar_pausa_manana()
 			return
@@ -58,11 +58,13 @@ func es_despues_de_las_9pm() -> bool:
 
 func set_tienda_abierta(abierta: bool) -> void:
 	if tienda_abierta == abierta:
+		print("[Gestor] set_tienda(%s) IGNORADO, ya=%s" % [abierta, tienda_abierta])
 		return
 	tienda_abierta = abierta
+	print("[Gestor] set_tienda(%s)" % [abierta])
 	tienda_estado_cambiado.emit(abierta)
 	_emitir_condiciones_clientes()
-	_intentar_reanudar_tiempo()
+	_intentar_reanudar()
 
 func alguna_puerta_entrada_abierta() -> bool:
 	var puertas := get_tree().get_nodes_in_group("puerta_entrada_tienda")
@@ -92,10 +94,11 @@ func todas_puertas_entrada_cerradas() -> bool:
 	return true
 
 func notificar_puerta_entrada_cambiada() -> void:
-	_emitir_condiciones_clientes()
-	_intentar_reanudar_tiempo()
+	print("[Gestor] notificar_puerta_entrada_cambiada()")
+	_intentar_reanudar()
 
 func iniciar_pausa_manana() -> void:
+	print("[Gestor] iniciar_pausa_manana()")
 	tiempo_pausado = true
 	progreso_tiempo = PROGRESO_8AM
 	_ultimo_minuto_juego = -1
@@ -108,7 +111,8 @@ func iniciar_pausa_manana() -> void:
 	_emitir_hora()
 	_emitir_condiciones_clientes()
 
-func _intentar_reanudar_tiempo() -> void:
+func _intentar_reanudar() -> void:
+	print("[Gestor] _reanudar → pausado=%s tienda=%s puertas=%s" % [tiempo_pausado, tienda_abierta, alguna_puerta_entrada_abierta()])
 	if not tiempo_pausado:
 		return
 	if not tienda_abierta or not alguna_puerta_entrada_abierta():
@@ -117,6 +121,7 @@ func _intentar_reanudar_tiempo() -> void:
 	var sol := get_tree().get_first_node_in_group("sol_ciclo")
 	if sol:
 		sol.ciclo_automatico = true
+		print("[Gestor] TIEMPO REANUDADO! sol.ciclo_automatico=true")
 	_emitir_condiciones_clientes()
 
 func _emitir_condiciones_clientes() -> void:
@@ -124,6 +129,7 @@ func _emitir_condiciones_clientes() -> void:
 	if pueden == _pueden_clientes_cache:
 		return
 	_pueden_clientes_cache = pueden
+	print("[Gestor] condiciones_clientes: pueden=%s" % [pueden])
 	condiciones_clientes_cambiadas.emit(pueden)
 
 func pueden_llegar_clientes() -> bool:

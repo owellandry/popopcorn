@@ -34,6 +34,9 @@ func _process(delta: float) -> void:
 		if progreso_normalizado > 1.0:
 			progreso_normalizado -= 1.0
 		actualizar_ciclo()
+	else:
+		if GestorGameplay and GestorGameplay.tiempo_pausado:
+			pass  # pausado normal
 
 func _mezcla_dia_noche(progreso: float) -> float:
 	if progreso < 0.2 or progreso > 0.8:

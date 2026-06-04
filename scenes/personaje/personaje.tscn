@@ -18,15 +18,15 @@ collision_mask = 5
 script = ExtResource("1_script")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1558397639]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, 0.8910334, 0)
 shape = SubResource("CapsuleShape3D_body")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=277309530]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, 0.8910334, 0)
 mesh = SubResource("CapsuleMesh_body")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1944146082]
-transform = Transform3D(1, 0, 0, 0, 0.9984055, 0.056448832, 0, -0.056448832, 0.9984055, 0, 1.7028219, 0)
+transform = Transform3D(1, 0, 0, 0, 0.9984055, 0.056448832, 0, -0.056448832, 0.9984055, 0, 1.548452, 0)
 far = 180.0
 
 [node name="Linterna" type="SpotLight3D" parent="Camera3D" unique_id=99926945]

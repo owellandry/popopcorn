@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://c58odguxl8koo"]
+
+[ext_resource type="PackedScene" uid="uid://sa0dvb8ytspf" path="res://assets/models/npc/antonio_tpose.glb" id="1_glb"]
+[ext_resource type="Script" uid="uid://qbas6v8x2e20" path="res://scripts/components/npc_mate.gd" id="1_script"]
+[ext_resource type="AnimationLibrary" path="res://assets/animations/npc_animaciones.tres" id="2_anim"]
+
+[node name="Antonio" type="Node3D" unique_id=1776861447]
+transform = Transform3D(0.0133, 0, 0, 0, 0.0133, 0, 0, 0, 0.0133, 0, 1.9, 0)
+script = ExtResource("1_script")
+
+[node name="MeshRoot" type="Node3D" parent="." unique_id=356322415]
+
+[node name="Model" parent="MeshRoot" unique_id=234006657 instance=ExtResource("1_glb")]
+transform = Transform3D(0.99999964, 0, 0, 0, 0.99999964, 0, 0, 0, 0.99999964, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=991755648]
+libraries/ = ExtResource("2_anim")
