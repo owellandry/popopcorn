@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" path="res://scenes/decoraciones/exterior/arbusto.tscn" id="ext_arbusto"]
 [ext_resource type="PackedScene" path="res://scenes/decoraciones/exterior/old_paper__cardboard_boxes.tscn" id="ext_boxes"]
 [ext_resource type="PackedScene" path="res://scenes/decoraciones/exterior/cardboard_box.tscn" id="ext_cardboard"]
-[ext_resource type="PackedScene" path="res://scenes/decoraciones/exterior/old_soviet_chair.tscn" id="ext_chair"]
+[ext_resource type="PackedScene" uid="uid://cp1cacu57mbj8" path="res://scenes/decoraciones/exterior/old_soviet_chair.tscn" id="ext_chair"]
 [ext_resource type="PackedScene" uid="uid://t5ktrxqcdkrl" path="res://scenes/decoraciones/exterior/ventildador_de_teto_ceiling_fan.tscn" id="ext_fan"]
 [ext_resource type="PackedScene" path="res://scenes/decoraciones/exterior/maceta_lp.tscn" id="ext_maceta2"]
 [ext_resource type="PackedScene" uid="uid://ycrcuitx6xhx" path="res://scenes/decoraciones/exterior/moldy_old_mattres.tscn" id="ext_mattress"]
@@ -167,7 +167,7 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 170.
 transform = Transform3D(0.9999973, 0, 0.0023038369, 0, 1, 0, -0.0023038369, 0, 0.9999973, -128.92062, 0, -130.25626)
 
 [node name="ProceduralCity17" parent="Edificios" unique_id=1112144239 instance=ExtResource("procedural_city_3")]
-transform = Transform3D(-0.9999973, 0, -0.0023037493, 0, 1, 0, 0.0023037493, 0, -0.9999973, 20.282372, 0, -350.81635)
+transform = Transform3D(-0.9999973, 0, -0.0023037493, 0, 1, 0, 0.0023037493, 0, -0.9999973, 20.28237, 0, -166.5391)
 
 [node name="ProceduralCity18" parent="Edificios" unique_id=1201353609 instance=ExtResource("procedural_city_3")]
 transform = Transform3D(0.9999973, 0, 0.0023038369, 0, 1, 0, -0.0023038369, 0, 0.9999973, -277.176, 0, -143.43634)
@@ -179,4 +179,4 @@ transform = Transform3D(-0.0023038804, 0, 0.9999973, 0, 1, 0, -0.9999973, 0, -0.
 transform = Transform3D(-0.9999973, 0, -0.0023037493, 0, 1, 0, 0.0023037493, 0, -0.9999973, -129.42296, 0, -359.98492)
 
 [node name="ProceduralCity21" parent="Edificios" unique_id=173171273 instance=ExtResource("procedural_city_3")]
-transform = Transform3D(0.9999973, 0, 0.0023038369, 0, 1, 0, -0.0023038369, 0, 0.9999973, -30.31733, 0, -461.34293)
+transform = Transform3D(0.9999973, 0, 0.0023038369, 0, 1, 0, -0.0023038369, 0, 0.9999973, -30.317331, 0, -262.32355)

@@ -69,6 +69,12 @@ var _al_terminar_movimiento: Callable = Callable()
 var _hizo_accion_entrada := false
 var _gravedad: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 var _npc_mesh: Node3D
+var _tiempo_atascado: float = 0.0
+var _ultima_posicion: Vector3 = Vector3.ZERO
+var _max_tiempo_movimiento: float = 15.0
+var _tiempo_inicio_movimiento: float = 0.0
+var _tiempo_ultima_apertura_puerta: float = 0.0
+@onready var _nav_agent: NavigationAgent3D = $NavigationAgent3D
 
 signal cliente_habla(cliente: Node3D, pelicula: String)
 
@@ -77,6 +83,9 @@ func _ready() -> void:
 	collision_layer = LAYER_VISITANTE
 	collision_mask = LAYER_MUNDO | LAYER_VISITANTE
 	floor_stop_on_slope = true
+	_nav_agent.path_desired_distance = 0.5
+	_nav_agent.target_desired_distance = 0.3
+	_nav_agent.radius = 0.3
 	_construir_malla()
 
 func _physics_process(delta: float) -> void:
@@ -92,6 +101,9 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 		_actualizar_animacion(false)
 		return
+	if Time.get_ticks_msec() / 1000.0 - _tiempo_inicio_movimiento > _max_tiempo_movimiento:
+		_llegar_a_destino()
+		return
 	var dir := _destino_actual - global_position
 	dir.y = 0.0
 	var dist := dir.length()
@@ -102,12 +114,29 @@ func _physics_process(delta: float) -> void:
 		_actualizar_animacion(false)
 		_llegar_a_destino()
 		return
-	velocity.x = dir.x / dist * _velocidad_actual
-	velocity.z = dir.z / dist * _velocidad_actual
+	if not _nav_agent.is_navigation_finished():
+		var next_pos: Vector3 = _nav_agent.get_next_path_position()
+		var move_dir: Vector3 = next_pos - global_position
+		move_dir.y = 0.0
+		var move_dist: float = move_dir.length()
+		if move_dist > 0.1:
+			velocity.x = move_dir.x / move_dist * _velocidad_actual
+			velocity.z = move_dir.z / move_dist * _velocidad_actual
+			if move_dist > 0.05:
+				look_at(global_position + move_dir.normalized(), Vector3.UP)
+		else:
+			_actualizar_animacion(true)
+			move_and_slide()
+			_check_stuck(delta)
+			return
+	else:
+		velocity.x = dir.x / dist * _velocidad_actual
+		velocity.z = dir.z / dist * _velocidad_actual
+		if dist > 0.05:
+			look_at(global_position + dir.normalized(), Vector3.UP)
 	_actualizar_animacion(true)
-	if dist > 0.05:
-		look_at(global_position + dir.normalized(), Vector3.UP)
 	move_and_slide()
+	_check_stuck(delta)
 
 func _process(_delta: float) -> void:
 	if estado == Estado.SALIENDO and not _visible_para_jugador():
@@ -407,6 +436,10 @@ func _mover_hacia(destino: Vector3, velocidad: float, al_terminar: Callable = Ca
 	_velocidad_actual = velocidad
 	_al_terminar_movimiento = al_terminar
 	_en_movimiento = true
+	_tiempo_inicio_movimiento = Time.get_ticks_msec() / 1000.0
+	_ultima_posicion = global_position
+	_tiempo_atascado = 0.0
+	_nav_agent.target_position = destino
 
 func _llegar_a_destino() -> void:
 	_en_movimiento = false
@@ -418,3 +451,35 @@ func _llegar_a_destino() -> void:
 	if _al_terminar_movimiento.is_valid():
 		_al_terminar_movimiento.call()
 	_al_terminar_movimiento = Callable()
+
+func _check_stuck(delta: float) -> void:
+	var delta_pos := global_position - _ultima_posicion
+	if delta_pos.length() < 0.005:
+		_tiempo_atascado += delta
+		if _tiempo_atascado > 2.0 and _tiempo_atascado < 2.5:
+			_abrir_puerta_cercana()
+		elif _tiempo_atascado > 4.0:
+			_tiempo_atascado = 0.0
+			_llegar_a_destino()
+	else:
+		_tiempo_atascado = 0.0
+	_ultima_posicion = global_position
+
+func _abrir_puerta_cercana() -> void:
+	var ahora := Time.get_ticks_msec() / 1000.0
+	if ahora - _tiempo_ultima_apertura_puerta < 3.0:
+		return
+	_tiempo_ultima_apertura_puerta = ahora
+	_buscar_abrir_puerta(get_tree().current_scene)
+
+func _buscar_abrir_puerta(node: Node) -> bool:
+	if node.has_method("esta_abierta") and node.has_method("abrir_puerta"):
+		if not node.esta_abierta():
+			var dist := global_position.distance_to(node.global_position)
+			if dist < 2.5:
+				node.abrir_puerta()
+				return true
+	for child in node.get_children():
+		if _buscar_abrir_puerta(child):
+			return true
+	return false

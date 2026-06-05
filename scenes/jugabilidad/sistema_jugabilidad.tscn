@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://sistjugab001"]
 
-[ext_resource type="Script" path="res://scripts/components/sistema_fila.gd" id="1_sistema_fila"]
-[ext_resource type="Script" path="res://scripts/components/carta_explicativa.gd" id="2_carta"]
-[ext_resource type="Script" path="res://scripts/components/dialogo_cliente.gd" id="3_dialogo"]
-[ext_resource type="Script" path="res://scripts/components/punto_visitante.gd" id="4_punto"]
+[ext_resource type="Script" uid="uid://c888oj0726ee5" path="res://scripts/components/sistema_fila.gd" id="1_sistema_fila"]
+[ext_resource type="Script" uid="uid://c6f6bk7dhkq03" path="res://scripts/components/carta_explicativa.gd" id="2_carta"]
+[ext_resource type="Script" uid="uid://dn18oifo40g6w" path="res://scripts/components/dialogo_cliente.gd" id="3_dialogo"]
+[ext_resource type="Script" uid="uid://dn100qiftkybm" path="res://scripts/components/punto_visitante.gd" id="4_punto"]
 
 [sub_resource type="BoxShape3D" id="1_carta_shape"]
 size = Vector3(0.4, 0.5, 0.1)
@@ -11,123 +11,121 @@ size = Vector3(0.4, 0.5, 0.1)
 [sub_resource type="BoxMesh" id="2_carta_mesh"]
 size = Vector3(0.3, 0.4, 0.02)
 
-[node name="SistemaJugabilidad" type="Node3D"]
+[node name="SistemaJugabilidad" type="Node3D" unique_id=282439681]
 
-[node name="ContenedorVisitantes" type="Node3D" parent="." groups=["contenedor_visitantes"]]
+[node name="ContenedorVisitantes" type="Node3D" parent="." unique_id=453253356 groups=["contenedor_visitantes"]]
 
-[node name="CartaExplicativa" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.0, 0.5, -10.0)
+[node name="CartaExplicativa" type="StaticBody3D" parent="." unique_id=1920614267]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.5, -10)
 script = ExtResource("2_carta")
 distancia_interaccion = 2.5
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CartaExplicativa"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CartaExplicativa" unique_id=1633217214]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
 shape = SubResource("1_carta_shape")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CartaExplicativa"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CartaExplicativa" unique_id=1700109736]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
 mesh = SubResource("2_carta_mesh")
 
-[node name="PuntosVisitantes" type="Node3D" parent="."]
+[node name="PuntosVisitantes" type="Node3D" parent="." unique_id=1203000322]
 
-[node name="Exterior" type="Node3D" parent="PuntosVisitantes"]
+[node name="Exterior" type="Node3D" parent="PuntosVisitantes" unique_id=1621148961]
 
-[node name="SpawnAcera1" type="Marker3D" parent="PuntosVisitantes/Exterior"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0.1, 30.5)
+[node name="SpawnAcera1" type="Marker3D" parent="PuntosVisitantes/Exterior" unique_id=828614205]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 28.654978, 0.18796262, 24.121078)
 script = ExtResource("4_punto")
-tipo = 0
 
-[node name="SpawnAcera2" type="Marker3D" parent="PuntosVisitantes/Exterior"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0.1, 31.0)
+[node name="SpawnAcera2" type="Marker3D" parent="PuntosVisitantes/Exterior" unique_id=1697208995]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 28.12851, 0.18796262, 24.308128)
 script = ExtResource("4_punto")
-tipo = 0
 
-[node name="SpawnParking" type="Marker3D" parent="PuntosVisitantes/Exterior"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.0, 0.1, 40.0)
+[node name="SpawnParking" type="Marker3D" parent="PuntosVisitantes/Exterior" unique_id=1199017198]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 28.128529, 0.1880791, 24.308271)
 script = ExtResource("4_punto")
-tipo = 0
 
-[node name="SalidaIzquierda" type="Marker3D" parent="PuntosVisitantes/Exterior"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0.1, 24.0)
+[node name="SalidaIzquierda" type="Marker3D" parent="PuntosVisitantes/Exterior" unique_id=1003149031]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 28.128529, 0.1880791, 24.308271)
 script = ExtResource("4_punto")
 tipo = 11
 
-[node name="SalidaAcera1" type="Marker3D" parent="PuntosVisitantes/Exterior"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0, 0.1, 33.0)
+[node name="SalidaAcera1" type="Marker3D" parent="PuntosVisitantes/Exterior" unique_id=690118540]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 28.128529, 0.1880791, 24.308271)
 script = ExtResource("4_punto")
 tipo = 1
 
-[node name="SalidaParking" type="Marker3D" parent="PuntosVisitantes/Exterior"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.0, 0.1, 42.0)
+[node name="SalidaParking" type="Marker3D" parent="PuntosVisitantes/Exterior" unique_id=1496793766]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 28.128529, 0.1880791, 24.308271)
 script = ExtResource("4_punto")
 tipo = 1
 
-[node name="PuertaEntrada" type="Marker3D" parent="PuntosVisitantes/Exterior"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7, 0.1, 21.0)
+[node name="PuertaEntrada" type="Marker3D" parent="PuntosVisitantes/Exterior" unique_id=1184613257]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7, 0.1, 21)
 script = ExtResource("4_punto")
 tipo = 2
 
-[node name="Interior" type="Node3D" parent="PuntosVisitantes"]
+[node name="Interior" type="Node3D" parent="PuntosVisitantes" unique_id=957935630]
 
-[node name="FilaEntrada" type="Marker3D" parent="PuntosVisitantes/Interior"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.0, 0.1, -5.5)
+[node name="FilaEntrada" type="Marker3D" parent="PuntosVisitantes/Interior" unique_id=1758197445]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0.1, -5.5)
 script = ExtResource("4_punto")
 tipo = 3
 
-[node name="BancaEspera" type="Marker3D" parent="PuntosVisitantes/Interior"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.0, 0.1, 6.0)
+[node name="BancaEspera" type="Marker3D" parent="PuntosVisitantes/Interior" unique_id=1612250962]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0.1, 6)
 script = ExtResource("4_punto")
 tipo = 4
 
-[node name="ZonaMesas" type="Marker3D" parent="PuntosVisitantes/Interior"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.0, 0.1, 4.0)
+[node name="ZonaMesas" type="Marker3D" parent="PuntosVisitantes/Interior" unique_id=151835049]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0.1, 4)
 script = ExtResource("4_punto")
 tipo = 10
 
-[node name="Bano" type="Marker3D" parent="PuntosVisitantes/Interior"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.5, 0.1, 3.0)
+[node name="Bano" type="Marker3D" parent="PuntosVisitantes/Interior" unique_id=205000314]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.5, 0.1, 3)
 script = ExtResource("4_punto")
 tipo = 5
 
-[node name="PasilloSalas" type="Marker3D" parent="PuntosVisitantes/Interior"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0, 0.1, -6.0)
+[node name="PasilloSalas" type="Marker3D" parent="PuntosVisitantes/Interior" unique_id=1078176690]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.1, -6)
 script = ExtResource("4_punto")
 tipo = 6
 
-[node name="Concesion" type="Marker3D" parent="PuntosVisitantes/Interior"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0, 0.1, -8.0)
+[node name="Concesion" type="Marker3D" parent="PuntosVisitantes/Interior" unique_id=823367694]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.1, -8)
 script = ExtResource("4_punto")
 tipo = 7
 
-[node name="ZonaColado" type="Marker3D" parent="PuntosVisitantes/Interior"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.0, 0.1, 19.0)
+[node name="ZonaColado" type="Marker3D" parent="PuntosVisitantes/Interior" unique_id=1885193750]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0.1, 19)
 script = ExtResource("4_punto")
 tipo = 8
 
-[node name="ZonaPareja" type="Marker3D" parent="PuntosVisitantes/Interior"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5, 0.1, 10.0)
+[node name="ZonaPareja" type="Marker3D" parent="PuntosVisitantes/Interior" unique_id=368081861]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5, 0.1, 10)
 script = ExtResource("4_punto")
 tipo = 9
 
-[node name="SistemaFila" type="Node3D" parent="."]
+[node name="SistemaFila" type="Node3D" parent="." unique_id=1509594126]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -7)
 script = ExtResource("1_sistema_fila")
-groups = ["sistema_fila"]
 
-[node name="PuntoFrente" type="Node3D" parent="SistemaFila"]
+[node name="PuntoFrente" type="Node3D" parent="SistemaFila" unique_id=1440374524]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.5)
 
-[node name="PuntoEspera1" type="Node3D" parent="SistemaFila"]
+[node name="PuntoEspera1" type="Node3D" parent="SistemaFila" unique_id=1766626662]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
 
-[node name="PuntoEspera2" type="Node3D" parent="SistemaFila"]
+[node name="PuntoEspera2" type="Node3D" parent="SistemaFila" unique_id=450032005]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.5)
 
-[node name="PuntoEspera3" type="Node3D" parent="SistemaFila"]
+[node name="PuntoEspera3" type="Node3D" parent="SistemaFila" unique_id=646105887]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
 
-[node name="PuntoEspera4" type="Node3D" parent="SistemaFila"]
+[node name="PuntoEspera4" type="Node3D" parent="SistemaFila" unique_id=493275794]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.5)
 
-[node name="DialogoCliente" type="Control" parent="."]
+[node name="DialogoCliente" type="Control" parent="." unique_id=357014896]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("3_dialogo")

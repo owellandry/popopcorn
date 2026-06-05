@@ -73,6 +73,10 @@ golpear={
 
 3d/physics_engine="Jolt Physics"
 
+[plugins]
+
+godot_mcp=true
+
 [rendering]
 
 rendering_device/driver.windows="d3d12"

@@ -1,12 +1,13 @@
 [gd_scene format=3 uid="uid://cdhnuv8m2ixs6"]
 
 [ext_resource type="Shader" uid="uid://dsbqlh8d7gmjy" path="res://shaders/sky/main.gdshader" id="7_sky_shader"]
-[ext_resource type="Script" uid="uid://gimnkg3f2c2p" path="res://scripts/components/gameplay/ciclo_dia_noche.gd" id="8_ciclo"]
+[ext_resource type="Script" uid="uid://gimnkg3f2c2p" path="res://scripts/gameplay/ciclo_dia_noche.gd" id="8_ciclo"]
 [ext_resource type="PackedScene" uid="uid://bexterior001" path="res://scenes/exterior/exterior_cine.tscn" id="9_exterior"]
 [ext_resource type="PackedScene" uid="uid://bparking0001" path="res://scenes/exterior/parking.tscn" id="10_parking"]
 [ext_resource type="PackedScene" uid="uid://bbhiorheharyc" path="res://scenes/levels/AreaBase/modules/blockout_areas.tscn" id="blockout"]
 [ext_resource type="PackedScene" uid="uid://decorext001" path="res://scenes/decoraciones/decoracion_exterior.tscn" id="decoracion_exterior"]
 [ext_resource type="PackedScene" uid="uid://dquyqsslnvw14" path="res://scenes/levels/AreaBase/modules/entorno.tscn" id="entorno"]
+[ext_resource type="Script" uid="uid://ctud8vcka4a8f" path="res://scripts/components/gestor_navegacion.gd" id="gestor_nav"]
 [ext_resource type="PackedScene" uid="uid://bhud001" path="res://scenes/ui/hud.tscn" id="hud"]
 [ext_resource type="PackedScene" uid="uid://ilu001" path="res://scenes/levels/AreaBase/modules/iluminacion_general.tscn" id="iluminacion_general"]
 [ext_resource type="PackedScene" uid="uid://dol8pqmgg04o7" path="res://scenes/decoraciones/interruptor_tienda.tscn" id="interruptor_tienda"]
@@ -15,6 +16,11 @@
 [ext_resource type="PackedScene" uid="uid://bpersonaje01" path="res://scenes/personaje/personaje.tscn" id="personaje"]
 [ext_resource type="PackedScene" uid="uid://sistjugab001" path="res://scenes/jugabilidad/sistema_jugabilidad.tscn" id="sistema_jugabilidad"]
 [ext_resource type="PackedScene" uid="uid://ddm8pg74c28se" path="res://scenes/levels/AreaBase/modules/techo.tscn" id="techo"]
+
+[sub_resource type="NavigationMesh" id="navmesh_ab"]
+agent_height = 1.6
+agent_radius = 0.3
+agent_max_climb = 0.5
 
 [sub_resource type="ShaderMaterial" id="sky_shader_mat_ab"]
 shader = ExtResource("7_sky_shader")
@@ -50,6 +56,24 @@ ambient_light_source = 2
 ambient_light_color = Color(0.02, 0.02, 0.02, 1)
 ambient_light_energy = 0.05
 
+[sub_resource type="PlaneMesh" id="bridge_nav_0"]
+size = Vector2(35, 1.2)
+
+[sub_resource type="PlaneMesh" id="bridge_nav_1"]
+size = Vector2(1.2, 30)
+
+[sub_resource type="PlaneMesh" id="bridge_nav_2"]
+size = Vector2(1.2, 38)
+
+[sub_resource type="PlaneMesh" id="bridge_nav_3"]
+size = Vector2(30, 2)
+
+[sub_resource type="PlaneMesh" id="bridge_nav_4"]
+size = Vector2(20, 2.5)
+
+[sub_resource type="PlaneMesh" id="bridge_nav_5"]
+size = Vector2(12, 2)
+
 [node name="JuegoV2" type="Node3D" unique_id=392865289]
 
 [node name="Entorno" parent="." unique_id=397549690 instance=ExtResource("entorno")]
@@ -80,6 +104,11 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 6.03
 
 [node name="SistemaJugabilidad" parent="." unique_id=123456789 instance=ExtResource("sistema_jugabilidad")]
 
+[node name="NavigationRegion" type="NavigationRegion3D" parent="." unique_id=1164938604]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 12)
+navigation_mesh = SubResource("navmesh_ab")
+script = ExtResource("gestor_nav")
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=111222333]
 environment = SubResource("Environment_main_ab")
 
@@ -101,3 +130,33 @@ letrero_asociado = NodePath("../LetreroTiendaAbierta")
 
 [node name="LetreroTiendaAbierta" parent="." unique_id=998877666 instance=ExtResource("letrero_tienda")]
 transform = Transform3D(4, 0, 0, 0, 2, 0, 0, 0, 1, 6.5, 5.7847123, 29.996628)
+
+[node name="BridgeNav0" type="MeshInstance3D" parent="." unique_id=717798432]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 7.6, -0.05, 22.05)
+visible = false
+mesh = SubResource("bridge_nav_0")
+
+[node name="BridgeNav1" type="MeshInstance3D" parent="." unique_id=1667481560]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -14, -0.05, -3)
+visible = false
+mesh = SubResource("bridge_nav_1")
+
+[node name="BridgeNav2" type="MeshInstance3D" parent="." unique_id=982289952]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 21.3, -0.05, 3.3)
+visible = false
+mesh = SubResource("bridge_nav_2")
+
+[node name="BridgeNav3" type="MeshInstance3D" parent="." unique_id=206738083]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 6, -0.05, 30)
+visible = false
+mesh = SubResource("bridge_nav_3")
+
+[node name="BridgeNav4" type="MeshInstance3D" parent="." unique_id=1263006888]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 3.7, -0.05, -10)
+visible = false
+mesh = SubResource("bridge_nav_4")
+
+[node name="BridgeNav5" type="MeshInstance3D" parent="." unique_id=2087140370]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -32, -0.05, 7.2)
+visible = false
+mesh = SubResource("bridge_nav_5")

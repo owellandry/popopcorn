@@ -14,6 +14,8 @@ var _inventario: Label
 var _default_color: Color = Color(1, 1, 1, 1)
 var _highlight_color: Color = Color(1, 1, 0.3, 1)
 var _current_interactive: Node = null
+@onready var _gestor_gameplay = get_node_or_null("/root/GestorGameplay")
+@onready var _gestor_inventario = get_node_or_null("/root/GestorInventario")
 
 func _ready() -> void:
 	instance = self
@@ -22,18 +24,18 @@ func _ready() -> void:
 	_crear_label_inventario()
 	_crosshair.add_theme_font_size_override("font_size", 24)
 	_crosshair.add_theme_color_override("font_color", _default_color)
-	if _reloj and GestorGameplay:
+	if _reloj and _gestor_gameplay:
 		_actualizar_reloj()
-		GestorGameplay.hora_actualizada.connect(_on_hora_actualizada)
+		_gestor_gameplay.hora_actualizada.connect(_on_hora_actualizada)
 
 func _on_hora_actualizada(_hora: int, _minuto: int, _progreso: float) -> void:
 	_actualizar_reloj()
 
 func _actualizar_reloj() -> void:
-	if not _reloj or not GestorGameplay:
+	if not _reloj or not _gestor_gameplay:
 		return
-	_reloj.text = GestorGameplay.obtener_texto_hora()
-	if GestorGameplay.es_despues_de_las_9pm():
+	_reloj.text = _gestor_gameplay.obtener_texto_hora()
+	if _gestor_gameplay.es_despues_de_las_9pm():
 		_reloj.add_theme_color_override("font_color", Color(1, 0.75, 0.45, 1))
 	else:
 		_reloj.add_theme_color_override("font_color", Color(1, 1, 1, 1))
@@ -54,14 +56,14 @@ func _crear_label_inventario() -> void:
 	_inventario.add_theme_color_override("font_outline_color", Color(0, 0, 0, 1))
 	_inventario.add_theme_constant_override("outline_size", 3)
 	add_child(_inventario)
-	if GestorInventario:
-		GestorInventario.equipo_cambiado.connect(func(_id): _actualizar_inventario_hud())
+	if _gestor_inventario:
+		_gestor_inventario.equipo_cambiado.connect(func(_id): _actualizar_inventario_hud())
 		_actualizar_inventario_hud()
 
 func _actualizar_inventario_hud() -> void:
-	if not _inventario or not GestorInventario:
+	if not _inventario or not _gestor_inventario:
 		return
-	_inventario.text = GestorInventario.obtener_texto_hud()
+	_inventario.text = _gestor_inventario.obtener_texto_hud()
 
 func _process(_delta: float) -> void:
 	_actualizar_crosshair()

@@ -48,7 +48,6 @@ func _inicializar() -> void:
 	if get_tree().current_scene:
 		if not get_tree().current_scene.is_node_ready():
 			await get_tree().current_scene.ready
-	await get_tree().process_frame
 	_recolectar_puntos()
 	_configurar_salas_cine()
 	if GestorGameplay and GestorGameplay.pueden_llegar_clientes():

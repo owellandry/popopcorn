@@ -14,3 +14,5 @@ script = ExtResource("1_visitante")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1045523912]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85, 0)
 shape = SubResource("CapsuleShape3D_visitante")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
